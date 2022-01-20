@@ -1,0 +1,51 @@
+{{#each this}}
+
+<div class="card">
+    <img class="card-small" src='{{images.[2].url}}'/>
+    <div><img class="card-big" src='{{images.[2].url}}'/></div>
+    {{!-- <div class="card-small" style="background-image:url('{{images.[0].url}}')  "</div>  --}}
+    {{!-- {{!-- <div class="card-big" style="background-image:url('{{images.[0].url}}')"</div> --}}
+    <div class="card_info">
+        <ul class="card_info_list">
+            <li class="card_description">
+                <h3 class="card_title">INFO</h3>
+                <p class="card_text">{{info}}</p>
+            </li>
+            <li class="card_date">
+                <h3 class="card_title">WHEN</h3>
+                <p class="card_text">{{dates.start.localDate}}</p>
+                <p class="card_text">{{dates.start.localTime}}{{dates.timezone}}</p>
+            </li>
+            <li class="card_place">
+                <h3 class="card_title">WHERE</h3>
+                <p class="card_text">{{_embedded.venues.[0].city.name}}, {{_embedded.venues.[0].country.name}}</p>
+                <p class="card_text">{{_embedded.venues.[0].name}}</p> 
+            </li>
+            <li class="card_heroes">
+                <h3 class="card_title">WHO</h3>
+                <p class="card_text">{{name}}</p>
+            </li>
+            <li class="card_price">
+                <h3 class="card_title">PRICES</h3>
+                        <ul class="card_price_list"></ul> 
+                        {{#each priceRanges}}
+                            <li class="card_text">
+                                <span class="card_barcode" style="background-image:url("./")"></span>
+                                {{this.type}} {{this.min}}-{{this.max}} {{this.currency}}
+                            </li>
+                        {{/each}}
+                        <a class="card_ticket" href="{{url}}" target="_blank">BUY TICKETS</a>
+                    </ul>
+            </li>
+        </ul> 
+    </div>
+    <button class="card_moreInfo">
+        <a href="">MORE FROM THIS AUTHOR</a>
+    </button>
+</div>
+
+{{/each}}
+
+
+
+

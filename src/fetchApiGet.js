@@ -21,7 +21,7 @@ export default async function fetchApiGet(query, country = 'UA') {
       createParams(filterParams),
     );
     //  console.log(response.data);
-    return response.data;
+    return response.data._embedded.events;
   } catch (error) {
     console.error(error);
   }
