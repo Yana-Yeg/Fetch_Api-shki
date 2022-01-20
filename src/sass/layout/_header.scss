@@ -1,0 +1,120 @@
+.header {
+  padding-top: 78px;
+  padding-bottom: 10px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 40px;
+    padding-bottom: 81px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding-top: 40px;
+    padding-bottom: 90px;
+  }
+}
+.header__title {
+  width: 220px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.2;
+  color: #dc56c5;
+
+  @media screen and (min-width: 768px) {
+    font-size: 30px;
+    width: 360px;
+    margin-bottom: 27px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 50px;
+    width: 600px;
+    margin-bottom: 52px;
+  }
+}
+.header__logo {
+  .background-logo {
+    width: 210px;
+    height: 180px;
+    background: linear-gradient(rgba(196, 196, 196, 0.03), rgba(196, 196, 196, 0));
+    backdrop-filter: blur(30px);
+    border-radius: 50%;
+    position: absolute;
+    left: -105px;
+    top: -90px;
+  }
+  .header__logo-icon {
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    top: 20px;
+    left: 20px;
+    z-index: 5;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    .background-logo {
+      width: 360px;
+      height: 300px;
+      left: -180px;
+      top: -150px;
+    }
+    .header__logo-icon {
+      width: 100px;
+      height: 50px;
+      left: 40px;
+      top: 40px;
+    }
+  }
+  @media screen and (min-width: 1280px) {
+    .background-logo {
+      width: 480px;
+      height: 400px;
+      left: -240px;
+      top: -200px;
+    }
+    .header__logo-icon {
+      width: 140px;
+      height: 70px;
+      left: 40px;
+      top: 40px;
+    }
+  }
+}
+
+// ======== SERCH =========
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .form-element {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    height: 40px;
+    width: 270px;
+    border: none;
+    border-radius: 20px;
+    padding-left: 30px;
+    color: #939393;
+  }
+  .form__input {
+    margin-bottom: 25px;
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: 0;
+      margin-right: 30px;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+.form__input,
+.form__select {
+  position: relative;
+}
