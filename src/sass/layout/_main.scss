@@ -2,6 +2,7 @@
   height: 1780px;
   background-color: #0e0e0e;
   background-image: url(./../images/noise_body.png);
+  position: relative;
 }
 .bacground-images {
   position: relative;
@@ -76,4 +77,68 @@
     width: 1200px;
     padding: 0 167px;
   }
+}
+.smallCard {
+  width: 194px;
+  height: 312px;
+  z-index: 10;
+  position: relative;
+}
+.smallCard::after {
+  content: '';
+  display: block;
+  width: 153px;
+  height: 143px;
+  border-radius: 50px 0px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 1px solid rgba(220, 86, 197, 0.3);
+}
+.smallCard-small {
+  width: 180px;
+  height: 227px;
+  border-radius: 50px 0px;
+  margin-top: 13px;
+  margin-right: 13px;
+  object-fit: cover;
+}
+.smallCard_heroes {
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  text-align: center;
+  margin-top: 5px;
+
+  color: #dc56c5;
+}
+.smallCard_date {
+  font-family: Montserrat;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  text-align: center;
+  margin-top: 5px;
+  color: #ffffff;
+}
+.smallCard_place {
+  font-family: Montserrat;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.2;
+
+  text-align: center;
+  margin-top: 5px;
+  a {
+    color: #fff;
+  }
+}
+.main__grid-small-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 50px 56px;
+  position: absolute;
+  top: -55px;
+  // margin: 0 auto;
 }
