@@ -1,8 +1,9 @@
 import axios from 'axios';
+import key from "../config.json"
 
 export default async function fetchApiGet(query, country = 'UA') {
   const BASE_URL = 'https://app.ticketmaster.com';
-  const API_KEY = '84oDYCywC5wCFv79gMGAXxLVAXljD9uH';
+  const API_KEY = key.key;
   const createParams = params => {
     return {
       params,
