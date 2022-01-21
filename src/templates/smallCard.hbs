@@ -1,17 +1,17 @@
 {{#each this}}
 
-<li class="smallCard">
-    <img class="smallCard-small" src='{{images.[1].url}}' width=200 height=500/>
+<li class="smallCard" data-id="{{id}}">
+    <img class="smallCard-small" src='{{image.url}}' data-id="{{id}}" width=200/>
     <div class="smallCard_info">
         <ul class="smallCard_info_list">
             <li class="smallCard_heroes">
-                <p class="smallCard_text">{{name}}</p>
+                <p class="smallCard_text" data-id="{{id}}">{{name}}</p>
             </li>
             <li class="smallCard_date">
-                <p class="smallCard_text">{{dates.start.localDate}}</p>
+                <p class="smallCard_text" data-id="{{id}}">{{localDate}}</p>
             </li>
             <li class="smallCard_place">
-                <a href="{{seatmap.staticUrl}}" class="smallCard_text">{{_embedded.venues.[0].name}}</a> 
+                <a href="{{map}}" class="smallCard_text" data-id="{{id}}">{{placeName}}</a> 
             </li>
         </ul> 
     </div>
