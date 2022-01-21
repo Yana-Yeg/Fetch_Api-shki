@@ -21,7 +21,7 @@ export default async function fetchApiGet(query, country = 'UA') {
       `${BASE_URL}/discovery/v2/events.json?apikey=${API_KEY}`,
       createParams(filterParams),
     );
-    //  console.log(response.data);
+     console.log(response.data);
     return response.data._embedded.events;
   } catch (error) {
     console.error(error);
