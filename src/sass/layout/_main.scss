@@ -1,0 +1,79 @@
+.main {
+  height: 1780px;
+  background-color: #0e0e0e;
+  background-image: url(./../images/noise_body.png);
+}
+.bacground-images {
+  position: relative;
+
+  .image-one {
+    position: absolute;
+    left: -154px;
+    top: -446px;
+  }
+  .image-two {
+    position: absolute;
+    left: -160px;
+    top: 1690px;
+  }
+  .image-tree {
+    position: absolute;
+    top: 1730px;
+    left: -120px;
+  }
+  .image-four {
+    position: absolute;
+    left: -170px;
+    top: 240px;
+  }
+  .image-five {
+    position: absolute;
+    left: -130px;
+    top: 280px;
+  }
+  .image-six {
+    position: absolute;
+    left: -140px;
+    top: 850px;
+  }
+  .image-seven {
+    position: absolute;
+    left: 520px;
+    top: 50px;
+  }
+  .image-eight {
+    position: absolute;
+    right: -160px;
+    top: 790px;
+  }
+  .image-nine {
+    position: absolute;
+    right: -200px;
+    top: 750px;
+  }
+  .image-ten {
+    position: absolute;
+    left: 520px;
+    top: 1300px;
+  }
+}
+.container {
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and(max-width: 319px) {
+    max-width: 319px;
+  }
+  @media screen and(min-width: 320px) {
+    width: 320px;
+    padding: 0 20px;
+  }
+  @media screen and(min-width: 768px) {
+    width: 768px;
+    padding: 0 79px;
+  }
+  @media screen and(min-width: 1200px) {
+    width: 1200px;
+    padding: 0 167px;
+  }
+}
