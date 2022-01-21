@@ -1,0 +1,12 @@
+.footer-text {
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center; 
+    color: #939393;    
+    @media screen and (min-width: 768px) {
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        color: #939393;
+    }
+}
