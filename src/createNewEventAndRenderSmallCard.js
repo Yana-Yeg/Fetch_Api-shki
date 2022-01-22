@@ -16,11 +16,6 @@ export default function createNewEventAndRenderSmallCard(_embedded) {
       name: event.name,
       localDate: event.dates.start.localDate,
       placeName: event._embedded.venues[0].name,
-      location: {
-                    latitude: event._embedded.venues[0].location.latitude,
-                    longitude: event._embedded.venues[0].location.longitude,
-
-                },
       map: renderHref,                 
       image: event.images.find(img => {
             if (document.body.offsetWidth <= 480) {
