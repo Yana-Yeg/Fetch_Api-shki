@@ -5,22 +5,25 @@ import smallCard from './templates/smallCard.hbs';
 import code from './countries.json';
 
 
-const refs = {
+
+ const refs = {
     form: document.querySelector('form'),
     select: document.querySelector('.form-select'),
-    smallCards:document.querySelector('.main__grid-small-cards')
+    smallCards: document.querySelector('.main__grid-small-cards'),
   };
- 
-  
-//   refs.form.addEventListener('change', searchEvents);
 
-  console.log(code)
-const markup = code.map(el=>`<option value="${el.code}">${el.name}</option>`).join("")
-console.log(refs.select)
+  
+  
+
+  
+const markup = code.map(el => {
+  return `<option value="${el.code}">${el.name}</option>`
+}).join("")
+
 
 refs.select.insertAdjacentHTML("beforeend",markup);
 
-  
+
 //   async function searchEventst(event) {
 //     event.preventDefault();
 //     page = 1;
@@ -28,13 +31,27 @@ refs.select.insertAdjacentHTML("beforeend",markup);
 //       elements: { searchQuery },
 //     } = event.currentTarget;
     // searchAnimal = searchQuery.value.trim();
-// } 
+// }
+
+
+
+// refs.form[0].addEventListener('input', e => {
+//   e.preventDefault
+//   let textInput =  e.currentTarget.value
+//   console.log('inp', textInput)
+    
+//  return textInput
+// });
+
+// console.log( t )
+
+
 
 fetchApiGet('eagles', 'US').then(events => {
-    console.log(events);
     const markup = smallCard(events);
-    refs.smallCards.insertAdjacentHTML('beforeend', markup);
+  refs.smallCards.insertAdjacentHTML('beforeend', markup);
 } );
+
 
 // fetchApiGet('some', 'US').then(events => {
 //     console.log(events);
@@ -43,6 +60,7 @@ fetchApiGet('eagles', 'US').then(events => {
 //     document.body.insertAdjacentHTML('beforeend', markup);
 // } );
 
-
+import './renderModal';
+import './modal'
 
 
