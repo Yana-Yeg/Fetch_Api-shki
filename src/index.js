@@ -64,8 +64,8 @@ function onClick(e) {
     const id = e.target.dataset.id;
     fetchApiById(id).then(data => {
         showModal(...data)
-         refs.closeModalBtn.addEventListener('click', e => {
-            refs.modal.classList.toggle('is-hidden');
+        refs.closeModalBtn.addEventListener('click', e => {
+        refs.backdrop.classList.toggle('is-hidden');
   });
         const newEvents = data.map(event => {
             return {
