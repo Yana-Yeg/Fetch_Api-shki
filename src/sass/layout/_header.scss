@@ -104,7 +104,8 @@
     padding-left: 30px;
     color: #939393;
   }
-  .form__input, .form-select {
+  .form__input,
+  .form-select {
     margin-bottom: 25px;
 
     @media screen and (min-width: 768px) {
