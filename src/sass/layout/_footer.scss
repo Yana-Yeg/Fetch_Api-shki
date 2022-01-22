@@ -10,3 +10,18 @@
         color: #939393;
     }
 }
+
+footer {
+    background-image: url(./../images/noise_body.png);
+    background-color: #0e0e0e;
+    padding-bottom: 27px;
+    @media screen and (min-width: 768px) {
+        padding-bottom: 18px;
+    }
+}
+
+.students {
+    background: transparent;
+    border: 0px;
+    color: #939393;   
+}
