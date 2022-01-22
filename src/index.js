@@ -63,7 +63,6 @@ function onClick(e) {
     console.log(e.target.dataset.id);
     const id = e.target.dataset.id;
     fetchApiById(id).then(data => {
-        console.log('data', ...data);
         showModal(...data)
          refs.closeModalBtn.addEventListener('click', e => {
             refs.modal.classList.toggle('is-hidden');
@@ -94,9 +93,9 @@ function onClick(e) {
                 }),
             };
         });
-        console.log('new',newEvents);
-        const markup = card(newEvents);
-        refs.mainList.innerHTML = markup;
+        // console.log('new',newEvents);
+        // const markup = card(newEvents);
+        // refs.mainList.innerHTML = markup;
         
         
     })
