@@ -9,7 +9,7 @@ export default async function fetchApiById(id) {
     const response = await axios.get(
       `${BASE_URL}/discovery/v2/events/${id}.json?apikey=${API_KEY}`,
     );
-     console.log(response.data);
+    //  console.log(response.data);
     return [response.data];
   } catch (error) {
     console.error(error);

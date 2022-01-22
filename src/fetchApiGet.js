@@ -3,7 +3,7 @@ import {key} from "../config.json"
 
 export default async function fetchApiGet(query, country, page) {
   const BASE_URL= "https://app.ticketmaster.com"
-  const API_KEY = key
+  // const API_KEY = key
   const createParams = params => {
     return {
       params,
@@ -18,7 +18,7 @@ export default async function fetchApiGet(query, country, page) {
 
   try {
    const response = await axios.get(
-    `${BASE_URL}/discovery/v2/events.json?apikey=${API_KEY}&page=${page}`,
+    `${BASE_URL}/discovery/v2/events.json?apikey=${key}&page=${page}`,
       createParams(filterParams),
     );
      console.log(response.data);

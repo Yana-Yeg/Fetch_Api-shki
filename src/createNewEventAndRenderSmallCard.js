@@ -24,7 +24,7 @@ export default function createNewEventAndRenderSmallCard(_embedded) {
         }),
     };
   });
-    console.log(newEvent);
+    // console.log(newEvent);
     // console.log(document.body.offsetWidth);
     const markup = smallCard(newEvent);
     refs.mainList.innerHTML = markup;
