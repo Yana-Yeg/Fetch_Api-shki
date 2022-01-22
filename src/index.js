@@ -6,10 +6,10 @@ import smallCard from './templates/smallCard.hbs';
 import code from './countries.json';
 import { showModal } from './renderModal';
 
-const refs = {
+export const refs = {
   form: document.querySelector('form'),
   select: document.querySelector('.form-select'),
-  mainList: document.querySelector('.main__grid-small-cards'),
+    mainList: document.querySelector('.main__grid-small-cards'),
 };
 
 //   refs.form.addEventListener('change', searchEvents);
@@ -65,6 +65,9 @@ function onClick(e) {
     fetchApiById(id).then(data => {
         console.log('data', ...data);
         showModal(...data)
+         refs.closeModalBtn.addEventListener('click', e => {
+            refs.modal.classList.toggle('is-hidden');
+  });
         const newEvents = data.map(event => {
             return {
                 id: event.id,
@@ -91,9 +94,9 @@ function onClick(e) {
                 }),
             };
         });
-        // console.log('new',newEvents);
-        // const markup = card(newEvents);
-        // refs.mainList.innerHTML = markup;
+        console.log('new',newEvents);
+        const markup = card(newEvents);
+        refs.mainList.innerHTML = markup;
         
         
     })

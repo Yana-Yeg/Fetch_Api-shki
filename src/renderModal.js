@@ -1,4 +1,4 @@
-
+import { refs } from '.';
 import symbolDevs from './images/symbol-defs.svg';
 import sprite from './images/sprite.svg';
 
@@ -14,7 +14,7 @@ export const showModal = events => {
     priceRangeCurrency = events.priceRanges[0].currency;
   }
 
-    console.log( )
+ console.log('?', events.images)
     
   const markupOneModal = `<div class="cards__backdrop" data-modal>
     <div class="modal">
@@ -68,6 +68,8 @@ export const showModal = events => {
         <button type="button" id = ${events.id} class="button infoauthor-button">MORE FROM THIS EVENTS</button>
     </div>`;
 
-  document.querySelector('#modalNode').innerHTML = markupOneModal;
+    document.querySelector('#modalNode').innerHTML = markupOneModal;
+    refs.closeModalBtn = document.querySelector('.close-button');
+    refs.modal = document.querySelector('.cards__backdrop');
 };
 
