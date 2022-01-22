@@ -26,12 +26,12 @@
 //   e.preventDefault();
 
 
-  
+
     
     
 //   const id = e.target.closest('.smallCard-small').id
 //   const data = await getEventDetails(id);
- 
+
     
     
 //   const refs = {
