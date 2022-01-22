@@ -70,6 +70,7 @@ export const showModal = events => {
 
     document.querySelector('#modalNode').innerHTML = markupOneModal;
     refs.closeModalBtn = document.querySelector('.close-button');
-    refs.modal = document.querySelector('.cards__backdrop');
+    refs.modal = document.querySelector('.modal');
+    refs.backdrop = document.querySelector('.cards__backdrop')
 };
 
