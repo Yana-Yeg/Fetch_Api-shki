@@ -79,7 +79,7 @@
   }
 }
 .smallCard {
-  width: 194px;
+  width: 195px;
   height: 312px;
   z-index: 10;
   position: relative;
@@ -134,10 +134,22 @@
     color: #fff;
   }
 }
+.smallCard_place::before {
+  width: 7px;
+  height: 10px;
+  display: inline-block;
+  content: '';
+  //   border: 1px solid red;
+  background-image: url(./../images/icons/Map-point.svg);
+  //   justify-content: center;
+  //   align-items: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 .main__grid-small-cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 50px 56px;
+  gap: 50px 55px;
   position: absolute;
   top: -55px;
   // margin: 0 auto;
