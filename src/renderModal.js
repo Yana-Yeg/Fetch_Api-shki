@@ -16,9 +16,8 @@ export const showModal = events => {
     priceRangeCurrency = events.priceRanges[0].currency;
   }
 
-
-console.log('test', events)
-
+// console.log('test', events)
+    
   const markupOneModal = `<div class="cards__backdrop" data-modal>
     <div class="modal">
         <button class="close-button" data-modal-close>

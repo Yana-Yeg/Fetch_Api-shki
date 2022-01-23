@@ -1,46 +1,57 @@
 import './sass/main.scss';
 import fetchApiGet from './fetchApiGet';
 import fetchApiById from './fetchApiById';
+
+import fetchApiUrl from './fetchApiUrl';
+
 import fetchNewEvents from './newArrayAndGetModal';
 import fetchApiByGroupId from './fetchApiByGroupId';
+
 import card from './templates/card.hbs';
 import smallCard from './templates/smallCard.hbs';
 import code from './countries.json';
+import paginationMarkup from './pagination';
 import { showModal } from './renderModal';
+import generatePagination from './generatePagination';
 import createNewEventAndRenderSmallCard from './createNewEventAndRenderSmallCard';
+
+import fetchNewEvents from './newArrayAndGetModal';
+import onClickEvent from './onClickEvent';
+
 import './modal';
+import {key} from "../config.json";
 import 'animate.css';
 import './skroll-up';
 import './modalFooter'
-
-
 
 
 export const refs = {
   form: document.querySelector('form'),
   select: document.querySelector('.form-select'),
   mainList: document.querySelector('.main__grid-small-cards'),
+  pagination: document.querySelector('.pagination'),
   more: document.querySelector('.infoauthor-button')
 };
 
 //отрисовка страницы при первой загрузке
-let page;
-const markup = code.map(el => `<option value="${el.code}">${el.name}</option>`).join("")
-console.log(refs.select);
-refs.select.insertAdjacentHTML('beforeend', markup);
+let nowPage;
+const markup2 = code.map(el => `<option value="${el.code}">${el.name}</option>`).join("")
+
+// console.log(refs.select);
+refs.select.insertAdjacentHTML("beforeend", markup2);
+
 
 
 function openPage(){
-  page = 1;
-  fetchApiGet('Star','US', page).then(({page, _embedded}) => {
-      console.log(_embedded.events);
+  nowPage = 1;
+  fetchApiGet('star','US', nowPage).then(({page, _embedded, _links}) => {
     //вынос создания нового объекта для рендера карточки
     createNewEventAndRenderSmallCard(_embedded);
-      
-      console.log(page.totalPages);
+    // отрисовка нумерации страниц
+    generatePagination(_links, page);
 
+    document.addEventListener('click', onClickEvent);
 });
-
 }
 openPage();
 
@@ -48,36 +59,39 @@ openPage();
 refs.form.addEventListener('change', searchEvents);
 function searchEvents(event) {
     event.preventDefault();
-    page = 1;
+    nowPage = 1;
 
     const selectedQuery = refs.form.elements.search.value.trim();
     const selectedCountry = refs.select.value;
     
     if (selectedQuery && selectedCountry) {
-        fetchApiGet(selectedQuery, selectedCountry, page).then(({ page, _embedded }) => {
+        fetchApiGet(selectedQuery, selectedCountry, nowPage).then(({ page, _embedded, _links }) => {
             //вынос создания нового объекта для рендера карточки
             createNewEventAndRenderSmallCard(_embedded);
+            generatePagination(_links, page);
+
+            document.addEventListener('click', onClickEvent);
         })
     }
     if (selectedQuery && !selectedCountry) {
-        fetchApiGet(selectedQuery, 'US', page).then(({ page, _embedded }) => {
+        fetchApiGet(selectedQuery, 'US', nowPage).then(({ page, _embedded, _links }) => {
             //вынос создания нового объекта для рендера карточки
             createNewEventAndRenderSmallCard(_embedded);
+            generatePagination(_links, page);
+
+            document.addEventListener('click', onClickEvent);
         });
     }
     if (!selectedQuery && selectedCountry) {
-        fetchApiGet('', selectedCountry, page).then(({ page, _embedded }) => {
+        fetchApiGet('', selectedCountry, nowPage).then(({ page, _embedded, _links }) => {
             //вынос создания нового объекта для рендера карточки
             createNewEventAndRenderSmallCard(_embedded);
+            generatePagination(_links, page);
+
+            document.addEventListener('click', onClickEvent);
         });
     }
 }
-
-
-
-
-
-
 
 //переделка нового объпкта и по клику вызов карточки для модалки
 refs.mainList.addEventListener('click', onClick);
