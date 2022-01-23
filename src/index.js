@@ -14,8 +14,6 @@ import {key} from "../config.json";
 import 'animate.css';
 import './skroll-up';
 
-
-
 export const refs = {
   form: document.querySelector('form'),
   select: document.querySelector('.form-select'),
@@ -24,7 +22,7 @@ export const refs = {
 };
 
 //отрисовка страницы при первой загрузке
-let page;
+let nowPage;
 const markup = code.map(el => `<option value="${el.code}">${el.name}</option>`).join("")
 
 // console.log(refs.select);
@@ -32,32 +30,36 @@ refs.select.insertAdjacentHTML("beforeend", markup);
 
 
 function openPage(){
-  page = 1;
-  fetchApiGet('Star','US', page).then(({page, _embedded, _links}) => {
+  nowPage = 1;
+  fetchApiGet('Star','US', nowPage).then(({page, _embedded, _links}) => {
     //вынос создания нового объекта для рендера карточки
     createNewEventAndRenderSmallCard(_embedded);
-    generatePagination(_links, page);
+    const baseUrl = 'https://app.ticketmaster.com';
+    paginationMarkup(page.totalPages, nowPage, {link:`${baseUrl}/discovery/v2/events.json?apikey=${key}&countryCode=US&keyword=Star&page=`})
+    // refs.pagination.innerHTML = markup1;
 
-    function generatePagination(_links, page) {
-        const baseUrl = 'https://app.ticketmaster.com';
-        let markup = '';
-        let activePage = 1;
-        if (_links.prev !== null) {
-          markup += `<a href="${baseUrl}${_links.prev}">&lArr;</a>`;
-          activePage = parseInt((Object.values(_links.prev)).join('').split('=')[3]) + 1;
-        //   console.log(page.totalPages)
-        }
-        for (let i = 1; i <=page.totalPages; i++) {
-          markup += `<a class="${
-            activePage === i ? 'active' : ''
-          } " href="${baseUrl}/discovery/v2/events.json?apikey=${key}&page=${i}">${i}</a>`;
-        }
+
+    // generatePagination(_links, page);
+    // function generatePagination(_links, page) {
+    //     const baseUrl = 'https://app.ticketmaster.com';
+    //     let markup = '';
+    //     let activePage = 1;
+    //     if (_links.prev !== null) {
+    //       markup += `<a href="${baseUrl}${_links.prev}"></a>`;
+    //       activePage = parseInt((Object.values(_links.prev)).join('').split('=')[3]) + 1;
+    //     //   console.log(page.totalPages)
+    //     }
+    //     for (let i = 1; i <=page.totalPages; i++) {
+    //       markup += `<a class="${
+    //         activePage === i ? 'active' : ''
+    //       } " href="${baseUrl}/discovery/v2/events.json?apikey=${key}&page=${i}">${i}</a>`;
+    //     }
       
-        if (_links.next !== null) {
-          markup += `<a href="${baseUrl}${_links.next}">&rArr;</a>`;
-        }
-        refs.pagination.innerHTML = markup;
-      }
+    //     if (_links.next !== null) {
+    //       markup += `<a href="${baseUrl}${_links.next}"></a>`;
+    //     }
+    //     refs.pagination.innerHTML = markup;
+    //   }
       document.addEventListener('click', onClickEvent);
  
     function onClickEvent(e) {
@@ -65,8 +67,10 @@ function openPage(){
         e.preventDefault();
         console.log(e.target.href)
         fetchApiUrl(e.target.href).then(({page, _embedded, _links}) => {
+
+            paginationMarkup(page.totalPages, nowPage, {link:`${baseUrl}${_links.next.href}&apikey=${key}`})
             createNewEventAndRenderSmallCard(_embedded);
-            generatePagination(_links, page); 
+            // generatePagination(_links, page); 
         });
       }
 });
@@ -77,25 +81,25 @@ openPage();
 refs.form.addEventListener('change', searchEvents);
 function searchEvents(event) {
     event.preventDefault();
-    page = 1;
+    nowPage = 1;
 
     const selectedQuery = refs.form.elements.search.value.trim();
     const selectedCountry = refs.select.value;
     
     if (selectedQuery && selectedCountry) {
-        fetchApiGet(selectedQuery, selectedCountry, page).then(({ page, _embedded }) => {
+        fetchApiGet(selectedQuery, selectedCountry, nowPage).then(({ page, _embedded }) => {
             //вынос создания нового объекта для рендера карточки
             createNewEventAndRenderSmallCard(_embedded);
         })
     }
     if (selectedQuery && !selectedCountry) {
-        fetchApiGet(selectedQuery, 'US', page).then(({ page, _embedded }) => {
+        fetchApiGet(selectedQuery, 'US', nowPage).then(({ page, _embedded }) => {
             //вынос создания нового объекта для рендера карточки
             createNewEventAndRenderSmallCard(_embedded);
         });
     }
     if (!selectedQuery && selectedCountry) {
-        fetchApiGet('', selectedCountry, page).then(({ page, _embedded }) => {
+        fetchApiGet('', selectedCountry, nowPage).then(({ page, _embedded }) => {
             //вынос создания нового объекта для рендера карточки
             createNewEventAndRenderSmallCard(_embedded);
         });
