@@ -7,8 +7,10 @@ import smallCard from './templates/smallCard.hbs';
 import code from './countries.json';
 import paginationMarkup from './pagination';
 import { showModal } from './renderModal';
+import generatePagination from './generatePagination';
 import createNewEventAndRenderSmallCard from './createNewEventAndRenderSmallCard';
 import fetchNewEvents from './newArrayAndGetModal';
+import onClickEvent from './onClickEvent';
 import './modal';
 import {key} from "../config.json";
 import 'animate.css';
@@ -31,38 +33,13 @@ refs.select.insertAdjacentHTML("beforeend", markup2);
 
 function openPage(){
   nowPage = 1;
-  fetchApiGet('sun','US', nowPage).then(({page, _embedded, _links}) => {
+  fetchApiGet('star','US', nowPage).then(({page, _embedded, _links}) => {
     //вынос создания нового объекта для рендера карточки
     createNewEventAndRenderSmallCard(_embedded);
-    // const baseUrl = 'https://app.ticketmaster.com';
-    // paginationMarkup(page.totalPages, nowPage, {link:`${baseUrl}/discovery/v2/events.json?apikey=${key}&countryCode=US&keyword=Star&page=`})
-
-    // refs.pagination.innerHTML = markup;
-
-
+    // отрисовка нумерации страниц
     generatePagination(_links, page);
-    function generatePagination(_links, page) {
-        const baseUrl = 'https://app.ticketmaster.com';
-        let markup = '';
-        let activePage = 1;
-    
-        activePage = parseInt((Object.values(_links.prev)).join('').split('=')[3]) + 1;
-        //   console.log(page.totalPages)
-        // }
-       const queryHttp = (Object.values(_links.prev)).join('').split('&page')[0];
-        // console.log(`${baseUrl}apikey=${key}&${queryHttp}&page=`)
-        paginationMarkup(page.totalPages-1, activePage, {link:`${baseUrl}${queryHttp}&apikey=${key}&page=`});
-      }
-      document.addEventListener('click', onClickEvent);
- 
-    function onClickEvent(e) {
-        if (e.target.nodeName !== 'A') return;
-        e.preventDefault();
-        fetchApiUrl(e.target.href).then(({page, _embedded, _links}) => {
-        createNewEventAndRenderSmallCard(_embedded);
-        generatePagination(_links, page); 
-        });
-      }
+
+    document.addEventListener('click', onClickEvent);
 });
 }
 openPage();
@@ -77,21 +54,30 @@ function searchEvents(event) {
     const selectedCountry = refs.select.value;
     
     if (selectedQuery && selectedCountry) {
-        fetchApiGet(selectedQuery, selectedCountry, nowPage).then(({ page, _embedded }) => {
+        fetchApiGet(selectedQuery, selectedCountry, nowPage).then(({ page, _embedded, _links }) => {
             //вынос создания нового объекта для рендера карточки
             createNewEventAndRenderSmallCard(_embedded);
+            generatePagination(_links, page);
+
+            document.addEventListener('click', onClickEvent);
         })
     }
     if (selectedQuery && !selectedCountry) {
-        fetchApiGet(selectedQuery, 'US', nowPage).then(({ page, _embedded }) => {
+        fetchApiGet(selectedQuery, 'US', nowPage).then(({ page, _embedded, _links }) => {
             //вынос создания нового объекта для рендера карточки
             createNewEventAndRenderSmallCard(_embedded);
+            generatePagination(_links, page);
+
+            document.addEventListener('click', onClickEvent);
         });
     }
     if (!selectedQuery && selectedCountry) {
-        fetchApiGet('', selectedCountry, nowPage).then(({ page, _embedded }) => {
+        fetchApiGet('', selectedCountry, nowPage).then(({ page, _embedded, _links }) => {
             //вынос создания нового объекта для рендера карточки
             createNewEventAndRenderSmallCard(_embedded);
+            generatePagination(_links, page);
+
+            document.addEventListener('click', onClickEvent);
         });
     }
 }

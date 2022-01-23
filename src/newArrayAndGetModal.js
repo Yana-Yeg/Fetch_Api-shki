@@ -2,13 +2,11 @@ import { refs } from '.';
 import fetchApiById from './fetchApiById';
 import { showModal } from './renderModal';
 
-
-
 export default function fetchNewEvents(id) {
     fetchApiById(id).then(data => {
         const newEvents = data.map(event => {
             // events.classifications[0].segment.name
-            console.log('eve', event)
+            // console.log('eve', event)
             return {
                 id: event.id,
                 url: event.url,

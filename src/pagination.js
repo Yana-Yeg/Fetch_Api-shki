@@ -4,17 +4,17 @@ export default function paginationMarkup(totalPage, nowPage,
     {
         countItemShow = 3,
 
-        showStart = true,
+        showStart = false,
         contentStart = '',
 
-        showEnd = true,
+        showEnd = false,
         contentEnd = '',
 
         dotTag = 'span',
         baseTag = 'a',
         link = ``,
         baseClass = '',
-        classActive = 'active',
+        classActive = 'activePage',
 
         query = ''
     } = {}) {
