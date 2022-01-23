@@ -1,6 +1,8 @@
 import { refs } from '.';
 import symbolDevs from './images/symbol-defs.svg';
 import sprite from './images/sprite.svg';
+import fetchApiByGroupId from './fetchApiById';
+
 
 export const showModal = events => {
   let priceRange = '';
@@ -14,8 +16,6 @@ export const showModal = events => {
     priceRangeCurrency = events.priceRanges[0].currency;
   }
 
-
-    
   const markupOneModal = `<div class="cards__backdrop" data-modal>
     <div class="modal">
         <button class="close-button" data-modal-close>
@@ -65,12 +65,22 @@ export const showModal = events => {
                 </ul>
             </div>
         </div>
-        <button type="button" id = ${events.id} class="button infoauthor-button">MORE FROM THIS EVENTS</button>
+        <button type="button" data-id="${events.groupId}" class="button infoauthor-button">MORE FROM THIS EVENTS</button>
     </div>`;
 
     document.querySelector('#modalNode').innerHTML = markupOneModal;
     refs.closeModalBtn = document.querySelector('.close-button');
     refs.modal = document.querySelector('.modal');
-    refs.backdrop = document.querySelector('.cards__backdrop')
+    refs.backdrop = document.querySelector('.cards__backdrop');
+    refs.more = document.querySelector('.infoauthor-button');
+
+
+    refs.more.addEventListener('click', getInfoByAuthor);
+    function getInfoByAuthor(e) {
+            e.preventDefault;
+            console.log(e.target.dataset.id);
+            const groupId = e.target.dataset.id;
+            fetchApiByGroupId(groupId);
+        }
 };
 

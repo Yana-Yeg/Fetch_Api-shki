@@ -1,12 +1,13 @@
 import './sass/main.scss';
 import fetchApiGet from './fetchApiGet';
 import fetchApiById from './fetchApiById';
+import fetchNewEvents from './newArrayAndGetModal';
+import fetchApiByGroupId from './fetchApiByGroupId';
 import card from './templates/card.hbs';
 import smallCard from './templates/smallCard.hbs';
 import code from './countries.json';
 import { showModal } from './renderModal';
 import createNewEventAndRenderSmallCard from './createNewEventAndRenderSmallCard';
-import fetchNewEvents from './newArrayAndGetModal';
 import './modal'
 
 
@@ -14,12 +15,12 @@ export const refs = {
   form: document.querySelector('form'),
   select: document.querySelector('.form-select'),
   mainList: document.querySelector('.main__grid-small-cards'),
+  more: document.querySelector('.infoauthor-button')
 };
 
 //отрисовка страницы при первой загрузке
 let page;
 const markup = code.map(el => `<option value="${el.code}">${el.name}</option>`).join("")
-console.log(refs.select);
 refs.select.innerHTML = markup;
 
 function openPage(){
@@ -76,8 +77,14 @@ refs.mainList.addEventListener('click', onClick);
 function onClick(e) {
     // e.preventDefault();
     if (e.target.nodeName !== 'IMG') return;
-    console.log(e.target.dataset.id);
+    // console.log(e.target.dataset.id);
     const id = e.target.dataset.id;
     fetchNewEvents(id);
 }
 
+// refs.more.addEventListener('click', getInfoByAuthor);
+//         function getInfoByAuthor(e) {
+//             console.log(e.target.dataset.id);
+//             const id = e.target.dataset.id;
+//             fetchApiByGroupId(id);
+//         }

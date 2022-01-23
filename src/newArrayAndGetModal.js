@@ -13,6 +13,7 @@ export default function fetchNewEvents(id) {
                 id: event.id,
                 url: event.url,
                 name: event.name,
+                groupId: event.classifications[0].type.id,
                 info: {
                     segment: event.classifications[0].segment.name,
                     genre: event.classifications[0].genre.name
@@ -23,7 +24,6 @@ export default function fetchNewEvents(id) {
                 location: {
                     latitude: event._embedded.venues[0].location.latitude,
                     longitude: event._embedded.venues[0].location.longitude,
-
                 },
                 priceRanges: event.priceRanges,
                 placeName: event._embedded.venues[0].name,
