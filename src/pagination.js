@@ -1,14 +1,14 @@
 import { refs } from '.';
 
-export default function paginationMarkup (totalPage, nowPage,
+export default function paginationMarkup(totalPage, nowPage,
     {
-        countItemShow = 4,
+        countItemShow = 3,
 
         showStart = true,
-        contentStart = '&lArr;',
+        contentStart = '',
 
         showEnd = true,
-        contentEnd = '&rArr;',
+        contentEnd = '',
 
         dotTag = 'span',
         baseTag = 'a',
@@ -18,14 +18,14 @@ export default function paginationMarkup (totalPage, nowPage,
 
         query = ''
     } = {}) {
-      //   console.log(totalPage, nowPage, link)
+        // console.log(totalPage, nowPage, link)
 
     const genElement = (page = 1, text = page) =>
         (link && baseTag === 'a') ?
             `<${baseTag} class="${(page === nowPage ? (baseClass ? classActive : `${baseClass} ${classActive}`) : baseClass)}" href="${link + page}${query ? '&' + query : ''}">${text}</${baseTag}>` :
             `<${baseTag} class="${(page === nowPage ? (baseClass ? classActive : `${baseClass} ${classActive}`) : baseClass)}">${text}</${baseTag}>`;
 
-    let markup1 = showStart ? genElement(1, contentStart) : '';
+    let markup = showStart ? genElement(1, contentStart) : '';
 
     const startShow = nowPage - countItemShow;
     const endShow = nowPage + countItemShow;
@@ -34,19 +34,19 @@ export default function paginationMarkup (totalPage, nowPage,
       if (i > endShow) i = totalPage;
 
       if (startShow === i && i > 1)
-          markup1 += `<${dotTag}>...</${dotTag}>`;
+          markup += `<${dotTag}>...</${dotTag}>`;
 
       if (i === 1 || i === totalPage || (i >= nowPage - 2 && i <= nowPage + 2))
-          markup1 += genElement(i);
+          markup += genElement(i);
 
       if (endShow === i)
-          markup1 += `<${dotTag}>...</${dotTag}>`;
+          markup += `<${dotTag}>...</${dotTag}>`;
 
       if (i < startShow) i = startShow - 1;
     }
-  
-     markup1 += showEnd ? genElement(totalPage, contentEnd) : '';
-    refs.pagination.innerHTML = markup1;
+//   console.log(markup)
+     markup += showEnd ? genElement(totalPage, contentEnd) : '';
+    refs.pagination.innerHTML = markup;
     return
     }
 

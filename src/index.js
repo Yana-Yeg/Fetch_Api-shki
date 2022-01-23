@@ -23,54 +23,44 @@ export const refs = {
 
 //отрисовка страницы при первой загрузке
 let nowPage;
-const markup = code.map(el => `<option value="${el.code}">${el.name}</option>`).join("")
+const markup2 = code.map(el => `<option value="${el.code}">${el.name}</option>`).join("")
 
 // console.log(refs.select);
-refs.select.insertAdjacentHTML("beforeend", markup);
+refs.select.insertAdjacentHTML("beforeend", markup2);
 
 
 function openPage(){
   nowPage = 1;
-  fetchApiGet('Star','US', nowPage).then(({page, _embedded, _links}) => {
+  fetchApiGet('sun','US', nowPage).then(({page, _embedded, _links}) => {
     //вынос создания нового объекта для рендера карточки
     createNewEventAndRenderSmallCard(_embedded);
-    const baseUrl = 'https://app.ticketmaster.com';
-    paginationMarkup(page.totalPages, nowPage, {link:`${baseUrl}/discovery/v2/events.json?apikey=${key}&countryCode=US&keyword=Star&page=`})
-    // refs.pagination.innerHTML = markup1;
+    // const baseUrl = 'https://app.ticketmaster.com';
+    // paginationMarkup(page.totalPages, nowPage, {link:`${baseUrl}/discovery/v2/events.json?apikey=${key}&countryCode=US&keyword=Star&page=`})
+
+    // refs.pagination.innerHTML = markup;
 
 
-    // generatePagination(_links, page);
-    // function generatePagination(_links, page) {
-    //     const baseUrl = 'https://app.ticketmaster.com';
-    //     let markup = '';
-    //     let activePage = 1;
-    //     if (_links.prev !== null) {
-    //       markup += `<a href="${baseUrl}${_links.prev}"></a>`;
-    //       activePage = parseInt((Object.values(_links.prev)).join('').split('=')[3]) + 1;
-    //     //   console.log(page.totalPages)
-    //     }
-    //     for (let i = 1; i <=page.totalPages; i++) {
-    //       markup += `<a class="${
-    //         activePage === i ? 'active' : ''
-    //       } " href="${baseUrl}/discovery/v2/events.json?apikey=${key}&page=${i}">${i}</a>`;
-    //     }
-      
-    //     if (_links.next !== null) {
-    //       markup += `<a href="${baseUrl}${_links.next}"></a>`;
-    //     }
-    //     refs.pagination.innerHTML = markup;
-    //   }
+    generatePagination(_links, page);
+    function generatePagination(_links, page) {
+        const baseUrl = 'https://app.ticketmaster.com';
+        let markup = '';
+        let activePage = 1;
+    
+        activePage = parseInt((Object.values(_links.prev)).join('').split('=')[3]) + 1;
+        //   console.log(page.totalPages)
+        // }
+       const queryHttp = (Object.values(_links.prev)).join('').split('&page')[0];
+        // console.log(`${baseUrl}apikey=${key}&${queryHttp}&page=`)
+        paginationMarkup(page.totalPages-1, activePage, {link:`${baseUrl}${queryHttp}&apikey=${key}&page=`});
+      }
       document.addEventListener('click', onClickEvent);
  
     function onClickEvent(e) {
         if (e.target.nodeName !== 'A') return;
         e.preventDefault();
-        console.log(e.target.href)
         fetchApiUrl(e.target.href).then(({page, _embedded, _links}) => {
-
-            paginationMarkup(page.totalPages, nowPage, {link:`${baseUrl}${_links.next.href}&apikey=${key}`})
-            createNewEventAndRenderSmallCard(_embedded);
-            // generatePagination(_links, page); 
+        createNewEventAndRenderSmallCard(_embedded);
+        generatePagination(_links, page); 
         });
       }
 });
