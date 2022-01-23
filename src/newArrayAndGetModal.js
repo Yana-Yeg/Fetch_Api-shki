@@ -11,17 +11,17 @@ export default function fetchNewEvents(id) {
                 id: event.id,
                 url: event.url,
                 name: event.name,
-                info: {
-                    segment: event.classifications[0].segment.name,
-                    genre: event.classifications[0].genre.name
-                },
+                info: event.info? event.info : "More info will be soon",
+                // info: {
+                //     segment: event.classifications[0].segment.name,
+                //     genre: event.classifications[0].genre.name
+                // },
                 localDate: event.dates.start.localDate,
                 localTime: event.dates.start.localTime,
                 timezone: event.dates.timezone,
                 location: {
                     latitude: event._embedded.venues[0].location.latitude,
                     longitude: event._embedded.venues[0].location.longitude,
-
                 },
                 priceRanges: event.priceRanges,
                 placeName: event._embedded.venues[0].name,
