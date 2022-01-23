@@ -21,6 +21,7 @@
     background-repeat: no-repeat;
     position: relative;
   }
+  scroll-behavior: smooth;
 }
 
 .smallCard {
@@ -43,6 +44,7 @@
   top: 0;
   right: 0;
   border: 1px solid rgba(220, 86, 197, 0.3);
+  pointer-events: none;
   @media screen and (min-width: 768px) {
     width: 155px;
     height: 145px;
