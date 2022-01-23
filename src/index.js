@@ -8,7 +8,10 @@ import smallCard from './templates/smallCard.hbs';
 import code from './countries.json';
 import { showModal } from './renderModal';
 import createNewEventAndRenderSmallCard from './createNewEventAndRenderSmallCard';
-import './modal'
+import './modal';
+import 'animate.css';
+import './skroll-up';
+
 
 
 export const refs = {
@@ -21,7 +24,9 @@ export const refs = {
 //отрисовка страницы при первой загрузке
 let page;
 const markup = code.map(el => `<option value="${el.code}">${el.name}</option>`).join("")
-refs.select.innerHTML = markup;
+console.log(refs.select);
+refs.select.insertAdjacentHTML('beforeend', markup);
+
 
 function openPage(){
   page = 1;
