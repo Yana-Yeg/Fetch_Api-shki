@@ -7,7 +7,10 @@ import code from './countries.json';
 import { showModal } from './renderModal';
 import createNewEventAndRenderSmallCard from './createNewEventAndRenderSmallCard';
 import fetchNewEvents from './newArrayAndGetModal';
-import './modal'
+import './modal';
+import 'animate.css';
+import './skroll-up';
+
 
 
 export const refs = {
@@ -20,7 +23,7 @@ export const refs = {
 let page;
 const markup = code.map(el => `<option value="${el.code}">${el.name}</option>`).join("")
 console.log(refs.select);
-refs.select.innerHTML = markup;
+refs.select.insertAdjacentHTML('beforeend', markup);
 
 function openPage(){
   page = 1;
