@@ -33,7 +33,7 @@ console.log('test', events)
                 <ul>
                     <li class="modal__list-info">
                         <h3 class="modal__item-title">INFO</h3>
-                        <p class="modal__item-text" id = ${events.id}>${events.info.genre} / ${events.info.genre}</p>
+                        <p class="modal__item-text scroll" id = ${events.id}>${events.info}</p>
                     </li>
                     <li class="modal__list-info">
                         <h3 class="modal__item-title">WHEN</h3>
