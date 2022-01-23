@@ -44,7 +44,7 @@ export default function fetchNewEvents(id) {
         });
           showModal(...newEvents);
         refs.closeModalBtn.addEventListener('click', e => {
-        refs.modal.classList.toggle('is-hidden');
+        refs.backdrop.classList.toggle('is-hidden');
         });
 
         // const markup = card(newEvents);
