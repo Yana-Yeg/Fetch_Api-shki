@@ -6,19 +6,25 @@ import { showModal } from './renderModal';
 
 export default function fetchNewEvents(id) {
     fetchApiById(id).then(data => {
-        showModal(...data);
-        refs.closeModalBtn.addEventListener('click', e => {
-        refs.modal.classList.toggle('is-hidden');
-        });
         const newEvents = data.map(event => {
+            // events.classifications[0].segment.name
+            console.log('eve', event)
             return {
                 id: event.id,
                 url: event.url,
                 name: event.name,
-                info: event.info,
+                info: {
+                    segment: event.classifications[0].segment.name,
+                    genre: event.classifications[0].genre.name
+                },
                 localDate: event.dates.start.localDate,
                 localTime: event.dates.start.localTime,
                 timezone: event.dates.timezone,
+                location: {
+                    latitude: event._embedded.venues[0].location.latitude,
+                    longitude: event._embedded.venues[0].location.longitude,
+
+                },
                 priceRanges: event.priceRanges,
                 placeName: event._embedded.venues[0].name,
                 cityName: event._embedded.venues[0].city.name,
@@ -36,7 +42,11 @@ export default function fetchNewEvents(id) {
                 }),
             };
         });
-        // console.log('new',newEvents);
+          showModal(...newEvents);
+        refs.closeModalBtn.addEventListener('click', e => {
+        refs.backdrop.classList.toggle('is-hidden');
+        });
+
         // const markup = card(newEvents);
         // refs.mainList.innerHTML = markup;
         

@@ -1,6 +1,6 @@
 {{#each this}}
 
-<li class="smallCard" data-id="{{id}}">
+<li class="smallCard animate__animated animate__zoomInUp" data-id="{{id}}">
     <img class="smallCard-small" src='{{image.url}}' data-id="{{id}}" width=200/>
     <div class="smallCard_info">
         <ul class="smallCard_info_list">
@@ -11,7 +11,7 @@
                 <p class="smallCard_text" data-id="{{id}}">{{localDate}}</p>
             </li>
             <li class="smallCard_place">
-                <a href="{{map}}" class="smallCard_text" data-id="{{id}}">{{placeName}}</a> 
+                <a href="{{map}}" class="smallCard_text smallCard_href" data-id="{{id}}">{{placeName}}</a> 
             </li>
         </ul> 
     </div>

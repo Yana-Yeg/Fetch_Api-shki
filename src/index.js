@@ -9,8 +9,11 @@ import paginationMarkup from './pagination';
 import { showModal } from './renderModal';
 import createNewEventAndRenderSmallCard from './createNewEventAndRenderSmallCard';
 import fetchNewEvents from './newArrayAndGetModal';
-import './modal'
-import {key} from "../config.json"
+import './modal';
+import {key} from "../config.json";
+import 'animate.css';
+import './skroll-up';
+
 
 
 export const refs = {
@@ -23,8 +26,10 @@ export const refs = {
 //отрисовка страницы при первой загрузке
 let page;
 const markup = code.map(el => `<option value="${el.code}">${el.name}</option>`).join("")
+
 // console.log(refs.select);
 refs.select.insertAdjacentHTML("beforeend", markup);
+
 
 function openPage(){
   page = 1;

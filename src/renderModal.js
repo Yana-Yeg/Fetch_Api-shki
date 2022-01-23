@@ -14,7 +14,7 @@ export const showModal = events => {
     priceRangeCurrency = events.priceRanges[0].currency;
   }
 
- console.log('?', events.images)
+console.log('test', events)
     
   const markupOneModal = `<div class="cards__backdrop" data-modal>
     <div class="modal">
@@ -23,24 +23,24 @@ export const showModal = events => {
                 <use href="${symbolDevs}#icon-close"></use>
             </svg>
         </button>
-        <img id =${events.id} src="${events.images[0].url}" alt="small-logo" class="modal__small-logo">
+        <img id =${events.id} src="${events.image.url}" alt="small-logo" class="modal__small-logo">
         <div class="modal__list-position">
-            <div style= 'background-image: url("${events.images[0].url}");' class="modal__card-poster"></div>
+            <div style= 'background-image: url("${events.image.url}");' class="modal__card-poster"></div>
             <div class="modal__list-width">
                 <ul>
                     <li class="modal__list-info">
                         <h3 class="modal__item-title">INFO</h3>
-                        <p class="modal__item-text" id = ${events.id}>${events.classifications[0].segment.name} / ${events.classifications[0].genre.name}</p>
+                        <p class="modal__item-text" id = ${events.id}>${events.info.genre} / ${events.info.genre}</p>
                     </li>
                     <li class="modal__list-info">
                         <h3 class="modal__item-title">WHEN</h3>
-                        <p class="modal__item-text" id = ${events.id}>${events.dates.start.localDate} <br>${events.dates.start.localTime} ${events.dates.timezone}</p>
+                        <p class="modal__item-text" id = ${events.id}>${events.localDate} <br>${events.localTime} ${events.timezone}</p>
                     </li>
                     <li class="modal__list-info">
                         <h3 class="modal__item-title">WHERE</h3>
-                        <a class="modal__item-text" target="_blank" href="http://maps.google.com/maps?q=${events._embedded.venues[0].location.latitude},${events._embedded.venues[0].location.longitude}&ll=${events._embedded.venues[0].location.latitude},${events._embedded.venues[0].location.longitude}&z=17" id = ${events.id}> <svg class="modal__icon" width="29" height="19">
+                        <a class="modal__item-text" target="_blank" href="http://maps.google.com/maps?q=${events.location.latitude},${events.location.longitude}&ll=${events.location.latitude},${events.location.longitude}&z=17" id = ${events.id}> <svg class="modal__icon" width="29" height="19">
               <use href="${sprite}#icon-location" style="fill:#000"></use>
-          </svg> ${events._embedded.venues[0].country.name} <br>${events._embedded.venues[0].name}</a>
+          </svg> ${events.countryName} <br>${events.placeName}</a>
                     </li>
                     <li class="modal__list-info">
                         <h3 class="modal__item-title">WHO</h3>
@@ -70,6 +70,7 @@ export const showModal = events => {
 
     document.querySelector('#modalNode').innerHTML = markupOneModal;
     refs.closeModalBtn = document.querySelector('.close-button');
-    refs.modal = document.querySelector('.cards__backdrop');
+    refs.modal = document.querySelector('.modal');
+    refs.backdrop = document.querySelector('.cards__backdrop')
 };
 

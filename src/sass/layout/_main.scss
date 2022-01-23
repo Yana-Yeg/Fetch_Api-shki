@@ -1,63 +1,134 @@
 .main {
-  height: 1780px;
   background-color: #0e0e0e;
-  background-image: url(./../images/noise_body.png);
+  @media screen and (min-width: 768px) {
+    background-image: url(./../images/png/tab/noise-body-tab.png),
+      url(./../images/png/tab/vertical-lines-tab.png), url(./../images/png/tab/Ellipse-5-tab.png),
+      url(./../images/png/tab/Ellipse-9-tab.png), url(./../images/png/tab/Ellipse-6-tab.png),
+      url(./../images/png/tab/Ellipse-7-tab.png), url(./../images/png/tab/Ellipse-8-tab.png),
+      url(./../images/png/tab/Ellipse12-tab.png), url(./../images/png/tab/Ellipse-18-tab.png);
+    background-position: center, top -200px left 87px, top 268px left 15px, top 293px left 38px,
+      top 1100px left 30px, top 550px right 30px, top 1325px right 20px, top 1350px right 40px,
+      top 2300px right 30px;
+    background-repeat: no-repeat;
+  }
+  @media screen and (min-width: 1280px) {
+    background-image: url(./../images/noise_body.png), url(./../images/png/Ellipse5.png),
+      url(./../images/png/Ellipse2.png), url(./../images/png/Ellipse6.png),
+      url(./../images/png/Ellipse4.png), url(./../images/png/Ellipse7.png),
+      url(./../images/png/Ellipse8.png), url(./../images/png/Ellipse9.png);
+    background-position: center, top 370px left 10px, top 410px left 50px, top 900px left 40px,
+      top 100px right 40px, top 780px right 10px, top 820px right 50px, top 1400px right 40px;
+    background-repeat: no-repeat;
+    position: relative;
+  }
 }
-.bacground-images {
-  position: relative;
 
-  .image-one {
-    position: absolute;
-    left: -154px;
-    top: -446px;
-  }
-  .image-two {
-    position: absolute;
-    left: -160px;
-    top: 1690px;
-  }
-  .image-tree {
-    position: absolute;
-    top: 1730px;
-    left: -120px;
-  }
-  .image-four {
-    position: absolute;
-    left: -170px;
-    top: 240px;
-  }
-  .image-five {
-    position: absolute;
-    left: -130px;
-    top: 280px;
-  }
-  .image-six {
-    position: absolute;
-    left: -140px;
-    top: 850px;
-  }
-  .image-seven {
-    position: absolute;
-    left: 520px;
-    top: 50px;
-  }
-  .image-eight {
-    position: absolute;
-    right: -160px;
-    top: 790px;
-  }
-  .image-nine {
-    position: absolute;
-    right: -200px;
-    top: 750px;
-  }
-  .image-ten {
-    position: absolute;
-    left: 520px;
-    top: 1300px;
+.smallCard {
+  width: 140px;
+  min-height: 240px;
+  z-index: 10;
+  position: relative;
+  @media screen and (min-width: 768px) {
+    width: 195px;
+    min-height: 310px;
   }
 }
-.container {
-  margin-left: auto;
-  margin-right: auto;
+.smallCard::after {
+  content: '';
+  display: block;
+  width: 110px;
+  height: 100px;
+  border-radius: 50px 0px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 1px solid rgba(220, 86, 197, 0.3);
+  @media screen and (min-width: 768px) {
+    width: 155px;
+    height: 145px;
+  }
+}
+.smallCard-small {
+  width: 130px;
+  height: 160px;
+  border-radius: 50px 0px;
+  margin-top: 10px;
+  margin-right: 10px;
+  object-fit: cover;
+  @media screen and (min-width: 768px) {
+    width: 180px;
+    height: 230px;
+    margin-top: 15px;
+    margin-right: 15px;
+  }
+}
+.smallCard_heroes {
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2;
+  text-align: center;
+  margin-top: 5px;
+  color: #dc56c5;
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+.smallCard_date {
+  font-family: Montserrat;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.2;
+  text-align: center;
+  margin-top: 5px;
+  color: #ffffff;
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+.smallCard_place {
+  font-family: Montserrat;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.25;
+  text-align: center;
+  margin-top: 5px;
+  a {
+    color: #fff;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.2;
+  }
+}
+.smallCard_place::before {
+  width: 6px;
+  height: 9px;
+  display: inline-block;
+  content: '';
+  background-image: url(./../images/Map-point.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  @media screen and (min-width: 768px) {
+    width: 7px;
+    height: 10px;
+  }
+}
+.main__grid-small-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px 5px;
+  position: relative;
+  //   top: -55px;
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 45px 15px;
+  }
+  @media screen and (min-width: 1280px) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px 55px;
+    top: -55px;
+  }
 }
