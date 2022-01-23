@@ -7,7 +7,6 @@ import code from './countries.json';
 import { showModal } from './renderModal';
 import createNewEventAndRenderSmallCard from './createNewEventAndRenderSmallCard';
 import fetchNewEvents from './newArrayAndGetModal';
-import './modal'
 
 
 export const refs = {
