@@ -1,12 +1,9 @@
 import './sass/main.scss';
 import fetchApiGet from './fetchApiGet';
 import fetchApiById from './fetchApiById';
-
 import fetchApiUrl from './fetchApiUrl';
-
 import fetchNewEvents from './newArrayAndGetModal';
 import fetchApiByGroupId from './fetchApiByGroupId';
-
 import card from './templates/card.hbs';
 import smallCard from './templates/smallCard.hbs';
 import code from './countries.json';
@@ -14,10 +11,7 @@ import paginationMarkup from './pagination';
 import { showModal } from './renderModal';
 import generatePagination from './generatePagination';
 import createNewEventAndRenderSmallCard from './createNewEventAndRenderSmallCard';
-
-import fetchNewEvents from './newArrayAndGetModal';
 import onClickEvent from './onClickEvent';
-
 import './modal';
 import {key} from "../config.json";
 import 'animate.css';
@@ -44,7 +38,7 @@ refs.select.insertAdjacentHTML("beforeend", markup2);
 
 function openPage(){
   nowPage = 1;
-  fetchApiGet('star','US', nowPage).then(({page, _embedded, _links}) => {
+  fetchApiGet('eagles','US', nowPage).then(({page, _embedded, _links}) => {
     //вынос создания нового объекта для рендера карточки
     createNewEventAndRenderSmallCard(_embedded);
     // отрисовка нумерации страниц
