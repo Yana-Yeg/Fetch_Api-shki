@@ -1,6 +1,8 @@
 import { refs } from '.';
 import symbolDevs from './images/symbol-defs.svg';
 import sprite from './images/sprite.svg';
+import fetchApiByGroupId from './fetchApiById';
+
 
 export const showModal = events => {
   let priceRange = '';
@@ -14,7 +16,7 @@ export const showModal = events => {
     priceRangeCurrency = events.priceRanges[0].currency;
   }
 
-console.log('test', events)
+// console.log('test', events)
     
   const markupOneModal = `<div class="cards__backdrop" data-modal>
     <div class="modal">
@@ -30,7 +32,7 @@ console.log('test', events)
                 <ul>
                     <li class="modal__list-info">
                         <h3 class="modal__item-title">INFO</h3>
-                        <p class="modal__item-text" id = ${events.id}>${events.info.genre} / ${events.info.genre}</p>
+                        <p class="modal__item-text scroll" id = ${events.id}>${events.info}</p>
                     </li>
                     <li class="modal__list-info">
                         <h3 class="modal__item-title">WHEN</h3>
@@ -65,12 +67,22 @@ console.log('test', events)
                 </ul>
             </div>
         </div>
-        <button type="button" id = ${events.id} class="button infoauthor-button">MORE FROM THIS EVENTS</button>
+        <button type="button" data-id="${events.groupId}" class="button infoauthor-button">MORE FROM THIS EVENTS</button>
     </div>`;
 
     document.querySelector('#modalNode').innerHTML = markupOneModal;
     refs.closeModalBtn = document.querySelector('.close-button');
     refs.modal = document.querySelector('.modal');
-    refs.backdrop = document.querySelector('.cards__backdrop')
+    refs.backdrop = document.querySelector('.cards__backdrop');
+    refs.more = document.querySelector('.infoauthor-button');
+
+
+    refs.more.addEventListener('click', getInfoByAuthor);
+    function getInfoByAuthor(e) {
+            e.preventDefault;
+            console.log(e.target.dataset.id);
+            const groupId = e.target.dataset.id;
+            fetchApiByGroupId(groupId);
+        }
 };
 
