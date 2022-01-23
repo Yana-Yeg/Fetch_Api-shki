@@ -11,6 +11,8 @@ import createNewEventAndRenderSmallCard from './createNewEventAndRenderSmallCard
 import './modal';
 import 'animate.css';
 import './skroll-up';
+import './modalFooter'
+
 
 
 
