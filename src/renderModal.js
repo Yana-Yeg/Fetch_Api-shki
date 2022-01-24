@@ -1,7 +1,7 @@
 import { refs } from '.';
 import symbolDevs from './images/symbol-defs.svg';
 import sprite from './images/sprite.svg';
-import fetchApiByGroupId from './fetchApiById';
+
 
 
 export const showModal = events => {
@@ -80,9 +80,8 @@ export const showModal = events => {
     refs.more.addEventListener('click', getInfoByAuthor);
     function getInfoByAuthor(e) {
             e.preventDefault;
-            console.log(e.target.dataset.id);
-            const groupId = e.target.dataset.id;
-            fetchApiByGroupId(groupId);
+            
+
         }
 };
 
