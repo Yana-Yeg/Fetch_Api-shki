@@ -6,16 +6,6 @@ import sprite from './images/sprite.svg';
 
 export const showModal = events => {
 
-//   let priceRange = '';
-//   let priceRangeMin = '';
-//   let priceRangeMax = '';
-//   let priceRangeCurrency = '';
-//     if (events.priceRanges) {
-//     priceRange = events.priceRanges[0].type;
-//     priceRangeMin = events.priceRanges[0].min;
-//     priceRangeMax = events.priceRanges[0].max;
-//     priceRangeCurrency = events.priceRanges[0].currency;
-//     }
     let timezone = '';
     if (events.timezone) {
         timezone = `${events.timezone}`.split('/')[1] + '/' + `${events.timezone}`.split('/')[0];
@@ -24,8 +14,6 @@ export const showModal = events => {
     if (events.priceRangeType) {
         priceRangeType = `${events.priceRangeType}`.replace('s', 'S')
     }
-
-// console.log('test', events)
 
   const markupOneModal = `<div class="cards__backdrop" data-modal>
     <div class="modal">

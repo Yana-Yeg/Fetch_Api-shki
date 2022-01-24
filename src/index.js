@@ -3,7 +3,6 @@ import fetchApiGet from './fetchApiGet';
 import fetchApiById from './fetchApiById';
 import fetchApiUrl from './fetchApiUrl';
 import fetchNewEvents from './newArrayAndGetModal';
-import card from './templates/card.hbs';
 import smallCard from './templates/smallCard.hbs';
 import code from './countries.json';
 import paginationMarkup from './pagination';
@@ -11,7 +10,6 @@ import { showModal } from './renderModal';
 import generatePagination from './generatePagination';
 import createNewEventAndRenderSmallCard from './createNewEventAndRenderSmallCard';
 import onClickEvent from './onClickEvent';
-import './modal';
 import {key} from "../config.json";
 import 'animate.css';
 import './skroll-up';
@@ -25,7 +23,8 @@ document.querySelector('.header__logo-icon').addEventListener('click', e => {
 
 
 export const refs = {
-  form: document.querySelector('form'),
+  form: document.querySelector('.form'),
+  input: document.querySelector('input.form-element'),
   select: document.querySelector('.form-select'),
   mainList: document.querySelector('.main__grid-small-cards'),
   pagination: document.querySelector('.pagination'),
@@ -61,9 +60,12 @@ function searchEvents(event) {
     event.preventDefault();
     nowPage = 1;
 
-    const selectedQuery = refs.form.elements.search.value.trim();
+    // const selectedQuery = refs.form.elements.search.value.trim();
+    console.log(refs.input.value);
+    console.log(refs.select.value);
+    const selectedQuery = refs.input.value.trim();
     const selectedCountry = refs.select.value;
-  
+    console.log(refs.input.value);
     if (selectedQuery && selectedCountry) {
         fetchApiGet(selectedQuery, selectedCountry, nowPage).then(({ page, _embedded, _links }) => {
             //вынос создания нового объекта для рендера карточки
