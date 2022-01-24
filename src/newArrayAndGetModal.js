@@ -23,9 +23,9 @@ export default function fetchNewEvents(id) {
                     latitude: event._embedded.venues[0].location.latitude,
                     longitude: event._embedded.venues[0].location.longitude,
                 },
-                priceRanges: event.priceRanges,
+                priceRanges: event.priceRanges? event.priceRanges : "More info will be soon",
                 placeName: event._embedded.venues[0].name,
-                cityName: event._embedded.venues[0].city.name,
+                cityName: event._embedded.venues[0].city.name? event._embedded.venues[0].city.name : "More info will be soon",
                 countryName: event._embedded.venues[0].country.name,
                 image: event.images.find(img => {
                     if (document.body.offsetWidth <= 480) {

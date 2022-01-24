@@ -1,9 +1,9 @@
 import axios from 'axios';
-import key from "../config.json"
+import { key } from "../config.json"
 
 export default async function fetchApiById(id) {
   const BASE_URL = 'https://app.ticketmaster.com';
-  const API_KEY = key.key;
+  const API_KEY = key;
 
   try {
     const response = await axios.get(
