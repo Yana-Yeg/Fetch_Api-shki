@@ -6,7 +6,7 @@ import createNewEventAndRenderSmallCard from './createNewEventAndRenderSmallCard
 
 export default function onClickEvent(e) {
       if (e.target.nodeName !== 'A') return;
-      e.preventDefault();
+  e.preventDefault();
       fetchApiUrl(e.target.href).then(({page, _embedded, _links}) => {
       createNewEventAndRenderSmallCard(_embedded);
       generatePagination(_links, page); 
