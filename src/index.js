@@ -15,12 +15,14 @@ import 'animate.css';
 import './skroll-up';
 import './modalFooter';
 import * as goodBad from "./goodBad";
+import { info } from 'sass';
 
 
 document.querySelector('.header__logo-icon').addEventListener('click', e => {
     location.reload()
 })
-
+// console.info("info");
+// console.warn("!!!");
 
 export const refs = {
   form: document.querySelector('.form'),
