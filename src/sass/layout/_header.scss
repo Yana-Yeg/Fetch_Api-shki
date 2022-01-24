@@ -130,3 +130,12 @@
   left: 230px;
   fill: #939393;
 }
+select {
+  appearance: none;
+}
+
+.events__select-label {
+  position: absolute;
+  top: 11px;
+  left: 230px;
+}
