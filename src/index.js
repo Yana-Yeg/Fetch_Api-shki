@@ -24,7 +24,7 @@ document.querySelector('.header__logo-icon').addEventListener('click', e => {
 
 
 export const refs = {
-  form: document.querySelector('form'),
+  form: document.querySelector('.form'),
   select: document.querySelector('.form-select'),
   mainList: document.querySelector('.main__grid-small-cards'),
   pagination: document.querySelector('.pagination'),
@@ -60,7 +60,8 @@ function searchEvents(event) {
     event.preventDefault();
     nowPage = 1;
 
-    const selectedQuery = refs.form.elements.search.value.trim();
+    // const selectedQuery = refs.form.elements.search.value.trim();
+    const selectedQuery = event.target.value.trim();
     const selectedCountry = refs.select.value;
     
     if (selectedQuery && selectedCountry) {

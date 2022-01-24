@@ -2,7 +2,7 @@ import { refs } from '.';
 
 export default function paginationMarkup(totalPage, nowPage,
     {
-        countItemShow = 3,
+        countItemShow = 2,
 
         showStart = false,
         contentStart = '',
