@@ -16,8 +16,6 @@ export const showModal = events => {
     priceRangeCurrency = events.priceRanges[0].currency;
   }
 
-// console.log('test', events)
-    
   const markupOneModal = `<div class="cards__backdrop" data-modal>
     <div class="modal">
         <button class="close-button" data-modal-close>
@@ -27,7 +25,7 @@ export const showModal = events => {
         </button>
         <img id =${events.id} src="${events.image.url}" alt="small-logo" class="modal__small-logo">
         <div class="modal__list-position">
-            <div style= 'background-image: url("${events.image.url}");' class="modal__card-poster"></div>
+            <div style= 'background-image: url("${events.image.url}")' class="modal__card-poster"></div>
             <div class="modal__list-width">
                 <ul>
                     <li class="modal__list-info">
@@ -79,9 +77,7 @@ export const showModal = events => {
 
     refs.more.addEventListener('click', getInfoByAuthor);
     function getInfoByAuthor(e) {
-            e.preventDefault;
-            
-
+        window.open(`https://www.bing.com/search?q=${events.name}`)     
         }
 };
 
