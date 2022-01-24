@@ -30,7 +30,9 @@ export default function createNewEventAndRenderSmallCard(_embedded) {
         }),
     };
   });
+
     const markup = smallCard(newEvent);
+    // console.log(refs.mainList)
   refs.mainList.innerHTML = markup;
   
   

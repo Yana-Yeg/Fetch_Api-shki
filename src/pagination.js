@@ -2,7 +2,7 @@ import { refs } from '.';
 
 export default function paginationMarkup(totalPage, nowPage,
     {
-        countItemShow = 2,
+        countItemShow = 4,
 
         showStart = false,
         contentStart = '',
@@ -19,8 +19,8 @@ export default function paginationMarkup(totalPage, nowPage,
         query = ''
     } = {}) {
         // console.log(totalPage, nowPage, link)
-
-    const genElement = (page = 1, text = page) =>
+       
+         const genElement = (page = 1, text = page) =>
         (link && baseTag === 'a') ?
             `<${baseTag} class="${(page === nowPage ? (baseClass ? classActive : `${baseClass} ${classActive}`) : baseClass)}" href="${link + page}${query ? '&' + query : ''}">${text}</${baseTag}>` :
             `<${baseTag} class="${(page === nowPage ? (baseClass ? classActive : `${baseClass} ${classActive}`) : baseClass)}">${text}</${baseTag}>`;
@@ -29,8 +29,11 @@ export default function paginationMarkup(totalPage, nowPage,
 
     const startShow = nowPage - countItemShow;
     const endShow = nowPage + countItemShow;
-
+    if(totalPage >= 50){
+        totalPage = 49;
+    }
     for (let i = 1; i <= totalPage; i++) {
+       
       if (i > endShow) i = totalPage;
 
       if (startShow === i && i > 1)
@@ -48,6 +51,9 @@ export default function paginationMarkup(totalPage, nowPage,
      markup += showEnd ? genElement(totalPage, contentEnd) : '';
     refs.pagination.innerHTML = markup;
     return
+        
+
+   
     }
 
 
