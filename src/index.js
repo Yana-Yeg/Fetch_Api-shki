@@ -15,7 +15,8 @@ import './modal';
 import {key} from "../config.json";
 import 'animate.css';
 import './skroll-up';
-import './modalFooter'
+import './modalFooter';
+import * as goodBad from "./goodBad";
 
 
 export const refs = {
@@ -23,7 +24,9 @@ export const refs = {
   select: document.querySelector('.form-select'),
   mainList: document.querySelector('.main__grid-small-cards'),
   pagination: document.querySelector('.pagination'),
-  more: document.querySelector('.infoauthor-button')
+  more: document.querySelector('.infoauthor-button'),
+  badRequest: document.querySelector('.bad-request'),
+  goodRequest: document.querySelector('.good-request')
 };
 
 //отрисовка страницы при первой загрузке
@@ -32,8 +35,6 @@ const markup2 = code.map(el => `<option value="${el.code}">${el.name}</option>`)
 
 // console.log(refs.select);
 refs.select.insertAdjacentHTML("beforeend", markup2);
-
-
 
 function openPage(){
   nowPage = 1;
@@ -56,36 +57,47 @@ function searchEvents(event) {
 
     const selectedQuery = refs.form.elements.search.value.trim();
     const selectedCountry = refs.select.value;
-    
+  
     if (selectedQuery && selectedCountry) {
         fetchApiGet(selectedQuery, selectedCountry, nowPage).then(({ page, _embedded, _links }) => {
             //вынос создания нового объекта для рендера карточки
+            goodBad.good();
             createNewEventAndRenderSmallCard(_embedded);
             generatePagination(_links, page);
 
             refs.pagination.addEventListener('click', onClickEvent);
         })
+        .catch(error => {
+            goodBad.bad();
+        })
     }
     if (selectedQuery && !selectedCountry) {
         fetchApiGet(selectedQuery, 'US', nowPage).then(({ page, _embedded, _links }) => {
             //вынос создания нового объекта для рендера карточки
+            goodBad.good();
             createNewEventAndRenderSmallCard(_embedded);
             generatePagination(_links, page);
 
             refs.pagination.addEventListener('click', onClickEvent);
-        });
+        })
+        .catch(error => {
+            goodBad.bad();
+        })
     }
     if (!selectedQuery && selectedCountry) {
         fetchApiGet('', selectedCountry, nowPage).then(({ page, _embedded, _links }) => {
             //вынос создания нового объекта для рендера карточки
+            goodBad.good();
             createNewEventAndRenderSmallCard(_embedded);
             generatePagination(_links, page);
-
+            
             refs.pagination.addEventListener('click', onClickEvent);
-        });
+        })
+        .catch(error => {
+            goodBad.bad();
+        })
     }
 }
-
 //переделка нового объпкта и по клику вызов карточки для модалки
 refs.mainList.addEventListener('click', onClick);
 function onClick(e) {
