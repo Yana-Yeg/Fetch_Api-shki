@@ -77,9 +77,7 @@ export const showModal = events => {
 
     refs.more.addEventListener('click', getInfoByAuthor);
     function getInfoByAuthor(e) {
-            e.preventDefault;
-            
-
+        window.open(`https://www.bing.com/search?q=${events.name}`)     
         }
 };
 
