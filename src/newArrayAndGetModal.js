@@ -42,12 +42,13 @@ export default function fetchNewEvents(id) {
         });
           showModal(...newEvents);
         refs.closeModalBtn.addEventListener('click', e => {
-        refs.backdrop.classList.toggle('is-hidden');
+            refs.backdrop.classList.add('is-hidden');
+    
         });
+        refs.backdrop.addEventListener('click', e => {
+            if (e.target.dataset.modal === '') refs.backdrop.classList.add('is-hidden')
+        })
 
-        // const markup = card(newEvents);
-        // refs.mainList.innerHTML = markup;
-        
         
 })
 
