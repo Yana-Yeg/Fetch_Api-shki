@@ -131,6 +131,8 @@
       height: auto;
       width: 360px;
       margin-left: 30px;
+      background-size: cover;
+      background-position: center;
     }
   }
 
@@ -319,4 +321,7 @@
     border-radius: 10px;
     background-color: hidden;
   }
+}
+.modal__card-poster {
+  object-fit: cover;
 }
