@@ -5,17 +5,29 @@ import sprite from './images/sprite.svg';
 
 
 export const showModal = events => {
-  let priceRange = '';
-  let priceRangeMin = '';
-  let priceRangeMax = '';
-  let priceRangeCurrency = '';
-    if (events.priceRanges) {
-    priceRange = events.priceRanges[0].type;
-    priceRangeMin = events.priceRanges[0].min;
-    priceRangeMax = events.priceRanges[0].max;
-    priceRangeCurrency = events.priceRanges[0].currency;
-  }
-
+//   let priceRange = '';
+//   let priceRangeMin = '';
+//   let priceRangeMax = '';
+//   let priceRangeCurrency = '';
+//     if (events.priceRanges) {
+//     priceRange = events.priceRanges[0].type;
+//     priceRangeMin = events.priceRanges[0].min;
+//     priceRangeMax = events.priceRanges[0].max;
+//     priceRangeCurrency = events.priceRanges[0].currency;
+//     }
+let timezone = '';
+if (events.timezone) {
+    timezone = `${events.timezone}`.split('/')[1] + '/' + `${events.timezone}`.split('/')[0];
+}
+    let priceRangeType = "";
+    if (events.priceRangeType) {
+        priceRangeType = `${events.priceRangeType}`.replace('s', 'S')
+    }
+    // const time = `${events.localTime}`.slice(0, 5);
+    // const standartPrice = `${priceRange}`.replace('s', 'S');
+    
+    // const timeZoneForModal = `${events.timezone}`.split('/')[1] + '/' + `${events.timezone}`.split('/')[0];
+    console.log(timezone);
 // console.log('test', events)
     
   const markupOneModal = `<div class="cards__backdrop" data-modal>
@@ -36,7 +48,7 @@ export const showModal = events => {
                     </li>
                     <li class="modal__list-info">
                         <h3 class="modal__item-title">WHEN</h3>
-                        <p class="modal__item-text" id = ${events.id}>${events.localDate} <br>${events.localTime} ${events.timezone}</p>
+                        <p class="modal__item-text" id = ${events.id}>${events.localDate} <br>${events.localTime} ${timezone}</p>
                     </li>
                     <li class="modal__list-info">
                         <h3 class="modal__item-title">WHERE</h3>
@@ -58,7 +70,7 @@ export const showModal = events => {
                                             <use href="${symbolDevs}#icon-ticket1"></use>
                                         </svg>
                                     </span>
-                                    ${priceRange} ${priceRangeMin} - ${priceRangeMax}  ${priceRangeCurrency}
+                                    ${priceRangeType} ${events.priceRangeMin} - ${events.priceRangeMax}  ${events.priceRangeCurrency}
                                 </p>
                                 <a href="${events.url}" target="_blank" class="modal__list-btn">BUY TICKETS</a>
                             </li>
