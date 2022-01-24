@@ -6,7 +6,6 @@ export default function fetchNewEvents(id) {
     fetchApiById(id).then(data => {
         const newEvents = data.map(event => {
             // events.classifications[0].segment.name
-            // console.log('eve', event)
             return {
                 id: event.id,
                 url: event.url,
@@ -48,7 +47,7 @@ export default function fetchNewEvents(id) {
                 }),
             };
         });
-          showModal(...newEvents);
+        showModal(...newEvents);
         refs.closeModalBtn.addEventListener('click', e => {
             refs.backdrop.classList.add('is-hidden');
     
@@ -56,11 +55,6 @@ export default function fetchNewEvents(id) {
         refs.backdrop.addEventListener('click', e => {
             if (e.target.dataset.modal === '') refs.backdrop.classList.add('is-hidden')
         })
-
-        
-})
-
-
-
+        })
 }
     

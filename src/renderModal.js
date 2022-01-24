@@ -5,6 +5,7 @@ import sprite from './images/sprite.svg';
 
 
 export const showModal = events => {
+
 //   let priceRange = '';
 //   let priceRangeMin = '';
 //   let priceRangeMax = '';
@@ -29,7 +30,7 @@ if (events.timezone) {
     // const timeZoneForModal = `${events.timezone}`.split('/')[1] + '/' + `${events.timezone}`.split('/')[0];
     console.log(timezone);
 // console.log('test', events)
-    
+
   const markupOneModal = `<div class="cards__backdrop" data-modal>
     <div class="modal">
         <button class="close-button" data-modal-close>
@@ -39,7 +40,7 @@ if (events.timezone) {
         </button>
         <img id =${events.id} src="${events.image.url}" alt="small-logo" class="modal__small-logo">
         <div class="modal__list-position">
-            <div style= 'background-image: url("${events.image.url}");' class="modal__card-poster"></div>
+            <div style= 'background-image: url("${events.image.url}")' class="modal__card-poster"></div>
             <div class="modal__list-width">
                 <ul>
                     <li class="modal__list-info">
@@ -91,9 +92,7 @@ if (events.timezone) {
 
     refs.more.addEventListener('click', getInfoByAuthor);
     function getInfoByAuthor(e) {
-            e.preventDefault;
-            
-
+        window.open(`https://www.bing.com/search?q=${events.name}`)     
         }
 };
 
