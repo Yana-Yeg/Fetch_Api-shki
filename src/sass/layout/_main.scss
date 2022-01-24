@@ -1,23 +1,34 @@
 .main {
+  padding-bottom: 60px;
   background-color: #0e0e0e;
   @media screen and (min-width: 768px) {
+    padding-bottom: 0;
     background-image: url(./../images/png/tab/noise-body-tab.png),
-      url(./../images/png/tab/vertical-lines-tab.png), url(./../images/png/tab/Ellipse-5-tab.png),
-      url(./../images/png/tab/Ellipse-9-tab.png), url(./../images/png/tab/Ellipse-6-tab.png),
-      url(./../images/png/tab/Ellipse-7-tab.png), url(./../images/png/tab/Ellipse-8-tab.png),
-      url(./../images/png/tab/Ellipse12-tab.png), url(./../images/png/tab/Ellipse-18-tab.png);
-    background-position: center, top -200px left 87px, top 268px left 15px, top 293px left 38px,
-      top 1100px left 30px, top 550px right 30px, top 1325px right 20px, top 1350px right 40px,
-      top 2300px right 30px;
+      url(./../images/png/tab/vertical-line-left-tab.png),
+      url(./../images/png/tab/Ellipse-3-tab.png), url(./../images/png/tab/Ellipse-9-tab.png),
+      url(./../images/png/tab/Ellipse-6-tab.png), url(./../images/png/tab/Ellipse-7-tab.png),
+      url(./../images/png/tab/Ellipse-8-tab.png), url(./../images/png/tab/Ellipse12-tab.png),
+      url(./../images/png/tab/Ellipse-18-tab.png),
+      url(./../images/png/tab/vertical-line-small-tab.png),
+      url(./../images/png/tab/vertical-line-right-tab.png),
+      url(./../images/png/tab/vertical-line-small-tab.png);
+    background-position: center, top -182px left 85px, top 288px left 15px, top 312px left 38px,
+      top 1400px left 30px, top 510px right 30px, top 1346px right 25px, top 1370px right 48px,
+      top 2420px right 30px, bottom -80px left 85px, top -180px right 85px,
+      bottom -80px right -510px;
     background-repeat: no-repeat;
   }
   @media screen and (min-width: 1280px) {
     background-image: url(./../images/noise_body.png), url(./../images/png/Ellipse5.png),
       url(./../images/png/Ellipse2.png), url(./../images/png/Ellipse6.png),
       url(./../images/png/Ellipse4.png), url(./../images/png/Ellipse7.png),
-      url(./../images/png/Ellipse8.png), url(./../images/png/Ellipse9.png);
+      url(./../images/png/Ellipse8.png), url(./../images/png/Ellipse9.png),
+      url(./../images/png/vertical-line-left.png), url(./../images/png/vertical-line-rigth.png),
+      url(./../images/png/vertical-line-small.png), url(./../images/png/vertical-line-small.png);
     background-position: center, top 370px left 10px, top 410px left 50px, top 900px left 40px,
-      top 100px right 40px, top 780px right 10px, top 820px right 50px, top 1400px right 40px;
+      top 100px right 40px, top 780px right 10px, top 820px right 50px, top 1400px right 40px,
+      top -320px left 20px, top -430px right 220px, bottom -60px left 20px,
+      bottom -60px right -830px;
     background-repeat: no-repeat;
     position: relative;
   }
@@ -25,14 +36,26 @@
 }
 
 .smallCard {
-  width: 140px;
+  width: 135px;
   min-height: 240px;
   z-index: 10;
   position: relative;
-  @media screen and (min-width: 768px) {
-    width: 195px;
+
+  border-radius: 50px 0px;
+  box-shadow: 0px 0px 20px rgba(220, 86, 197, 0.3), inset 0px 0px 2px rgba(220, 86, 197, 0.3);
+  //   box-shadow: 0px 0px 20px #f80bfd, inset 0px 0px 2px #f80bfd;
+  @media screen and(min-width: 480px) {
+    width: 180px;
     min-height: 310px;
   }
+  @media screen and (min-width: 768px) {
+    width: 190px;
+    min-height: 310px;
+  }
+}
+.smallCard:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 20px #f80bfd, inset 0px 0px 2px #f80bfd;
 }
 .smallCard::after {
   content: '';
@@ -45,20 +68,25 @@
   right: 0;
   border: 1px solid rgba(220, 86, 197, 0.3);
   pointer-events: none;
+
   @media screen and (min-width: 768px) {
     width: 155px;
     height: 145px;
   }
 }
 .smallCard-small {
-  width: 130px;
+  width: 125px;
   height: 160px;
   border-radius: 50px 0px;
   margin-top: 10px;
   margin-right: 10px;
   object-fit: cover;
+  @media screen and(min-width: 480px) {
+    width: 165px;
+    height: 200px;
+  }
   @media screen and (min-width: 768px) {
-    width: 180px;
+    width: 175px;
     height: 230px;
     margin-top: 15px;
     margin-right: 15px;
@@ -124,9 +152,14 @@
   gap: 30px 5px;
   position: relative;
   //   top: -55px;
+  @media screen and(min-width: 480px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 45px 30px;
+  }
   @media screen and (min-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
-    gap: 45px 15px;
+    gap: 45px 12px;
+    top: 10px;
   }
   @media screen and (min-width: 1280px) {
     grid-template-columns: repeat(4, 1fr);

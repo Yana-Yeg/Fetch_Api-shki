@@ -5,19 +5,28 @@ import sprite from './images/sprite.svg';
 
 
 export const showModal = events => {
-  let priceRange = '';
-  let priceRangeMin = '';
-  let priceRangeMax = '';
-  let priceRangeCurrency = '';
-    if (events.priceRanges) {
-    priceRange = events.priceRanges[0].type;
-    priceRangeMin = events.priceRanges[0].min;
-    priceRangeMax = events.priceRanges[0].max;
-    priceRangeCurrency = events.priceRanges[0].currency;
-  }
+
+//   let priceRange = '';
+//   let priceRangeMin = '';
+//   let priceRangeMax = '';
+//   let priceRangeCurrency = '';
+//     if (events.priceRanges) {
+//     priceRange = events.priceRanges[0].type;
+//     priceRangeMin = events.priceRanges[0].min;
+//     priceRangeMax = events.priceRanges[0].max;
+//     priceRangeCurrency = events.priceRanges[0].currency;
+//     }
+    let timezone = '';
+    if (events.timezone) {
+        timezone = `${events.timezone}`.split('/')[1] + '/' + `${events.timezone}`.split('/')[0];
+    }
+    let priceRangeType = "";
+    if (events.priceRangeType) {
+        priceRangeType = `${events.priceRangeType}`.replace('s', 'S')
+    }
 
 // console.log('test', events)
-    
+
   const markupOneModal = `<div class="cards__backdrop" data-modal>
     <div class="modal">
         <button class="close-button" data-modal-close>
@@ -27,7 +36,7 @@ export const showModal = events => {
         </button>
         <img id =${events.id} src="${events.image.url}" alt="small-logo" class="modal__small-logo">
         <div class="modal__list-position">
-            <div style= 'background-image: url("${events.image.url}");' class="modal__card-poster"></div>
+            <div style= 'background-image: url("${events.image.url}")' class="modal__card-poster"></div>
             <div class="modal__list-width">
                 <ul>
                     <li class="modal__list-info">
@@ -36,7 +45,7 @@ export const showModal = events => {
                     </li>
                     <li class="modal__list-info">
                         <h3 class="modal__item-title">WHEN</h3>
-                        <p class="modal__item-text" id = ${events.id}>${events.localDate} <br>${events.localTime} ${events.timezone}</p>
+                        <p class="modal__item-text" id = ${events.id}>${events.localDate} <br>${events.localTime} ${timezone}</p>
                     </li>
                     <li class="modal__list-info">
                         <h3 class="modal__item-title">WHERE</h3>
@@ -58,7 +67,7 @@ export const showModal = events => {
                                             <use href="${symbolDevs}#icon-ticket1"></use>
                                         </svg>
                                     </span>
-                                    ${priceRange} ${priceRangeMin} - ${priceRangeMax}  ${priceRangeCurrency}
+                                    ${priceRangeType} ${events.priceRangeMin} - ${events.priceRangeMax}  ${events.priceRangeCurrency}
                                 </p>
                                 <a href="${events.url}" target="_blank" class="modal__list-btn">BUY TICKETS</a>
                             </li>
@@ -79,9 +88,7 @@ export const showModal = events => {
 
     refs.more.addEventListener('click', getInfoByAuthor);
     function getInfoByAuthor(e) {
-            e.preventDefault;
-            
-
+        window.open(`https://www.google.com/search?q=${events.name}`)     
         }
 };
 

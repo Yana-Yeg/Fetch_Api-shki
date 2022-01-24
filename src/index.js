@@ -19,6 +19,11 @@ import './modalFooter';
 import * as goodBad from "./goodBad";
 
 
+document.querySelector('.header__logo-icon').addEventListener('click', e => {
+    location.reload()
+})
+
+
 export const refs = {
   form: document.querySelector('form'),
   select: document.querySelector('.form-select'),
@@ -28,6 +33,7 @@ export const refs = {
   badRequest: document.querySelector('.bad-request'),
   goodRequest: document.querySelector('.good-request')
 };
+
 
 //отрисовка страницы при первой загрузке
 let nowPage;
