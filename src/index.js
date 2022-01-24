@@ -3,7 +3,6 @@ import fetchApiGet from './fetchApiGet';
 import fetchApiById from './fetchApiById';
 import fetchApiUrl from './fetchApiUrl';
 import fetchNewEvents from './newArrayAndGetModal';
-import fetchApiByGroupId from './fetchApiByGroupId';
 import card from './templates/card.hbs';
 import smallCard from './templates/smallCard.hbs';
 import code from './countries.json';
@@ -50,7 +49,7 @@ function openPage(){
     // отрисовка нумерации страниц
     generatePagination(_links, page);
 
-    document.addEventListener('click', onClickEvent);
+    refs.pagination.addEventListener('click', onClickEvent);
 });
 }
 openPage();
@@ -70,7 +69,7 @@ function searchEvents(event) {
             createNewEventAndRenderSmallCard(_embedded);
             generatePagination(_links, page);
 
-            document.addEventListener('click', onClickEvent);
+            refs.pagination.addEventListener('click', onClickEvent);
         })
     }
     if (selectedQuery && !selectedCountry) {
@@ -79,7 +78,7 @@ function searchEvents(event) {
             createNewEventAndRenderSmallCard(_embedded);
             generatePagination(_links, page);
 
-            document.addEventListener('click', onClickEvent);
+            refs.pagination.addEventListener('click', onClickEvent);
         });
     }
     if (!selectedQuery && selectedCountry) {
@@ -88,7 +87,7 @@ function searchEvents(event) {
             createNewEventAndRenderSmallCard(_embedded);
             generatePagination(_links, page);
 
-            document.addEventListener('click', onClickEvent);
+            refs.pagination.addEventListener('click', onClickEvent);
         });
     }
 }
