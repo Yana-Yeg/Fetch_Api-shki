@@ -16,19 +16,15 @@ export const showModal = events => {
 //     priceRangeMax = events.priceRanges[0].max;
 //     priceRangeCurrency = events.priceRanges[0].currency;
 //     }
-let timezone = '';
-if (events.timezone) {
-    timezone = `${events.timezone}`.split('/')[1] + '/' + `${events.timezone}`.split('/')[0];
-}
+    let timezone = '';
+    if (events.timezone) {
+        timezone = `${events.timezone}`.split('/')[1] + '/' + `${events.timezone}`.split('/')[0];
+    }
     let priceRangeType = "";
     if (events.priceRangeType) {
         priceRangeType = `${events.priceRangeType}`.replace('s', 'S')
     }
-    // const time = `${events.localTime}`.slice(0, 5);
-    // const standartPrice = `${priceRange}`.replace('s', 'S');
-    
-    // const timeZoneForModal = `${events.timezone}`.split('/')[1] + '/' + `${events.timezone}`.split('/')[0];
-    console.log(timezone);
+
 // console.log('test', events)
 
   const markupOneModal = `<div class="cards__backdrop" data-modal>
@@ -92,7 +88,7 @@ if (events.timezone) {
 
     refs.more.addEventListener('click', getInfoByAuthor);
     function getInfoByAuthor(e) {
-        window.open(`https://www.bing.com/search?q=${events.name}`)     
+        window.open(`https://www.google.com/search?q=${events.name}`)     
         }
 };
 
