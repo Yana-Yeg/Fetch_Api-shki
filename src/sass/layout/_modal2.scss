@@ -84,7 +84,7 @@
       height: 132px;
       width: 132px;
       margin-bottom: 41px;
-      margin-top: 62px;
+      margin-top: 42px;
     }
   }
 
@@ -94,6 +94,7 @@
     }
     @media screen and (min-width: 1200px) {
       display: flex;
+      height: 540px;
     }
   }
 
@@ -140,13 +141,15 @@
     }
     @media screen and (min-width: 768px) {
       margin-bottom: 10px;
-      text-align:start;
+      text-align: start;
     }
     @media screen and (min-width: 1200px) {
       margin-bottom: 20px;
     }
   }
-
+  &__list-info:last-child {
+    margin-bottom: 0px;
+  }
   &__item-title {
     color: #dc56c5;
     font-weight: 600;
@@ -167,6 +170,7 @@
   }
 
   &__item-text {
+    height: 100%;
     color: #0e0e0e;
     font-weight: 400;
 
@@ -185,7 +189,6 @@
       font-size: 18px;
       line-height: 1.222;
     }
-
   }
 
   &__price-text {
@@ -281,7 +284,7 @@
   @media screen and (min-width: 1200px) {
     width: 255px;
     margin-bottom: 62px;
-    margin-top: 45px;
+    margin-top: 10px;
   }
 }
 
@@ -298,23 +301,22 @@
 //   background-position: center center;
 // }
 
-
 .scroll {
-        height: 60px;
-        position: relative;
-        overflow: scroll;
-        overflow-x: hidden;
-          &::-webkit-scrollbar {
-              width: 10px;
-          }
+  height: 60px;
+  position: relative;
+  overflow: scroll;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
 
-          &::-webkit-scrollbar-thumb {
-              border-radius: 10px;
-              background-color: var(--products-white-text);
-          }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: var(--products-white-text);
+  }
 
-          &::-webkit-scrollbar-track {
-              border-radius: 10px;
-              background-color: hidden;
-          }
-    }
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: hidden;
+  }
+}

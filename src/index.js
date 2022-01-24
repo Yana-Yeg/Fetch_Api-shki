@@ -19,6 +19,11 @@ import './skroll-up';
 import './modalFooter'
 
 
+document.querySelector('.header__logo-icon').addEventListener('click', e => {
+    location.reload()
+})
+
+
 export const refs = {
   form: document.querySelector('form'),
   select: document.querySelector('.form-select'),
@@ -26,6 +31,7 @@ export const refs = {
   pagination: document.querySelector('.pagination'),
   more: document.querySelector('.infoauthor-button')
 };
+
 
 //отрисовка страницы при первой загрузке
 let nowPage;

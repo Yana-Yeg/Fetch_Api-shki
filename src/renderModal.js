@@ -16,8 +16,6 @@ export const showModal = events => {
     priceRangeCurrency = events.priceRanges[0].currency;
   }
 
-// console.log('test', events)
-    
   const markupOneModal = `<div class="cards__backdrop" data-modal>
     <div class="modal">
         <button class="close-button" data-modal-close>
@@ -77,12 +75,10 @@ export const showModal = events => {
     refs.more = document.querySelector('.infoauthor-button');
 
 
-    refs.more.addEventListener('click', getInfoByAuthor);
-    function getInfoByAuthor(e) {
-            e.preventDefault;
-            console.log(e.target.dataset.id);
-            const groupId = e.target.dataset.id;
-            fetchApiByGroupId(groupId);
-        }
+    refs.more.addEventListener('click', e => {
+        
+        window.open(`https://www.bing.com/search?q=${events.name}`)
+    });
+    
 };
 
