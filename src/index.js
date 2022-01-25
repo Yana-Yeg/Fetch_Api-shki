@@ -15,14 +15,18 @@ import 'animate.css';
 import './skroll-up';
 import './modalFooter';
 import * as goodBad from "./goodBad";
-import { info } from 'sass';
+
+
+
+console.info("This is an info message");
+console.warn("warn");
+console.error('This is an Error Message');
 
 
 document.querySelector('.header__logo-icon').addEventListener('click', e => {
     location.reload()
 })
-// console.info("info");
-// console.warn("!!!");
+
 
 export const refs = {
   form: document.querySelector('.form'),
