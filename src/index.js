@@ -21,7 +21,6 @@ document.querySelector('.header__logo-icon').addEventListener('click', e => {
     location.reload()
 })
 
-
 export const refs = {
   form: document.querySelector('.form'),
   input: document.querySelector('input.form-element'),
@@ -32,6 +31,7 @@ export const refs = {
   badRequest: document.querySelector('.bad-request'),
   goodRequest: document.querySelector('.good-request')
 };
+
 
 
 //отрисовка страницы при первой загрузке
