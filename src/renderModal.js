@@ -29,7 +29,7 @@ export const showModal = events => {
                 <ul>
                     <li class="modal__list-info">
                         <h3 class="modal__item-title">INFO</h3>
-                        <p class="modal__item-text scroll" id = ${events.id}>${events.info}</p>
+                        <div class="scrolling-text"><p class="modal__item-text-moving scroll" id = ${events.id}>${events.info}</p></div>
                     </li>
                     <li class="modal__list-info">
                         <h3 class="modal__item-title">WHEN</h3>
@@ -68,7 +68,7 @@ export const showModal = events => {
     </div>`;
 
 
-    
+
     document.querySelector('#modalNode').innerHTML = markupOneModal;
     refs.closeModalBtn = document.querySelector('.close-button');
     refs.modal = document.querySelector('.modal');
@@ -78,7 +78,7 @@ export const showModal = events => {
 
     refs.more.addEventListener('click', getInfoByAuthor);
     function getInfoByAuthor(e) {
-        window.open(`https://www.google.com/search?q=${events.name}`)     
+        window.open(`https://www.google.com/search?q=${events.name}`)
     }
     console.log(document.querySelector(".modal__list-info").height)
 };
