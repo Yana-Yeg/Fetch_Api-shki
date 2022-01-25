@@ -17,12 +17,6 @@ import './modalFooter';
 import * as goodBad from "./goodBad";
 
 
-
-console.info("This is an info message");
-console.warn("warn");
-console.error('This is an Error Message');
-
-
 document.querySelector('.header__logo-icon').addEventListener('click', e => {
     location.reload()
 })
@@ -67,8 +61,6 @@ function searchEvents(event) {
     nowPage = 1;
 
     // const selectedQuery = refs.form.elements.search.value.trim();
-    console.log(refs.input.value);
-    console.log(refs.select.value);
     const selectedQuery = refs.input.value.trim();
     const selectedCountry = refs.select.value;
     console.log(refs.input.value);
@@ -121,8 +113,6 @@ function onClick(e) {
     const id = e.target.dataset.id;
     fetchNewEvents(id);
 }
-
-console.log()
 
 // refs.more.addEventListener('click', getInfoByAuthor);
 //         function getInfoByAuthor(e) {
