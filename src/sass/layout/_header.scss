@@ -124,7 +124,58 @@
 .form__input,
 .form__select {
   position: relative;
+  z-index: 99;
+  height: 30px !important;
+  width: 270px !important;
+
+    font-family: "Montserrat", sans-serif !important;
+    font-size: 16px !important;
+    letter-spacing: 0.0;
 }
+.choices[data-type*=select-one] {
+  border: none !important;
+  border-radius: 20px !important;
+  height: 40px !important;
+  color: white !important;
+}
+.choices__list--dropdown {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(80px) !important;
+    border: 0px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 0 0 25px 25px !important;
+}
+.choices[data-type*=select-one] .choices__inner {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(80px) !important;
+    border: none !important;
+    border-radius: 15px 15px 0 0 !important;
+}
+.choices[data-type*=select-one] .choices__input {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(80px) !important;
+    color: white !important;
+}
+.choices[data-type*=select-one]::after {
+  border-color: #fff transparent transparent !important;
+  border-width: 7px !important;
+}
+.choices__item:hover {
+  color: var(--headers-nameEvent-hoverPages-hoverLocation-color);
+  font-weight: 700;
+}
+option {
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 20px !important;
+}
+.choices__placeholder {
+    opacity: 1 !important;
+}
+.choices__list--single {
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 16px !important;
+  letter-spacing: 0.0 !important;
+}
+
 .search-icon {
   width: 20px;
   height: 20px;
