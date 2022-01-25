@@ -1,0 +1,31 @@
+.pagination {
+  text-align: center;
+  //   padding: 20px;
+  margin-top: 60px;
+  @media screen and (min-width: 1280px) {
+    margin-top: 80px;
+  }
+
+  a,
+  span {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: Montserrat;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.2;
+    text-align: center;
+    color: #ffffff;
+  }
+}
+.activePage {
+  border: 1px solid #dc56c5;
+  padding: 5px 12px;
+  border-radius: 10px 0px;
+  cursor: pointer;
+  border-radius: 10px 0px;
+  color: #fff;
+  background-color: transparent;
+  box-shadow: 0px 4px 20px, 0 0 2px, 0 0 1em rgb(255, 13, 191), 0 0 0.2em rgb(255, 13, 191),
+    0 0 0.1em rgb(255, 13, 191), 0 1px 3px #000;
+}

@@ -1,0 +1,399 @@
+.cards__backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: radial-gradient(
+    ellipse at center,
+    rgba(32, 13, 29, 1) 30%,
+    rgba(32, 13, 29, 0) 80%,
+    rgba(32, 13, 29, 0) 100%
+  );
+  z-index: 100;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  animation: 800ms fadeIn;
+  @keyframes fadeIn {
+    0% {
+      transform: scale(0, 0);
+      transition: transform 2000ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+}
+
+.cards__backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  animation: 800ms fadeOut;
+  transform: translateX(-100%);
+  transition: opacity 250ms linear, visibility 500ms linear, transform 500ms linear;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff2fd;
+
+  @media screen and (min-width: 320px) {
+    width: 275px;
+    border-bottom-right-radius: 150px;
+    border-top-left-radius: 150px;
+  }
+  @media screen and (min-width: 480px) {
+    width: 400px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 595px;
+    border-bottom-right-radius: 300px;
+    border-top-left-radius: 300px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 800px;
+    border-bottom-right-radius: 250px;
+    border-top-left-radius: 250px;
+  }
+
+  &__small-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 100%;
+    object-fit: cover;
+
+    @media screen and (min-width: 320px) {
+      height: 102px;
+      width: 102px;
+      margin-bottom: 18px;
+      margin-top: 75px;
+    }
+    @media screen and (min-width: 768px) {
+      height: 70px;
+      width: 70px;
+      margin-bottom: 43px;
+      margin-top: 28px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      height: 132px;
+      width: 132px;
+      margin-bottom: 37px;
+      margin-top: 37px;
+    }
+  }
+
+  &__list-position {
+    @media screen and (min-width: 768px) {
+      display: flex;
+    }
+    @media screen and (min-width: 1280px) {
+      display: flex;
+      height: auto;
+      justify-content: space-around;
+    }
+  }
+
+  &__list-width {
+    @media screen and (max-width: 320px) {
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 20px;
+    }
+    @media screen and (max-width: 480px) {
+      // padding: 0 20px;
+    }
+    @media screen and (min-width: 768px) {
+      width: 265px;
+      margin-left: 30px;
+    }
+    @media screen and (min-width: 1280px) {
+      width: 380px;
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+  }
+
+  &__card-poster {
+    @media screen and (min-width: 320px) {
+      width: 0px;
+      height: 0px;
+    }
+    @media screen and (min-width: 768px) {
+      height: auto;
+      width: 233px;
+      margin-left: 50px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      border-radius: 60px 0;
+    }
+    @media screen and (min-width: 1280px) {
+      height: auto;
+      width: 330px;
+      margin-left: 0px;
+    }
+  }
+
+  &__list-info {
+    @media screen and (min-width: 320px) {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    @media screen and (min-width: 768px) {
+      margin-bottom: 10px;
+      text-align: start;
+    }
+    @media screen and (min-width: 1280px) {
+      // margin-bottom: 20px;
+    }
+  }
+  &__list-info:last-child {
+    margin-bottom: 0px;
+  }
+  &__item-title {
+    color: #dc56c5;
+    font-weight: 600;
+    @media screen and (min-width: 320px) {
+      text-align: center;
+      font-size: 20px;
+      line-height: 1.2;
+    }
+    @media screen and (min-width: 768px) {
+      text-align: justify;
+      font-size: 20px;
+      line-height: 1.2;
+    }
+    @media screen and (min-width: 1280px) {
+      font-size: 24px;
+      line-height: 1.21;
+    }
+  }
+
+  &__item-text {
+    height: 100%;
+    color: #0e0e0e;
+    font-weight: 400;
+
+    @media screen and (min-width: 320px) {
+      text-align: center;
+      font-size: 16px;
+      line-height: 1.25;
+    }
+    @media screen and (min-width: 480px) {
+      text-align: center;
+      font-size: 16px;
+      line-height: 1.25;
+    }
+    @media screen and (min-width: 768px) {
+      text-align: justify;
+      font-size: 16px;
+      line-height: 1.25;
+    }
+    @media screen and (min-width: 1280px) {
+      // margin-top: 7px;
+      font-size: 17px;
+      line-height: 1.222;
+    }
+  }
+
+  &__price-text {
+    @media screen and (min-width: 320px) {
+      margin-top: 7px;
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 16px;
+      line-height: 1.25;
+    }
+    @media screen and (min-width: 768px) {
+      margin-top: 10px;
+      text-align: justify;
+      margin-bottom: 10px;
+      font-size: 16px;
+      line-height: 1.25;
+    }
+    @media screen and (min-width: 1280px) {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      font-size: 18px;
+      line-height: 1.22;
+    }
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+.modal__icon-code {
+  margin-bottom: -4px;
+}
+.close-button {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 25px;
+  height: 25px;
+  color: #4c00fe;
+  background-color: #fff2fd;
+  border: none;
+  cursor: pointer;
+}
+.modal__list-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: #ffffff;
+  background-color: #4c00fe;
+  border-radius: 5px;
+  width: 145px;
+  height: 40px;
+  @media screen and (max-width: 767px) {
+    // display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+  @media screen and (min-width: 768px) {
+    margin-left: 0;
+    // margin-bottom: 20px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 0px;
+  }
+}
+
+.infoauthor-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 40px;
+  color: #4c00fe;
+  background-color: #fff2fd;
+  font-size: 16px;
+  line-height: 1.25;
+  border: 1px solid #4c00fe;
+  border-radius: 5px;
+  cursor: pointer;
+  @media screen and (min-width: 320px) {
+    width: 230px;
+    margin-bottom: 75px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 255px;
+    margin-bottom: 56px;
+    margin-top: 20px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 255px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+}
+
+// .preloader {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   background-color: rgba(0, 0, 0, 0.5);
+//   background-image: url('.././images/preload.gif');
+//   z-index: 10000;
+//   width: 100%;
+//   background-repeat: no-repeat;
+//   height: 100%;
+//   background-position: center center;
+// }
+
+// .scroll {
+//   height: 60px;
+//   position: relative;
+//   overflow: scroll;
+//   overflow-x: hidden;
+//   &::-webkit-scrollbar {
+//     width: 10px;
+//   }
+
+//   &::-webkit-scrollbar-thumb {
+//     border-radius: 10px;
+//     background-color: var(--products-white-text);
+//   }
+
+//   &::-webkit-scrollbar-track {
+//     border-radius: 10px;
+//     background-color: hidden;
+//   }
+// }
+.modal__card-poster {
+  object-fit: cover;
+}
+.scrolling-text {
+  height: 80px;
+  margin-top: 7px;
+  overflow: hidden;
+  width: 255px;
+  margin-right: 0;
+  @media screen and (min-width: 480px) {
+    width: 380px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 250px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 380px;
+  }
+}
+.modal__item-text-moving {
+  display: inline-block;
+  // width: 200px;
+  /* white-space: nowrap; */
+  animation: floatText 15s infinite linear;
+  padding-top: 25%;
+  color: #0e0e0e;
+  font-weight: 400;
+  width: 255px;
+  margin-right: 0;
+  margin-left: 10px;
+  font-family: Montserrat;
+  font-size: 16px;
+  line-height: 1.2;
+  @media screen and (min-width: 480px) {
+    text-align: center;
+    width: 350px;
+    padding-top: 26%;
+    margin-right: 0;
+  }
+  @media screen and (min-width: 768px) {
+    text-align: justify;
+    font-size: 16px;
+    line-height: 1.25;
+    width: 250px;
+    padding-top: 30%;
+    margin-left: 0;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-top: 7px;
+    font-size: 18px;
+    line-height: 1.222;
+    padding-top: 17%;
+    width: 360px;
+  }
+}
+.modal__item-text-moving:hover {
+  animation-play-state: paused;
+}
+
+@keyframes floatText {
+  to {
+    transform: translateY(-100%);
+  }
+}

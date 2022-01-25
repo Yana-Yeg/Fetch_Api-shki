@@ -1,0 +1,371 @@
+.header {
+  padding-top: 78px;
+  padding-bottom: 10px;
+  background-image: url(../images/bg_img_mobile.jpg);
+  @media screen and (min-width: 768px) {
+    padding-top: 40px;
+    padding-bottom: 81px;
+    background-image: url(../images/bg_img_tablet.jpg);
+  }
+
+  @media screen and (min-width: 1280px) {
+    height: 446px;
+    padding-top: 40px;
+    padding-bottom: 90px;
+    background-image: url(../images/bg_img_desktop.jpg);
+  }
+}
+.header__title {
+  width: 220px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 900;
+  line-height: 1.2;
+  color: #dc56c5;
+
+  @media screen and (min-width: 768px) {
+    font-size: 29px;
+    width: 353px;
+    margin-bottom: 27px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 50px;
+    width: 600px;
+    margin-bottom: 52px;
+  }
+}
+.header__logo {
+  .background-logo {
+    width: 210px;
+    height: 180px;
+    background: linear-gradient(rgba(196, 196, 196, 0.03), rgba(196, 196, 196, 0));
+    backdrop-filter: blur(30px);
+    border-radius: 50%;
+    position: absolute;
+    left: -105px;
+    top: -90px;
+  }
+  .header__logo-icon {
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    top: 20px;
+    left: 20px;
+    z-index: 5;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    .background-logo {
+      width: 360px;
+      height: 300px;
+      left: -180px;
+      top: -150px;
+    }
+    .header__logo-icon {
+      width: 100px;
+      height: 50px;
+      left: 40px;
+      top: 40px;
+    }
+  }
+  @media screen and (min-width: 1280px) {
+    .background-logo {
+      width: 480px;
+      height: 400px;
+      left: -240px;
+      top: -200px;
+    }
+    .header__logo-icon {
+      width: 140px;
+      height: 70px;
+      left: 40px;
+      top: 40px;
+    }
+  }
+}
+
+// ======== SERCH =========
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .form-element {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(80px);
+    height: 40px;
+    width: 270px;
+    border: none;
+    border-radius: 20px;
+    padding-left: 30px;
+    color: white;
+    &::placeholder {
+      color: white;
+    }
+  }
+  .form__input,
+  .form-select {
+    margin-bottom: 25px;
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: 0;
+      margin-right: 30px;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+.form__input,
+.form__select {
+  position: relative;
+  z-index: 99;
+  height: 30px !important;
+  width: 270px !important;
+
+    font-family: "Montserrat", sans-serif !important;
+    font-size: 16px !important;
+    letter-spacing: 0.0;
+}
+.choices[data-type*=select-one] {
+  border: none !important;
+  border-radius: 20px !important;
+  height: 40px !important;
+  color: white !important;
+}
+.choices__list--dropdown {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(80px) !important;
+    border: 0px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 0 0 25px 25px !important;
+}
+.choices[data-type*=select-one] .choices__inner {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(80px) !important;
+    border: none !important;
+    border-radius: 15px 15px 0 0 !important;
+}
+.choices[data-type*=select-one] .choices__input {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(80px) !important;
+    color: white !important;
+}
+.choices[data-type*=select-one]::after {
+  border-color: #fff transparent transparent !important;
+  border-width: 7px !important;
+}
+.choices__item:hover{
+  color: var(--headers-nameEvent-hoverPages-hoverLocation-color);
+  font-weight: 700;
+}
+option {
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 20px !important;
+}
+.choices__placeholder {
+    opacity: 1 !important;
+}
+.choices__list--single {
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 16px !important;
+  letter-spacing: 0.0 !important;
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  left: 230px;
+  fill: #fff;
+}
+select {
+  appearance: none;
+}
+
+.events__select-label {
+  position: absolute;
+  top: 11px;
+  left: 230px;
+  pointer-events: none;
+}
+
+.header__title {
+  background-image: radial-gradient(ellipse 50% 35% at 50% 50%, #6b1839, transparent);
+  transform: translate(-50%, -50%);
+  color: #ffe6ff;
+  text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #ff65bd, -0.2rem 0.1rem 1rem #ff65bd,
+    0.2rem 0.1rem 1rem #ff65bd, 0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
+  animation: shine 2s forwards, flicker 3s infinite;
+}
+
+@keyframes blink {
+  0%,
+  22%,
+  36%,
+  75% {
+    color: #ffe6ff;
+    text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #ff65bd, -0.2rem 0.1rem 1rem #ff65bd,
+      0.2rem 0.1rem 1rem #ff65bd, 0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
+  }
+  28%,
+  33% {
+    color: #ff65bd;
+    text-shadow: none;
+  }
+  82%,
+  97% {
+    color: #ff2483;
+    text-shadow: none;
+  }
+}
+.flicker {
+  animation: shine 2s forwards, blink 3s 2s infinite;
+}
+
+.fast-flicker {
+  animation: shine 2s forwards, blink 10s 1s infinite;
+}
+
+// @keyframes shine {
+//   0% {
+//     color: #6b1839;
+//     text-shadow: none;
+//   }
+//   100% {
+//     color: #ffe6ff;
+//     text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #ff65bd, -0.2rem 0.1rem 1rem #ff65bd,
+//       0.2rem 0.1rem 1rem #ff65bd, 0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
+//   }
+// }
+
+@keyframes flicker {
+  from {
+    opacity: 1;
+  }
+
+  4% {
+    opacity: 0.9;
+  }
+
+  6% {
+    opacity: 0.85;
+  }
+
+  8% {
+    opacity: 0.95;
+  }
+
+  10% {
+    opacity: 0.9;
+  }
+
+  11% {
+    opacity: 0.922;
+  }
+
+  12% {
+    opacity: 0.9;
+  }
+
+  14% {
+    opacity: 0.95;
+  }
+
+  16% {
+    opacity: 0.98;
+  }
+
+  17% {
+    opacity: 0.9;
+  }
+
+  19% {
+    opacity: 0.93;
+  }
+
+  20% {
+    opacity: 0.99;
+  }
+
+  24% {
+    opacity: 1;
+  }
+
+  26% {
+    opacity: 0.94;
+  }
+
+  28% {
+    opacity: 0.98;
+  }
+
+  37% {
+    opacity: 0.93;
+  }
+
+  38% {
+    opacity: 0.5;
+  }
+
+  39% {
+    opacity: 0.96;
+  }
+
+  42% {
+    opacity: 1;
+  }
+
+  44% {
+    opacity: 0.97;
+  }
+
+  46% {
+    opacity: 0.94;
+  }
+
+  56% {
+    opacity: 0.9;
+  }
+
+  58% {
+    opacity: 0.9;
+  }
+
+  60% {
+    opacity: 0.99;
+  }
+
+  68% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0.9;
+  }
+
+  72% {
+    opacity: 0.95;
+  }
+
+  93% {
+    opacity: 0.93;
+  }
+
+  95% {
+    opacity: 0.95;
+  }
+
+  97% {
+    opacity: 0.93;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
