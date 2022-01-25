@@ -42,6 +42,7 @@ export default function fetchNewEvents(id) {
             refs.backdrop.classList.add('is-hidden');
     
         });
+        
         refs.backdrop.addEventListener('click', e => {
             if (e.target.dataset.modal === '') refs.backdrop.classList.add('is-hidden')
         })
