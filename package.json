@@ -28,6 +28,7 @@
   "dependencies": {
     "animate.css": "^4.1.1",
     "axios": "^0.25.0",
+    "choices.js": "^10.0.0",
     "handlebars": "^4.7.7"
   }
 }
