@@ -20,14 +20,14 @@
   margin: 0 auto;
   margin-bottom: 25px;
   text-align: center;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 900;
   line-height: 1.2;
   color: #dc56c5;
 
   @media screen and (min-width: 768px) {
-    font-size: 30px;
-    width: 360px;
+    font-size: 29px;
+    width: 353px;
     margin-bottom: 27px;
   }
 
@@ -102,9 +102,9 @@
     border: none;
     border-radius: 20px;
     padding-left: 30px;
-    color: #939393;
+    color: #b8b3b3;
     &::placeholder {
-      color: #939393;
+      color: #b8b3b3;
     }
   }
   .form__input,
