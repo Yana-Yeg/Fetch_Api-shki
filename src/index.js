@@ -61,8 +61,6 @@ function searchEvents(event) {
     nowPage = 1;
 
     // const selectedQuery = refs.form.elements.search.value.trim();
-    console.log(refs.input.value);
-    console.log(refs.select.value);
     const selectedQuery = refs.input.value.trim();
     const selectedCountry = refs.select.value;
     console.log(refs.input.value);
@@ -115,8 +113,6 @@ function onClick(e) {
     const id = e.target.dataset.id;
     fetchNewEvents(id);
 }
-
-console.log()
 
 // refs.more.addEventListener('click', getInfoByAuthor);
 //         function getInfoByAuthor(e) {

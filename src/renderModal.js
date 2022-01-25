@@ -8,7 +8,7 @@ export const showModal = events => {
 
     let timezone = '';
     if (events.timezone) {
-        timezone = `${events.timezone}`.split('/')[1] + '/' + `${events.timezone}`.split('/')[0];
+        timezone = '('+`${events.timezone}`.split('/')[1] + '/' + `${events.timezone}`.split('/')[0] + ')';
     }
     let priceRangeType = "";
     if (events.priceRangeType) {
