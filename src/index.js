@@ -122,6 +122,8 @@ function onClick(e) {
     fetchNewEvents(id);
 }
 
+console.log()
+
 // refs.more.addEventListener('click', getInfoByAuthor);
 //         function getInfoByAuthor(e) {
 //             console.log(e.target.dataset.id);

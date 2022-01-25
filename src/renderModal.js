@@ -67,6 +67,8 @@ export const showModal = events => {
         <button type="button" data-id="${events.groupId}" class="button infoauthor-button">MORE FROM THIS EVENTS</button>
     </div>`;
 
+
+    
     document.querySelector('#modalNode').innerHTML = markupOneModal;
     refs.closeModalBtn = document.querySelector('.close-button');
     refs.modal = document.querySelector('.modal');
@@ -77,6 +79,7 @@ export const showModal = events => {
     refs.more.addEventListener('click', getInfoByAuthor);
     function getInfoByAuthor(e) {
         window.open(`https://www.google.com/search?q=${events.name}`)     
-        }
+    }
+    console.log(document.querySelector(".modal__list-info").height)
 };
 

@@ -43,7 +43,7 @@
   background-color: #fff2fd;
 
   @media screen and (min-width: 320px) {
-    width: 272px;
+    width: 350px;
     border-bottom-right-radius: 150px;
     border-top-left-radius: 150px;
   }
@@ -54,7 +54,6 @@
   }
 
   @media screen and (min-width: 1200px) {
-    height: 97%;
     width: 930px;
     border-bottom-right-radius: 250px;
     border-top-left-radius: 250px;
@@ -125,14 +124,13 @@
       width: 233px;
       margin-left: 50px;
       background-repeat: no-repeat;
-      background-size: contain;
+      background-size: cover;
+      background-position: center;
     }
     @media screen and (min-width: 1200px) {
       height: auto;
       width: 360px;
       margin-left: 30px;
-      background-size: cover;
-      background-position: center;
     }
   }
 
@@ -281,11 +279,12 @@
   @media screen and (min-width: 768px) {
     width: 255px;
     margin-bottom: 56px;
+    margin-top: 20px;
   }
   @media screen and (min-width: 1200px) {
     width: 255px;
-    margin-bottom: 62px;
-    margin-top: 10px;
+    margin-bottom: 40px;
+    margin-top: 20px;
   }
 }
 
