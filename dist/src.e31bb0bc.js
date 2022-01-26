@@ -2505,7 +2505,7 @@ function fetchNewEvents(id) {
         id: event.id,
         url: event.url,
         name: event.name,
-        info: event.info ? event.info : "More info will be soon",
+        info: event.info ? event.info : "More info will be soon, if you would like to know right now, please press our button 'MORE FROM THIS EVENTS' you will be searching in Google.",
         localDate: event.dates.start.localDate ? event.dates.start.localDate : "",
         localTime: event.dates.start.localTime ? `${event.dates.start.localTime}`.slice(0, 5) : "",
         timezone: event.dates.timezone ? event.dates.timezone : "",
@@ -5038,8 +5038,8 @@ function paginationMarkup(totalPage, nowPage) {
   const startShow = nowPage - countItemShow;
   const endShow = nowPage + countItemShow;
 
-  if (totalPage >= 50) {
-    totalPage = 49;
+  if (totalPage >= 51) {
+    totalPage = 50;
   }
 
   for (let i = 1; i <= totalPage; i++) {
@@ -5098,8 +5098,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function createNewEventAndRenderSmallCard(_embedded) {
   const newEvent = _embedded.events.map(event => {
     const location = {
-      latitude: event._embedded.venues[0].location.latitude,
-      longitude: event._embedded.venues[0].location.longitude
+      latitude: event._embedded.venues[0].location ? event._embedded.venues[0].location.latitude : 0,
+      longitude: event._embedded.venues[0].location ? event._embedded.venues[0].location.longitude : 0
     };
     const renderHref = `http://maps.google.com/maps?q=${location.latitude},${location.longitude}&ll=${location.latitude},${location.longitude}&z=17`;
     return {

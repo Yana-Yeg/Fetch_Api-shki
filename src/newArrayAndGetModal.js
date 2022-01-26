@@ -9,7 +9,7 @@ export default function fetchNewEvents(id) {
                 id: event.id,
                 url: event.url,
                 name: event.name,
-                info: event.info? event.info : "More info will be soon",
+                info: event.info? event.info : "More info will be soon, if you would like to know right now, please press our button 'MORE FROM THIS EVENTS' you will be searching in Google.",
                 localDate: event.dates.start.localDate ? event.dates.start.localDate : "",
                 localTime: event.dates.start.localTime ? `${event.dates.start.localTime}`.slice(0, 5) : "",
                 timezone: event.dates.timezone ? event.dates.timezone : "",
