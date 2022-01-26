@@ -56,7 +56,7 @@ let nowPage;
 // refs.select.insertAdjacentHTML("beforeend", markup2);
 
 function openPage() {
-  nowPage = 1;
+  nowPage = 0;
   fetchApiGet('eagles', 'US', nowPage).then(({ page, _embedded, _links }) => {
     //вынос создания нового объекта для рендера карточки
     createNewEventAndRenderSmallCard(_embedded);
@@ -72,15 +72,13 @@ openPage();
 refs.form.addEventListener('change', searchEvents);
 function searchEvents(event) {
   event.preventDefault();
-  nowPage = 1;
+  nowPage = 0;
 
   // const selectedQuery = refs.form.elements.search.value.trim();
   const selectedQuery = refs.input.value.trim();
   const selectedCountry = element.value;
-  console.log(element.value);
+//   console.log(element.value);
 
-  
-  
   if (selectedQuery && selectedCountry) {
     fetchApiGet(selectedQuery, selectedCountry, nowPage)
       .then(({ page, _embedded, _links }) => {

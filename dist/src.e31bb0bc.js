@@ -189,7 +189,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./../images/bg_img_mobile.jpg":[["bg_img_mobile.c8f9f2d2.jpg","images/bg_img_mobile.jpg"],"images/bg_img_mobile.jpg"],"./../images/bg_img_tablet.jpg":[["bg_img_tablet.d69523fd.jpg","images/bg_img_tablet.jpg"],"images/bg_img_tablet.jpg"],"./../images/bg_img_desktop.jpg":[["bg_img_desktop.278bba24.jpg","images/bg_img_desktop.jpg"],"images/bg_img_desktop.jpg"],"./../images/png/tab/noise-body-tab.png":[["noise-body-tab.1d972e49.png","images/png/tab/noise-body-tab.png"],"images/png/tab/noise-body-tab.png"],"./../images/png/tab/vertical-line-left-tab.png":[["vertical-line-left-tab.7a1c08d4.png","images/png/tab/vertical-line-left-tab.png"],"images/png/tab/vertical-line-left-tab.png"],"./../images/png/tab/Ellipse-3-tab.png":[["Ellipse-3-tab.ba0329f5.png","images/png/tab/Ellipse-3-tab.png"],"images/png/tab/Ellipse-3-tab.png"],"./../images/png/tab/Ellipse-9-tab.png":[["Ellipse-9-tab.4703d09d.png","images/png/tab/Ellipse-9-tab.png"],"images/png/tab/Ellipse-9-tab.png"],"./../images/png/tab/Ellipse-6-tab.png":[["Ellipse-6-tab.12593ffa.png","images/png/tab/Ellipse-6-tab.png"],"images/png/tab/Ellipse-6-tab.png"],"./../images/png/tab/Ellipse-7-tab.png":[["Ellipse-7-tab.0f4c4a35.png","images/png/tab/Ellipse-7-tab.png"],"images/png/tab/Ellipse-7-tab.png"],"./../images/png/tab/Ellipse-8-tab.png":[["Ellipse-8-tab.62b23d37.png","images/png/tab/Ellipse-8-tab.png"],"images/png/tab/Ellipse-8-tab.png"],"./../images/png/tab/Ellipse12-tab.png":[["Ellipse12-tab.a9bd070e.png","images/png/tab/Ellipse12-tab.png"],"images/png/tab/Ellipse12-tab.png"],"./../images/png/tab/Ellipse-18-tab.png":[["Ellipse-18-tab.1ffbd562.png","images/png/tab/Ellipse-18-tab.png"],"images/png/tab/Ellipse-18-tab.png"],"./../images/png/tab/vertical-line-small-tab.png":[["vertical-line-small-tab.a43c4225.png","images/png/tab/vertical-line-small-tab.png"],"images/png/tab/vertical-line-small-tab.png"],"./../images/png/tab/vertical-line-right-tab.png":[["vertical-line-right-tab.5cccb6a0.png","images/png/tab/vertical-line-right-tab.png"],"images/png/tab/vertical-line-right-tab.png"],"./../images/noise_body.png":[["noise_body.f16fab95.png","images/noise_body.png"],"images/noise_body.png"],"./../images/png/Ellipse5.png":[["Ellipse5.6339ffac.png","images/png/Ellipse5.png"],"images/png/Ellipse5.png"],"./../images/png/Ellipse2.png":[["Ellipse2.9b81d77e.png","images/png/Ellipse2.png"],"images/png/Ellipse2.png"],"./../images/png/Ellipse6.png":[["Ellipse6.df08466d.png","images/png/Ellipse6.png"],"images/png/Ellipse6.png"],"./../images/png/Ellipse4.png":[["Ellipse4.f8977735.png","images/png/Ellipse4.png"],"images/png/Ellipse4.png"],"./../images/png/Ellipse7.png":[["Ellipse7.7b9b3337.png","images/png/Ellipse7.png"],"images/png/Ellipse7.png"],"./../images/png/Ellipse8.png":[["Ellipse8.35b88bd6.png","images/png/Ellipse8.png"],"images/png/Ellipse8.png"],"./../images/png/Ellipse9.png":[["Ellipse9.efa1d70f.png","images/png/Ellipse9.png"],"images/png/Ellipse9.png"],"./../images/png/vertical-line-left.png":[["vertical-line-left.5932f49d.png","images/png/vertical-line-left.png"],"images/png/vertical-line-left.png"],"./../images/png/vertical-line-rigth.png":[["vertical-line-rigth.cb4a3546.png","images/png/vertical-line-rigth.png"],"images/png/vertical-line-rigth.png"],"./../images/png/vertical-line-small.png":[["vertical-line-small.00a5a5e9.png","images/png/vertical-line-small.png"],"images/png/vertical-line-small.png"],"./../images/Map-point.svg":[["Map-point.f868b8b4.svg","images/Map-point.svg"],"images/Map-point.svg"],"./../images/gitar.jpeg":[["gitar.ab07bc81.jpeg","images/gitar.jpeg"],"images/gitar.jpeg"],"./../images/png/tab/Ellipse5-tab.png":[["Ellipse5-tab.565ea030.png","images/png/tab/Ellipse5-tab.png"],"images/png/tab/Ellipse5-tab.png"],"./../images/png/tab/Ellipse2-tab.png":[["Ellipse2-tab.4f8d35e5.png","images/png/tab/Ellipse2-tab.png"],"images/png/tab/Ellipse2-tab.png"],"./../images/png/Ellipse10.png":[["Ellipse10.0be7f446.png","images/png/Ellipse10.png"],"images/png/Ellipse10.png"],"./../images/png/Ellipse11.png":[["Ellipse11.33a360b2.png","images/png/Ellipse11.png"],"images/png/Ellipse11.png"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
+},{"./../images/bg_img_tablet.jpg":[["bg_img_tablet.d69523fd.jpg","images/bg_img_tablet.jpg"],"images/bg_img_tablet.jpg"],"./../images/bg_img_desktop.jpg":[["bg_img_desktop.278bba24.jpg","images/bg_img_desktop.jpg"],"images/bg_img_desktop.jpg"],"./../images/png/tab/noise-body-tab.png":[["noise-body-tab.1d972e49.png","images/png/tab/noise-body-tab.png"],"images/png/tab/noise-body-tab.png"],"./../images/png/tab/vertical-line-left-tab.png":[["vertical-line-left-tab.7a1c08d4.png","images/png/tab/vertical-line-left-tab.png"],"images/png/tab/vertical-line-left-tab.png"],"./../images/png/tab/Ellipse-3-tab.png":[["Ellipse-3-tab.ba0329f5.png","images/png/tab/Ellipse-3-tab.png"],"images/png/tab/Ellipse-3-tab.png"],"./../images/png/tab/Ellipse-9-tab.png":[["Ellipse-9-tab.4703d09d.png","images/png/tab/Ellipse-9-tab.png"],"images/png/tab/Ellipse-9-tab.png"],"./../images/png/tab/Ellipse-6-tab.png":[["Ellipse-6-tab.12593ffa.png","images/png/tab/Ellipse-6-tab.png"],"images/png/tab/Ellipse-6-tab.png"],"./../images/png/tab/Ellipse-7-tab.png":[["Ellipse-7-tab.0f4c4a35.png","images/png/tab/Ellipse-7-tab.png"],"images/png/tab/Ellipse-7-tab.png"],"./../images/png/tab/Ellipse-8-tab.png":[["Ellipse-8-tab.62b23d37.png","images/png/tab/Ellipse-8-tab.png"],"images/png/tab/Ellipse-8-tab.png"],"./../images/png/tab/Ellipse12-tab.png":[["Ellipse12-tab.a9bd070e.png","images/png/tab/Ellipse12-tab.png"],"images/png/tab/Ellipse12-tab.png"],"./../images/png/tab/Ellipse-18-tab.png":[["Ellipse-18-tab.1ffbd562.png","images/png/tab/Ellipse-18-tab.png"],"images/png/tab/Ellipse-18-tab.png"],"./../images/png/tab/vertical-line-small-tab.png":[["vertical-line-small-tab.a43c4225.png","images/png/tab/vertical-line-small-tab.png"],"images/png/tab/vertical-line-small-tab.png"],"./../images/png/tab/vertical-line-right-tab.png":[["vertical-line-right-tab.5cccb6a0.png","images/png/tab/vertical-line-right-tab.png"],"images/png/tab/vertical-line-right-tab.png"],"./../images/noise_body.png":[["noise_body.f16fab95.png","images/noise_body.png"],"images/noise_body.png"],"./../images/png/Ellipse5.png":[["Ellipse5.6339ffac.png","images/png/Ellipse5.png"],"images/png/Ellipse5.png"],"./../images/png/Ellipse2.png":[["Ellipse2.9b81d77e.png","images/png/Ellipse2.png"],"images/png/Ellipse2.png"],"./../images/png/Ellipse6.png":[["Ellipse6.df08466d.png","images/png/Ellipse6.png"],"images/png/Ellipse6.png"],"./../images/png/Ellipse4.png":[["Ellipse4.f8977735.png","images/png/Ellipse4.png"],"images/png/Ellipse4.png"],"./../images/png/Ellipse7.png":[["Ellipse7.7b9b3337.png","images/png/Ellipse7.png"],"images/png/Ellipse7.png"],"./../images/png/Ellipse8.png":[["Ellipse8.35b88bd6.png","images/png/Ellipse8.png"],"images/png/Ellipse8.png"],"./../images/png/Ellipse9.png":[["Ellipse9.efa1d70f.png","images/png/Ellipse9.png"],"images/png/Ellipse9.png"],"./../images/png/vertical-line-left.png":[["vertical-line-left.5932f49d.png","images/png/vertical-line-left.png"],"images/png/vertical-line-left.png"],"./../images/png/vertical-line-rigth.png":[["vertical-line-rigth.cb4a3546.png","images/png/vertical-line-rigth.png"],"images/png/vertical-line-rigth.png"],"./../images/png/vertical-line-small.png":[["vertical-line-small.00a5a5e9.png","images/png/vertical-line-small.png"],"images/png/vertical-line-small.png"],"./../images/Map-point.svg":[["Map-point.f868b8b4.svg","images/Map-point.svg"],"images/Map-point.svg"],"./../images/gitar.jpeg":[["gitar.ab07bc81.jpeg","images/gitar.jpeg"],"images/gitar.jpeg"],"./../images/png/tab/Ellipse5-tab.png":[["Ellipse5-tab.565ea030.png","images/png/tab/Ellipse5-tab.png"],"images/png/tab/Ellipse5-tab.png"],"./../images/png/tab/Ellipse2-tab.png":[["Ellipse2-tab.4f8d35e5.png","images/png/tab/Ellipse2-tab.png"],"images/png/tab/Ellipse2-tab.png"],"./../images/png/Ellipse10.png":[["Ellipse10.0be7f446.png","images/png/Ellipse10.png"],"images/png/Ellipse10.png"],"./../images/png/Ellipse11.png":[["Ellipse11.33a360b2.png","images/png/Ellipse11.png"],"images/png/Ellipse11.png"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
 'use strict';
 
 module.exports = function bind(fn, thisArg) {
@@ -5031,7 +5031,7 @@ function paginationMarkup(totalPage, nowPage) {
   const genElement = function () {
     let page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
     let text = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : page;
-    return link && baseTag === 'a' ? `<${baseTag} class="${page === nowPage ? baseClass ? classActive : `${baseClass} ${classActive}` : baseClass}" href="${link + page}${query ? '&' + query : ''}">${text}</${baseTag}>` : `<${baseTag} class="${page === nowPage ? baseClass ? classActive : `${baseClass} ${classActive}` : baseClass}">${text}</${baseTag}>`;
+    return link && baseTag === 'a' ? `<${baseTag} class="${page === nowPage ? baseClass ? classActive : `${baseClass} ${classActive}` : baseClass}" href="${link + (+page - 1)}${query ? '&' + query : ''}">${text}</${baseTag}>` : `<${baseTag} class="${page === nowPage ? baseClass ? classActive : `${baseClass} ${classActive}` : baseClass}">${text}</${baseTag}>`;
   };
 
   let markup = showStart ? genElement(1, contentStart) : '';
@@ -5072,9 +5072,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function generatePagination(_links, page) {
   const baseUrl = 'https://app.ticketmaster.com';
   let markup = '';
-  let activePage = 1;
-  activePage = parseInt(Object.values(_links.prev).join('').split('=')[3]) + 1;
-  const queryHttp = Object.values(_links.prev).join('').split('&page')[0];
+  let activePage = page.number + 1; // activePage = parseInt((Object.values(_links.prev)).join('').split('=')[3]) + 1;
+
+  console.log(activePage);
+  const queryHttp = Object.values(_links.self).join('').split('&page')[0];
   (0, _pagination.default)(page.totalPages - 1, activePage, {
     link: `${baseUrl}${queryHttp}&apikey=${_config.key}&page=`
   });
@@ -12942,7 +12943,7 @@ let nowPage; // const markup2 = code.map(el => `<option value="${el.code}">${el.
 // refs.select.insertAdjacentHTML("beforeend", markup2);
 
 function openPage() {
-  nowPage = 1;
+  nowPage = 0;
   (0, _fetchApiGet.default)('eagles', 'US', nowPage).then(_ref => {
     let {
       page,
@@ -12963,11 +12964,10 @@ refs.form.addEventListener('change', searchEvents);
 
 function searchEvents(event) {
   event.preventDefault();
-  nowPage = 1; // const selectedQuery = refs.form.elements.search.value.trim();
+  nowPage = 0; // const selectedQuery = refs.form.elements.search.value.trim();
 
   const selectedQuery = refs.input.value.trim();
-  const selectedCountry = element.value;
-  console.log(element.value);
+  const selectedCountry = element.value; //   console.log(element.value);
 
   if (selectedQuery && selectedCountry) {
     (0, _fetchApiGet.default)(selectedQuery, selectedCountry, nowPage).then(_ref2 => {
@@ -13064,7 +13064,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59946" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52981" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
