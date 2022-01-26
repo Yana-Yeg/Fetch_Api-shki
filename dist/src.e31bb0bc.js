@@ -2313,7 +2313,7 @@ var _config = require("../config.json");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 async function fetchApiGet(query, country, page) {
-  const BASE_URL = "https://app.ticketmaster.com"; // const API_KEY = key
+  const BASE_URL = "https://app.ticketmaster.com";
 
   const createParams = params => {
     return {
@@ -2356,28 +2356,6 @@ async function fetchApiById(id) {
     const response = await _axios.default.get(`${BASE_URL}/discovery/v2/events/${id}.json?apikey=${API_KEY}`); //  console.log(response.data);
 
     return [response.data];
-  } catch (error) {
-    console.error(error);
-  }
-}
-},{"axios":"../node_modules/axios/index.js","../config.json":"../config.json"}],"fetchApiUrl.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = fetchApiUrl;
-
-var _axios = _interopRequireDefault(require("axios"));
-
-var _config = require("../config.json");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-async function fetchApiUrl(url) {
-  try {
-    const response = await _axios.default.get(url);
-    return response.data;
   } catch (error) {
     console.error(error);
   }
@@ -2464,7 +2442,7 @@ const showModal = events => {
                 </ul>
             </div>
         </div>
-        <button type="button" data-id="${events.groupId}" class="button infoauthor-button">MORE FROM THIS EVENTS</button>
+        <button type="button" data-id="${events.groupId}" class="button infoauthor-button">MORE ABOUT THIS EVENTS</button>
     </div>`;
   document.querySelector('#modalNode').innerHTML = markupOneModal;
   _.refs.closeModalBtn = document.querySelector('.close-button');
@@ -2477,8 +2455,6 @@ const showModal = events => {
   function getInfoByAuthor(e) {
     window.open(`https://www.google.com/search?q=${events.name}`);
   }
-
-  console.log(document.querySelector(".modal__list-info").height);
 };
 
 exports.showModal = showModal;
@@ -2510,8 +2486,8 @@ function fetchNewEvents(id) {
         localTime: event.dates.start.localTime ? `${event.dates.start.localTime}`.slice(0, 5) : "",
         timezone: event.dates.timezone ? event.dates.timezone : "",
         location: {
-          latitude: event._embedded.venues[0].location.latitude,
-          longitude: event._embedded.venues[0].location.longitude
+          latitude: event._embedded.venues[0].location ? event._embedded.venues[0].location.latitude : 0,
+          longitude: event._embedded.venues[0].location ? event._embedded.venues[0].location.longitude : 0
         },
         priceRangeType: event.priceRanges && event.priceRanges[0].type || "",
         priceRangeMin: event.priceRanges && event.priceRanges[0].min || "",
@@ -2546,7 +2522,333 @@ function fetchNewEvents(id) {
     });
   });
 }
-},{".":"index.js","./fetchApiById":"fetchApiById.js","./renderModal":"renderModal.js"}],"../node_modules/handlebars/dist/handlebars.runtime.js":[function(require,module,exports) {
+},{".":"index.js","./fetchApiById":"fetchApiById.js","./renderModal":"renderModal.js"}],"countries.json":[function(require,module,exports) {
+module.exports = [{
+  "code": "US",
+  "name": "United States Of America"
+}, {
+  "code": "UA",
+  "name": "Ukraine"
+}, {
+  "code": "AD",
+  "name": "Andorra"
+}, {
+  "code": "AI",
+  "name": "Anguilla"
+}, {
+  "code": "AR",
+  "name": "Argentina"
+}, {
+  "code": "AU",
+  "name": "Australia"
+}, {
+  "code": "AT",
+  "name": "Austria"
+}, {
+  "code": "AZ",
+  "name": "Azerbaijan"
+}, {
+  "code": "BS",
+  "name": "Bahamas"
+}, {
+  "code": "BH",
+  "name": "Bahrain"
+}, {
+  "code": "BB",
+  "name": "Barbados"
+}, {
+  "code": "BE",
+  "name": "Belgium"
+}, {
+  "code": "BM",
+  "name": "Bermuda"
+}, {
+  "code": "BR",
+  "name": "Brazil"
+}, {
+  "code": "BG",
+  "name": "Bulgaria"
+}, {
+  "code": "CA",
+  "name": "Canada"
+}, {
+  "code": "CL",
+  "name": "Chile"
+}, {
+  "code": "CN",
+  "name": "China"
+}, {
+  "code": "CO",
+  "name": "Colombia"
+}, {
+  "code": "CR",
+  "name": "Costa Rica"
+}, {
+  "code": "HR",
+  "name": "Croatia"
+}, {
+  "code": "CY",
+  "name": "Cyprus"
+}, {
+  "code": "CZ",
+  "name": "Czech Republic"
+}, {
+  "code": "DK",
+  "name": "Denmark"
+}, {
+  "code": "DO",
+  "name": "Dominican Republic"
+}, {
+  "code": "EC",
+  "name": "Ecuador"
+}, {
+  "code": "EE",
+  "name": "Estonia"
+}, {
+  "code": "FO",
+  "name": "Faroe Islands"
+}, {
+  "code": "FI",
+  "name": "Finland"
+}, {
+  "code": "FR",
+  "name": "France"
+}, {
+  "code": "GE",
+  "name": "Georgia"
+}, {
+  "code": "DE",
+  "name": "Germany"
+}, {
+  "code": "GH",
+  "name": "Ghana"
+}, {
+  "code": "GI",
+  "name": "Gibraltar"
+}, {
+  "code": "GB",
+  "name": "Great Britain"
+}, {
+  "code": "GR",
+  "name": "Greece"
+}, {
+  "code": "HK",
+  "name": "Hong Kong"
+}, {
+  "code": "HU",
+  "name": "Hungary"
+}, {
+  "code": "IS",
+  "name": "Iceland"
+}, {
+  "code": "IN",
+  "name": "India"
+}, {
+  "code": "IE",
+  "name": "Ireland"
+}, {
+  "code": "IL",
+  "name": "Israel"
+}, {
+  "code": "IT",
+  "name": "Italy"
+}, {
+  "code": "JM",
+  "name": "Jamaica"
+}, {
+  "code": "JP",
+  "name": "Japan"
+}, {
+  "code": "KR",
+  "name": "Korea, Republic of"
+}, {
+  "code": "LV",
+  "name": "Latvia"
+}, {
+  "code": "LB",
+  "name": "Lebanon"
+}, {
+  "code": "LT",
+  "name": "Lithuania"
+}, {
+  "code": "LU",
+  "name": "Luxembourg"
+}, {
+  "code": "MY",
+  "name": "Malaysia"
+}, {
+  "code": "MT",
+  "name": "Malta"
+}, {
+  "code": "MX",
+  "name": "Mexico"
+}, {
+  "code": "MC",
+  "name": "Monaco"
+}, {
+  "code": "ME",
+  "name": "Montenegro"
+}, {
+  "code": "MA",
+  "name": "Morocco"
+}, {
+  "code": "NL",
+  "name": "Netherlands"
+}, {
+  "code": "AN",
+  "name": "Netherlands Antilles"
+}, {
+  "code": "NZ",
+  "name": "New Zealand"
+}, {
+  "code": "ND",
+  "name": "Northern Ireland"
+}, {
+  "code": "NO",
+  "name": "Norway"
+}, {
+  "code": "PE",
+  "name": "Peru"
+}, {
+  "code": "PL",
+  "name": "Poland"
+}, {
+  "code": "PT",
+  "name": "Portugal"
+}, {
+  "code": "RO",
+  "name": "Romania"
+}, {
+  "code": "RU",
+  "name": "Russian Federation"
+}, {
+  "code": "LC",
+  "name": "Saint Lucia"
+}, {
+  "code": "SA",
+  "name": "Saudi Arabia"
+}, {
+  "code": "RS",
+  "name": "Serbia"
+}, {
+  "code": "SG",
+  "name": "Singapore"
+}, {
+  "code": "SK",
+  "name": "Slovakia"
+}, {
+  "code": "SI",
+  "name": "Slovenia"
+}, {
+  "code": "ZA",
+  "name": "South Africa"
+}, {
+  "code": "ES",
+  "name": "Spain"
+}, {
+  "code": "SE",
+  "name": "Sweden"
+}, {
+  "code": "CH",
+  "name": "Switzerland"
+}, {
+  "code": "TW",
+  "name": "Taiwan"
+}, {
+  "code": "TH",
+  "name": "Thailand"
+}, {
+  "code": "TT",
+  "name": "Trinidad and Tobago"
+}, {
+  "code": "TR",
+  "name": "Turkey"
+}, {
+  "code": "AE",
+  "name": "United Arab Emirates"
+}, {
+  "code": "UY",
+  "name": "Uruguay"
+}, {
+  "code": "VE",
+  "name": "Venezuela"
+}];
+},{}],"pagination.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = paginationMarkup;
+
+var _ = require(".");
+
+function paginationMarkup(totalPage, nowPage) {
+  let {
+    countItemShow = 4,
+    showStart = false,
+    contentStart = '',
+    showEnd = false,
+    contentEnd = '',
+    dotTag = 'span',
+    baseTag = 'a',
+    link = ``,
+    baseClass = '',
+    classActive = 'activePage',
+    query = ''
+  } = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
+  // console.log(totalPage, nowPage, link)
+  const genElement = function () {
+    let page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+    let text = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : page;
+    return link && baseTag === 'a' ? `<${baseTag} class="${page === nowPage ? baseClass ? classActive : `${baseClass} ${classActive}` : baseClass}" href="${link + (+page - 1)}${query ? '&' + query : ''}">${text}</${baseTag}>` : `<${baseTag} class="${page === nowPage ? baseClass ? classActive : `${baseClass} ${classActive}` : baseClass}">${text}</${baseTag}>`;
+  };
+
+  let markup = showStart ? genElement(1, contentStart) : '';
+  const startShow = nowPage - countItemShow;
+  const endShow = nowPage + countItemShow;
+
+  if (totalPage >= 51) {
+    totalPage = 50;
+  }
+
+  for (let i = 1; i <= totalPage; i++) {
+    if (i > endShow) i = totalPage;
+    if (startShow === i && i > 1) markup += `<${dotTag}>...</${dotTag}>`;
+    if (i === 1 || i === totalPage || i >= nowPage - 2 && i <= nowPage + 2) markup += genElement(i);
+    if (endShow === i) markup += `<${dotTag}>...</${dotTag}>`;
+    if (i < startShow) i = startShow - 1;
+  }
+
+  markup += showEnd ? genElement(totalPage, contentEnd) : '';
+  _.refs.pagination.innerHTML = markup;
+  return;
+}
+},{".":"index.js"}],"generatePagination.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = generatePagination;
+
+var _pagination = _interopRequireDefault(require("./pagination"));
+
+var _config = require("../config.json");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function generatePagination(_links, page) {
+  const baseUrl = 'https://app.ticketmaster.com';
+  let markup = '';
+  let activePage = page.number + 1;
+  const queryHttp = Object.values(_links.self).join('').split('&page')[0];
+  (0, _pagination.default)(page.totalPages - 1, activePage, {
+    link: `${baseUrl}${queryHttp}&apikey=${_config.key}&page=`
+  });
+}
+},{"./pagination":"pagination.js","../config.json":"../config.json"}],"../node_modules/handlebars/dist/handlebars.runtime.js":[function(require,module,exports) {
 var define;
 var global = arguments[3];
 /**!
@@ -4751,336 +5053,7 @@ const templateFunction = _handlebars.default.template({
 
 var _default = templateFunction;
 exports.default = _default;
-},{"handlebars/dist/handlebars.runtime":"../node_modules/handlebars/dist/handlebars.runtime.js"}],"countries.json":[function(require,module,exports) {
-module.exports = [{
-  "code": "US",
-  "name": "United States Of America"
-}, {
-  "code": "UA",
-  "name": "Ukraine"
-}, {
-  "code": "AD",
-  "name": "Andorra"
-}, {
-  "code": "AI",
-  "name": "Anguilla"
-}, {
-  "code": "AR",
-  "name": "Argentina"
-}, {
-  "code": "AU",
-  "name": "Australia"
-}, {
-  "code": "AT",
-  "name": "Austria"
-}, {
-  "code": "AZ",
-  "name": "Azerbaijan"
-}, {
-  "code": "BS",
-  "name": "Bahamas"
-}, {
-  "code": "BH",
-  "name": "Bahrain"
-}, {
-  "code": "BB",
-  "name": "Barbados"
-}, {
-  "code": "BE",
-  "name": "Belgium"
-}, {
-  "code": "BM",
-  "name": "Bermuda"
-}, {
-  "code": "BR",
-  "name": "Brazil"
-}, {
-  "code": "BG",
-  "name": "Bulgaria"
-}, {
-  "code": "CA",
-  "name": "Canada"
-}, {
-  "code": "CL",
-  "name": "Chile"
-}, {
-  "code": "CN",
-  "name": "China"
-}, {
-  "code": "CO",
-  "name": "Colombia"
-}, {
-  "code": "CR",
-  "name": "Costa Rica"
-}, {
-  "code": "HR",
-  "name": "Croatia"
-}, {
-  "code": "CY",
-  "name": "Cyprus"
-}, {
-  "code": "CZ",
-  "name": "Czech Republic"
-}, {
-  "code": "DK",
-  "name": "Denmark"
-}, {
-  "code": "DO",
-  "name": "Dominican Republic"
-}, {
-  "code": "EC",
-  "name": "Ecuador"
-}, {
-  "code": "EE",
-  "name": "Estonia"
-}, {
-  "code": "FO",
-  "name": "Faroe Islands"
-}, {
-  "code": "FI",
-  "name": "Finland"
-}, {
-  "code": "FR",
-  "name": "France"
-}, {
-  "code": "GE",
-  "name": "Georgia"
-}, {
-  "code": "DE",
-  "name": "Germany"
-}, {
-  "code": "GH",
-  "name": "Ghana"
-}, {
-  "code": "GI",
-  "name": "Gibraltar"
-}, {
-  "code": "GB",
-  "name": "Great Britain"
-}, {
-  "code": "GR",
-  "name": "Greece"
-}, {
-  "code": "HK",
-  "name": "Hong Kong"
-}, {
-  "code": "HU",
-  "name": "Hungary"
-}, {
-  "code": "IS",
-  "name": "Iceland"
-}, {
-  "code": "IN",
-  "name": "India"
-}, {
-  "code": "IE",
-  "name": "Ireland"
-}, {
-  "code": "IL",
-  "name": "Israel"
-}, {
-  "code": "IT",
-  "name": "Italy"
-}, {
-  "code": "JM",
-  "name": "Jamaica"
-}, {
-  "code": "JP",
-  "name": "Japan"
-}, {
-  "code": "KR",
-  "name": "Korea, Republic of"
-}, {
-  "code": "LV",
-  "name": "Latvia"
-}, {
-  "code": "LB",
-  "name": "Lebanon"
-}, {
-  "code": "LT",
-  "name": "Lithuania"
-}, {
-  "code": "LU",
-  "name": "Luxembourg"
-}, {
-  "code": "MY",
-  "name": "Malaysia"
-}, {
-  "code": "MT",
-  "name": "Malta"
-}, {
-  "code": "MX",
-  "name": "Mexico"
-}, {
-  "code": "MC",
-  "name": "Monaco"
-}, {
-  "code": "ME",
-  "name": "Montenegro"
-}, {
-  "code": "MA",
-  "name": "Morocco"
-}, {
-  "code": "NL",
-  "name": "Netherlands"
-}, {
-  "code": "AN",
-  "name": "Netherlands Antilles"
-}, {
-  "code": "NZ",
-  "name": "New Zealand"
-}, {
-  "code": "ND",
-  "name": "Northern Ireland"
-}, {
-  "code": "NO",
-  "name": "Norway"
-}, {
-  "code": "PE",
-  "name": "Peru"
-}, {
-  "code": "PL",
-  "name": "Poland"
-}, {
-  "code": "PT",
-  "name": "Portugal"
-}, {
-  "code": "RO",
-  "name": "Romania"
-}, {
-  "code": "RU",
-  "name": "Russian Federation"
-}, {
-  "code": "LC",
-  "name": "Saint Lucia"
-}, {
-  "code": "SA",
-  "name": "Saudi Arabia"
-}, {
-  "code": "RS",
-  "name": "Serbia"
-}, {
-  "code": "SG",
-  "name": "Singapore"
-}, {
-  "code": "SK",
-  "name": "Slovakia"
-}, {
-  "code": "SI",
-  "name": "Slovenia"
-}, {
-  "code": "ZA",
-  "name": "South Africa"
-}, {
-  "code": "ES",
-  "name": "Spain"
-}, {
-  "code": "SE",
-  "name": "Sweden"
-}, {
-  "code": "CH",
-  "name": "Switzerland"
-}, {
-  "code": "TW",
-  "name": "Taiwan"
-}, {
-  "code": "TH",
-  "name": "Thailand"
-}, {
-  "code": "TT",
-  "name": "Trinidad and Tobago"
-}, {
-  "code": "TR",
-  "name": "Turkey"
-}, {
-  "code": "AE",
-  "name": "United Arab Emirates"
-}, {
-  "code": "UY",
-  "name": "Uruguay"
-}, {
-  "code": "VE",
-  "name": "Venezuela"
-}];
-},{}],"pagination.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = paginationMarkup;
-
-var _ = require(".");
-
-function paginationMarkup(totalPage, nowPage) {
-  let {
-    countItemShow = 4,
-    showStart = false,
-    contentStart = '',
-    showEnd = false,
-    contentEnd = '',
-    dotTag = 'span',
-    baseTag = 'a',
-    link = ``,
-    baseClass = '',
-    classActive = 'activePage',
-    query = ''
-  } = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-
-  // console.log(totalPage, nowPage, link)
-  const genElement = function () {
-    let page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-    let text = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : page;
-    return link && baseTag === 'a' ? `<${baseTag} class="${page === nowPage ? baseClass ? classActive : `${baseClass} ${classActive}` : baseClass}" href="${link + (+page - 1)}${query ? '&' + query : ''}">${text}</${baseTag}>` : `<${baseTag} class="${page === nowPage ? baseClass ? classActive : `${baseClass} ${classActive}` : baseClass}">${text}</${baseTag}>`;
-  };
-
-  let markup = showStart ? genElement(1, contentStart) : '';
-  const startShow = nowPage - countItemShow;
-  const endShow = nowPage + countItemShow;
-
-  if (totalPage >= 51) {
-    totalPage = 50;
-  }
-
-  for (let i = 1; i <= totalPage; i++) {
-    if (i > endShow) i = totalPage;
-    if (startShow === i && i > 1) markup += `<${dotTag}>...</${dotTag}>`;
-    if (i === 1 || i === totalPage || i >= nowPage - 2 && i <= nowPage + 2) markup += genElement(i);
-    if (endShow === i) markup += `<${dotTag}>...</${dotTag}>`;
-    if (i < startShow) i = startShow - 1;
-  } //   console.log(markup)
-
-
-  markup += showEnd ? genElement(totalPage, contentEnd) : '';
-  _.refs.pagination.innerHTML = markup;
-  return;
-}
-},{".":"index.js"}],"generatePagination.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = generatePagination;
-
-var _pagination = _interopRequireDefault(require("./pagination"));
-
-var _config = require("../config.json");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function generatePagination(_links, page) {
-  const baseUrl = 'https://app.ticketmaster.com';
-  let markup = '';
-  let activePage = page.number + 1; // activePage = parseInt((Object.values(_links.prev)).join('').split('=')[3]) + 1;
-
-  console.log(activePage);
-  const queryHttp = Object.values(_links.self).join('').split('&page')[0];
-  (0, _pagination.default)(page.totalPages - 1, activePage, {
-    link: `${baseUrl}${queryHttp}&apikey=${_config.key}&page=`
-  });
-}
-},{"./pagination":"pagination.js","../config.json":"../config.json"}],"createNewEventAndRenderSmallCard.js":[function(require,module,exports) {
+},{"handlebars/dist/handlebars.runtime":"../node_modules/handlebars/dist/handlebars.runtime.js"}],"createNewEventAndRenderSmallCard.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5124,21 +5097,36 @@ function createNewEventAndRenderSmallCard(_embedded) {
     };
   });
 
-  const markup = (0, _smallCard.default)(newEvent); // console.log(refs.mainList)
-
+  const markup = (0, _smallCard.default)(newEvent);
   _.refs.mainList.innerHTML = markup;
 }
-},{".":"index.js","./templates/smallCard.hbs":"templates/smallCard.hbs"}],"onClickEvent.js":[function(require,module,exports) {
+},{".":"index.js","./templates/smallCard.hbs":"templates/smallCard.hbs"}],"fetchApiUrl.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = fetchApiUrl;
+
+var _axios = _interopRequireDefault(require("axios"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+async function fetchApiUrl(url) {
+  try {
+    const response = await _axios.default.get(url);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+},{"axios":"../node_modules/axios/index.js"}],"onClickEvent.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = onClickEvent;
-
-var _axios = _interopRequireDefault(require("axios"));
-
-var _config = require("../config.json");
 
 var _fetchApiUrl = _interopRequireDefault(require("./fetchApiUrl"));
 
@@ -5150,6 +5138,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function onClickEvent(e) {
   if (e.target.nodeName !== 'A') return;
+
+  if (e.target.classList.contains('activePage')) {
+    e.preventDefault();
+    return;
+  }
+
   e.preventDefault();
   (0, _fetchApiUrl.default)(e.target.href).then(_ref => {
     let {
@@ -5161,7 +5155,7 @@ function onClickEvent(e) {
     (0, _generatePagination.default)(_links, page);
   });
 }
-},{"axios":"../node_modules/axios/index.js","../config.json":"../config.json","./fetchApiUrl":"fetchApiUrl.js","./generatePagination":"generatePagination.js","./createNewEventAndRenderSmallCard":"createNewEventAndRenderSmallCard.js"}],"../node_modules/animate.css/animate.css":[function(require,module,exports) {
+},{"./fetchApiUrl":"fetchApiUrl.js","./generatePagination":"generatePagination.js","./createNewEventAndRenderSmallCard":"createNewEventAndRenderSmallCard.js"}],"../node_modules/animate.css/animate.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -12875,27 +12869,15 @@ require("./sass/main.scss");
 
 var _fetchApiGet = _interopRequireDefault(require("./fetchApiGet"));
 
-var _fetchApiById = _interopRequireDefault(require("./fetchApiById"));
-
-var _fetchApiUrl = _interopRequireDefault(require("./fetchApiUrl"));
-
 var _newArrayAndGetModal = _interopRequireDefault(require("./newArrayAndGetModal"));
 
-var _smallCard = _interopRequireDefault(require("./templates/smallCard.hbs"));
-
 var _countries = _interopRequireDefault(require("./countries.json"));
-
-var _pagination = _interopRequireDefault(require("./pagination"));
-
-var _renderModal = require("./renderModal");
 
 var _generatePagination = _interopRequireDefault(require("./generatePagination"));
 
 var _createNewEventAndRenderSmallCard = _interopRequireDefault(require("./createNewEventAndRenderSmallCard"));
 
 var _onClickEvent = _interopRequireDefault(require("./onClickEvent"));
-
-var _config = require("../config.json");
 
 require("animate.css");
 
@@ -12919,13 +12901,13 @@ document.querySelector('.header__logo-icon').addEventListener('click', e => {
 const refs = {
   form: document.querySelector('.form'),
   input: document.querySelector('input.form-element'),
-  //   select: document.querySelector('.form-select'),
   mainList: document.querySelector('.main__grid-small-cards'),
   pagination: document.querySelector('.pagination'),
   more: document.querySelector('.infoauthor-button'),
   badRequest: document.querySelector('.bad-request'),
   goodRequest: document.querySelector('.good-request')
-};
+}; //библиотека для select
+
 exports.refs = refs;
 const element = document.querySelector('.form-select');
 
@@ -12933,14 +12915,10 @@ const markup3 = _countries.default.map(el => `<option value="${el.code}">${el.na
 
 element.insertAdjacentHTML("beforeend", markup3);
 const choices = new _choices.default(element, {
-  // items: code,
-  // addItemFilter: value => {
   searchEnabled: true
 }); //отрисовка страницы при первой загрузке
 
-let nowPage; // const markup2 = code.map(el => `<option value="${el.code}">${el.name}</option>`).join("")
-// console.log(refs.select);
-// refs.select.insertAdjacentHTML("beforeend", markup2);
+let nowPage;
 
 function openPage() {
   nowPage = 0;
@@ -13036,7 +13014,7 @@ function onClick(e) {
 //             const id = e.target.dataset.id;
 //             fetchApiByGroupId(id);
 //         }
-},{"./sass/main.scss":"sass/main.scss","./fetchApiGet":"fetchApiGet.js","./fetchApiById":"fetchApiById.js","./fetchApiUrl":"fetchApiUrl.js","./newArrayAndGetModal":"newArrayAndGetModal.js","./templates/smallCard.hbs":"templates/smallCard.hbs","./countries.json":"countries.json","./pagination":"pagination.js","./renderModal":"renderModal.js","./generatePagination":"generatePagination.js","./createNewEventAndRenderSmallCard":"createNewEventAndRenderSmallCard.js","./onClickEvent":"onClickEvent.js","../config.json":"../config.json","animate.css":"../node_modules/animate.css/animate.css","./skroll-up":"skroll-up.js","./modalFooter":"modalFooter.js","./goodBad":"goodBad.js","choices.js":"../node_modules/choices.js/public/assets/scripts/choices.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./sass/main.scss":"sass/main.scss","./fetchApiGet":"fetchApiGet.js","./newArrayAndGetModal":"newArrayAndGetModal.js","./countries.json":"countries.json","./generatePagination":"generatePagination.js","./createNewEventAndRenderSmallCard":"createNewEventAndRenderSmallCard.js","./onClickEvent":"onClickEvent.js","animate.css":"../node_modules/animate.css/animate.css","./skroll-up":"skroll-up.js","./modalFooter":"modalFooter.js","./goodBad":"goodBad.js","choices.js":"../node_modules/choices.js/public/assets/scripts/choices.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -13064,7 +13042,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52981" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61163" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
