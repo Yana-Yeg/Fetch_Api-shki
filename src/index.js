@@ -32,16 +32,14 @@ export const refs = {
   goodRequest: document.querySelector('.good-request'),
 };
 
+//библиотека на select
+const element = document.querySelector('.form-select');
 
-    const element = document.querySelector('.form-select');
+const markup3 = code.map(el => `<option value="${el.code}">${el.name}</option>`).join("");
+element.insertAdjacentHTML("beforeend", markup3);
 
-    const markup3 = code.map(el => `<option value="${el.code}">${el.name}</option>`).join("");
-    element.insertAdjacentHTML("beforeend", markup3);
-    
-    const choices = new Choices(element, {
-    // items: code,
-    // addItemFilter: value => {
-    searchEnabled: true,
+const choices = new Choices(element, {
+searchEnabled: true,
 });
 
 

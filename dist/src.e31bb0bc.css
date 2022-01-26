@@ -295,7 +295,13 @@ body {
 
 .choices[data-type*=select-one]::after {
   border-color: #fff transparent transparent !important;
-  border-width: 7px !important;
+  border-width: 8px !important;
+  margin-top: -2.5px;
+}
+
+.choices[data-type*=select-one].is-open::after {
+  margin-top: -2.5px;
+  border-color: var(--headers-nameEvent-hoverPages-hoverLocation-color) transparent transparent !important;
 }
 
 .choices__item:hover {
@@ -303,9 +309,13 @@ body {
   font-weight: 700;
 }
 
+.choices__list--single .choices__item {
+  margin-left: 15px;
+}
+
 option {
   font-family: "Montserrat", sans-serif !important;
-  font-size: 20px !important;
+  font-size: 25px !important;
 }
 
 .choices__list--dropdown .choices__item--selectable.is-highlighted {
@@ -319,6 +329,10 @@ option {
 }
 .choices__list--dropdown .choices__item--selectable.is-highlighted:hover::after {
   display: block;
+}
+
+.choices__list--dropdown .choices__item--selectable {
+  font-size: 16px !important;
 }
 
 .choices__placeholder {
@@ -1068,6 +1082,17 @@ select {
     margin-bottom: 30px;
     margin-top: 30px;
   }
+}
+
+.students {
+  border: 2px dotted var(--headers-nameEvent-hoverPages-hoverLocation-color) !important;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.students:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 20px #f80bfd, inset 0px 0px 2px #f80bfd;
 }
 
 .modal__card-poster {

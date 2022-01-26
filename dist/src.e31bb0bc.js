@@ -2464,7 +2464,7 @@ const showModal = events => {
                 </ul>
             </div>
         </div>
-        <button type="button" data-id="${events.groupId}" class="button infoauthor-button">MORE FROM THIS EVENTS</button>
+        <button type="button" data-id="${events.groupId}" class="button infoauthor-button">MORE ABOUT THIS EVENTS</button>
     </div>`;
   document.querySelector('#modalNode').innerHTML = markupOneModal;
   _.refs.closeModalBtn = document.querySelector('.close-button');
@@ -2477,8 +2477,6 @@ const showModal = events => {
   function getInfoByAuthor(e) {
     window.open(`https://www.google.com/search?q=${events.name}`);
   }
-
-  console.log(document.querySelector(".modal__list-info").height);
 };
 
 exports.showModal = showModal;
@@ -12925,7 +12923,8 @@ const refs = {
   more: document.querySelector('.infoauthor-button'),
   badRequest: document.querySelector('.bad-request'),
   goodRequest: document.querySelector('.good-request')
-};
+}; //библиотека на select
+
 exports.refs = refs;
 const element = document.querySelector('.form-select');
 
@@ -12933,8 +12932,6 @@ const markup3 = _countries.default.map(el => `<option value="${el.code}">${el.na
 
 element.insertAdjacentHTML("beforeend", markup3);
 const choices = new _choices.default(element, {
-  // items: code,
-  // addItemFilter: value => {
   searchEnabled: true
 }); //отрисовка страницы при первой загрузке
 
@@ -13064,7 +13061,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52981" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61820" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
