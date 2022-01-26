@@ -22,7 +22,7 @@ export default function paginationMarkup(totalPage, nowPage,
        
          const genElement = (page = 1, text = page) =>
         (link && baseTag === 'a') ?
-            `<${baseTag} class="${(page === nowPage ? (baseClass ? classActive : `${baseClass} ${classActive}`) : baseClass)}" href="${link + page}${query ? '&' + query : ''}">${text}</${baseTag}>` :
+            `<${baseTag} class="${(page === nowPage ? (baseClass ? classActive : `${baseClass} ${classActive}`) : baseClass)}" href="${link + (+page-1)}${query ? '&' + query : ''}">${text}</${baseTag}>` :
             `<${baseTag} class="${(page === nowPage ? (baseClass ? classActive : `${baseClass} ${classActive}`) : baseClass)}">${text}</${baseTag}>`;
 
     let markup = showStart ? genElement(1, contentStart) : '';
