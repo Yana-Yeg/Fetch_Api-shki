@@ -1,16 +1,10 @@
 import './sass/main.scss';
 import fetchApiGet from './fetchApiGet';
-import fetchApiById from './fetchApiById';
-import fetchApiUrl from './fetchApiUrl';
 import fetchNewEvents from './newArrayAndGetModal';
-import smallCard from './templates/smallCard.hbs';
 import code from './countries.json';
-import paginationMarkup from './pagination';
-import { showModal } from './renderModal';
 import generatePagination from './generatePagination';
 import createNewEventAndRenderSmallCard from './createNewEventAndRenderSmallCard';
 import onClickEvent from './onClickEvent';
-import { key } from '../config.json';
 import 'animate.css';
 import './skroll-up';
 import './modalFooter';
@@ -24,7 +18,6 @@ document.querySelector('.header__logo-icon').addEventListener('click', e => {
 export const refs = {
   form: document.querySelector('.form'),
   input: document.querySelector('input.form-element'),
-  //   select: document.querySelector('.form-select'),
   mainList: document.querySelector('.main__grid-small-cards'),
   pagination: document.querySelector('.pagination'),
   more: document.querySelector('.infoauthor-button'),
@@ -32,26 +25,18 @@ export const refs = {
   goodRequest: document.querySelector('.good-request'),
 };
 
-//библиотека на select
-const element = document.querySelector('.form-select');
 
+//библиотека для select
+const element = document.querySelector('.form-select');
 const markup3 = code.map(el => `<option value="${el.code}">${el.name}</option>`).join("");
 element.insertAdjacentHTML("beforeend", markup3);
-
 const choices = new Choices(element, {
 searchEnabled: true,
 });
 
 
-
-
-
 //отрисовка страницы при первой загрузке
 let nowPage;
-// const markup2 = code.map(el => `<option value="${el.code}">${el.name}</option>`).join("")
-
-// console.log(refs.select);
-// refs.select.insertAdjacentHTML("beforeend", markup2);
 
 function openPage() {
   nowPage = 0;

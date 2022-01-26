@@ -6,9 +6,6 @@ export default function generatePagination(_links, page) {
     let markup = '';
     let activePage = page.number+1;
 
-    // activePage = parseInt((Object.values(_links.prev)).join('').split('=')[3]) + 1;
-  
-    console.log(activePage)
     const queryHttp = (Object.values(_links.self).join('').split('&page'))[0];
  
     paginationMarkup(page.totalPages-1, activePage, {link:`${baseUrl}${queryHttp}&apikey=${key}&page=`});

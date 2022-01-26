@@ -4,6 +4,7 @@ import smallCard from './templates/smallCard.hbs';
 //вынос создания нового объекта для рендера карточки
 export default function createNewEventAndRenderSmallCard(_embedded) {
   const newEvent = _embedded.events.map(event => {
+
     const location = {
       latitude: event._embedded.venues[0].location ? event._embedded.venues[0].location.latitude :0,
       longitude: event._embedded.venues[0].location ? event._embedded.venues[0].location.longitude :0,
@@ -31,10 +32,7 @@ export default function createNewEventAndRenderSmallCard(_embedded) {
     };
   });
 
-    const markup = smallCard(newEvent);
-    // console.log(refs.mainList)
+  const markup = smallCard(newEvent);
   refs.mainList.innerHTML = markup;
-  
-  
 }
 
