@@ -328,11 +328,13 @@ option {
   background-color: rgba(255, 255, 255, 0.5) !important;
 }
 .choices__list--dropdown .choices__item--selectable.is-highlighted:hover::after {
-  display: block;
+  display: none;
 }
 
 .choices__list--dropdown .choices__item--selectable {
-  font-size: 16px !important;
+  font-size: 13px !important;
+  margin-left: -2px !important;
+  margin-right: -15px !important;
 }
 
 .choices__placeholder {
