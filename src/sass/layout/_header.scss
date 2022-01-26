@@ -1,7 +1,8 @@
 .header {
   padding-top: 78px;
   padding-bottom: 10px;
-  background-image: url(../images/bg_img_mobile.jpg);
+  // background-image: url(../images/bg_img_mobile.jpg);
+  background-image: url(../images/bg_img_tablet.jpg);
   height: 365px;
   background-position: center;
   background-repeat: no-repeat;
@@ -12,7 +13,7 @@
   @media screen and (min-width: 768px) {
     padding-top: 40px;
     padding-bottom: 81px;
-    background-image: url(../images/bg_img_tablet.jpg);
+    background-image: url(../images/bg_img_desktop.jpg);
   }
 
   @media screen and (min-width: 1280px) {

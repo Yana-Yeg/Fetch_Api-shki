@@ -40,7 +40,6 @@
   min-height: 240px;
   z-index: 10;
   position: relative;
-
   border-radius: 50px 0px;
   //   box-shadow: 0px 0px 20px rgba(220, 86, 197, 0.3), inset 0px 0px 2px rgba(220, 86, 197, 0.3);
   //   box-shadow: 0px 0px 20px #f80bfd, inset 0px 0px 2px #f80bfd;
@@ -165,7 +164,7 @@
   @media screen and (min-width: 1280px) {
     grid-template-columns: repeat(4, 1fr);
     gap: 50px 55px;
-    top: -55px;
+    top: -40px;
   }
 }
 .bad-request {
