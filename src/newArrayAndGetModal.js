@@ -9,13 +9,13 @@ export default function fetchNewEvents(id) {
                 id: event.id,
                 url: event.url,
                 name: event.name,
-                info: event.info? event.info : "More info will be soon",
+                info: event.info? event.info : "More info will be soon, if you would like to know right now, please press our button 'MORE FROM THIS EVENTS' you will be searching in Google.",
                 localDate: event.dates.start.localDate ? event.dates.start.localDate : "",
                 localTime: event.dates.start.localTime ? `${event.dates.start.localTime}`.slice(0, 5) : "",
                 timezone: event.dates.timezone ? event.dates.timezone : "",
                 location: {
-                    latitude: event._embedded.venues[0].location.latitude,
-                    longitude: event._embedded.venues[0].location.longitude,
+                    latitude: event._embedded.venues[0].location ? event._embedded.venues[0].location.latitude : 0,
+                    longitude: event._embedded.venues[0].location ? event._embedded.venues[0].location.longitude : 0
                 },
                 priceRangeType: event.priceRanges && event.priceRanges[0].type || "",
                 priceRangeMin : event.priceRanges && event.priceRanges[0].min || "",
@@ -40,7 +40,6 @@ export default function fetchNewEvents(id) {
         showModal(...newEvents);
         refs.closeModalBtn.addEventListener('click', e => {
             refs.backdrop.classList.add('is-hidden');
-    
         });
         
         refs.backdrop.addEventListener('click', e => {

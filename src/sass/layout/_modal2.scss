@@ -301,6 +301,16 @@
   }
 }
 
+.students {
+    border: 2px dotted var(--headers-nameEvent-hoverPages-hoverLocation-color) !important;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+.students:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 20px #f80bfd, inset 0px 0px 2px #f80bfd;
+
+}
 // .preloader {
 //   position: fixed;
 //   top: 0;
