@@ -47,7 +47,7 @@ export default function paginationMarkup(totalPage, nowPage,
 
       if (i < startShow) i = startShow - 1;
     }
-//   console.log(markup)
+
      markup += showEnd ? genElement(totalPage, contentEnd) : '';
     refs.pagination.innerHTML = markup;
     return

@@ -3,7 +3,6 @@ import symbolDevs from './images/symbol-defs.svg';
 import sprite from './images/sprite.svg';
 
 
-
 export const showModal = events => {
 
     let timezone = '';
@@ -64,10 +63,8 @@ export const showModal = events => {
                 </ul>
             </div>
         </div>
-        <button type="button" data-id="${events.groupId}" class="button infoauthor-button">MORE FROM THIS EVENTS</button>
+        <button type="button" data-id="${events.groupId}" class="button infoauthor-button">MORE ABOUT THIS EVENTS</button>
     </div>`;
-
-
 
     document.querySelector('#modalNode').innerHTML = markupOneModal;
     refs.closeModalBtn = document.querySelector('.close-button');
@@ -75,11 +72,9 @@ export const showModal = events => {
     refs.backdrop = document.querySelector('.cards__backdrop');
     refs.more = document.querySelector('.infoauthor-button');
 
-
     refs.more.addEventListener('click', getInfoByAuthor);
     function getInfoByAuthor(e) {
         window.open(`https://www.google.com/search?q=${events.name}`)
     }
-    console.log(document.querySelector(".modal__list-info").height)
 };
 

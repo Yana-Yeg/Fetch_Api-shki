@@ -1,5 +1,4 @@
 import axios from 'axios';
-import {key} from "../config.json"
 
 export default async function fetchApiUrl(url) {
   try {

@@ -3,7 +3,6 @@ import {key} from "../config.json"
 
 export default async function fetchApiGet(query, country, page) {
   const BASE_URL= "https://app.ticketmaster.com"
-  // const API_KEY = key
   const createParams = params => {
     return {
       params,
