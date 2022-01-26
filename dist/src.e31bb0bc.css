@@ -299,6 +299,19 @@ option {
   font-size: 20px !important;
 }
 
+.choices__list--dropdown .choices__item--selectable.is-highlighted {
+  background-color: transparent !important;
+}
+.choices__list--dropdown .choices__item--selectable.is-highlighted::after {
+  display: none;
+}
+.choices__list--dropdown .choices__item--selectable.is-highlighted:hover {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+}
+.choices__list--dropdown .choices__item--selectable.is-highlighted:hover::after {
+  display: block;
+}
+
 .choices__placeholder {
   opacity: 1 !important;
 }

@@ -163,10 +163,27 @@
   color: var(--headers-nameEvent-hoverPages-hoverLocation-color);
   font-weight: 700;
 }
+
 option {
   font-family: "Montserrat", sans-serif !important;
   font-size: 20px !important;
 }
+
+  .choices__list--dropdown .choices__item--selectable.is-highlighted {
+    background-color: transparent !important; 
+    &::after{
+      display: none;
+    }
+    &:hover{
+      background-color: rgba(255, 255, 255, 0.5) !important;
+        &::after{
+          display: block;
+    }
+    }
+
+}
+
+
 .choices__placeholder {
     opacity: 1 !important;
 }
