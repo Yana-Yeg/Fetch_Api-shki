@@ -189,7 +189,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./../images/bg_img_tablet.jpg":[["bg_img_tablet.d69523fd.jpg","images/bg_img_tablet.jpg"],"images/bg_img_tablet.jpg"],"./../images/bg_img_desktop.jpg":[["bg_img_desktop.278bba24.jpg","images/bg_img_desktop.jpg"],"images/bg_img_desktop.jpg"],"./../images/png/tab/noise-body-tab.png":[["noise-body-tab.1d972e49.png","images/png/tab/noise-body-tab.png"],"images/png/tab/noise-body-tab.png"],"./../images/png/tab/vertical-line-left-tab.png":[["vertical-line-left-tab.7a1c08d4.png","images/png/tab/vertical-line-left-tab.png"],"images/png/tab/vertical-line-left-tab.png"],"./../images/png/tab/Ellipse-3-tab.png":[["Ellipse-3-tab.ba0329f5.png","images/png/tab/Ellipse-3-tab.png"],"images/png/tab/Ellipse-3-tab.png"],"./../images/png/tab/Ellipse-9-tab.png":[["Ellipse-9-tab.4703d09d.png","images/png/tab/Ellipse-9-tab.png"],"images/png/tab/Ellipse-9-tab.png"],"./../images/png/tab/Ellipse-6-tab.png":[["Ellipse-6-tab.12593ffa.png","images/png/tab/Ellipse-6-tab.png"],"images/png/tab/Ellipse-6-tab.png"],"./../images/png/tab/Ellipse-7-tab.png":[["Ellipse-7-tab.0f4c4a35.png","images/png/tab/Ellipse-7-tab.png"],"images/png/tab/Ellipse-7-tab.png"],"./../images/png/tab/Ellipse-8-tab.png":[["Ellipse-8-tab.62b23d37.png","images/png/tab/Ellipse-8-tab.png"],"images/png/tab/Ellipse-8-tab.png"],"./../images/png/tab/Ellipse12-tab.png":[["Ellipse12-tab.a9bd070e.png","images/png/tab/Ellipse12-tab.png"],"images/png/tab/Ellipse12-tab.png"],"./../images/png/tab/Ellipse-18-tab.png":[["Ellipse-18-tab.1ffbd562.png","images/png/tab/Ellipse-18-tab.png"],"images/png/tab/Ellipse-18-tab.png"],"./../images/png/tab/vertical-line-small-tab.png":[["vertical-line-small-tab.a43c4225.png","images/png/tab/vertical-line-small-tab.png"],"images/png/tab/vertical-line-small-tab.png"],"./../images/png/tab/vertical-line-right-tab.png":[["vertical-line-right-tab.5cccb6a0.png","images/png/tab/vertical-line-right-tab.png"],"images/png/tab/vertical-line-right-tab.png"],"./../images/noise_body.png":[["noise_body.f16fab95.png","images/noise_body.png"],"images/noise_body.png"],"./../images/png/Ellipse5.png":[["Ellipse5.6339ffac.png","images/png/Ellipse5.png"],"images/png/Ellipse5.png"],"./../images/png/Ellipse2.png":[["Ellipse2.9b81d77e.png","images/png/Ellipse2.png"],"images/png/Ellipse2.png"],"./../images/png/Ellipse6.png":[["Ellipse6.df08466d.png","images/png/Ellipse6.png"],"images/png/Ellipse6.png"],"./../images/png/Ellipse4.png":[["Ellipse4.f8977735.png","images/png/Ellipse4.png"],"images/png/Ellipse4.png"],"./../images/png/Ellipse7.png":[["Ellipse7.7b9b3337.png","images/png/Ellipse7.png"],"images/png/Ellipse7.png"],"./../images/png/Ellipse8.png":[["Ellipse8.35b88bd6.png","images/png/Ellipse8.png"],"images/png/Ellipse8.png"],"./../images/png/Ellipse9.png":[["Ellipse9.efa1d70f.png","images/png/Ellipse9.png"],"images/png/Ellipse9.png"],"./../images/png/vertical-line-left.png":[["vertical-line-left.5932f49d.png","images/png/vertical-line-left.png"],"images/png/vertical-line-left.png"],"./../images/png/vertical-line-rigth.png":[["vertical-line-rigth.cb4a3546.png","images/png/vertical-line-rigth.png"],"images/png/vertical-line-rigth.png"],"./../images/png/vertical-line-small.png":[["vertical-line-small.00a5a5e9.png","images/png/vertical-line-small.png"],"images/png/vertical-line-small.png"],"./../images/Map-point.svg":[["Map-point.f868b8b4.svg","images/Map-point.svg"],"images/Map-point.svg"],"./../images/gitar.jpeg":[["gitar.ab07bc81.jpeg","images/gitar.jpeg"],"images/gitar.jpeg"],"./../images/png/tab/Ellipse5-tab.png":[["Ellipse5-tab.565ea030.png","images/png/tab/Ellipse5-tab.png"],"images/png/tab/Ellipse5-tab.png"],"./../images/png/tab/Ellipse2-tab.png":[["Ellipse2-tab.4f8d35e5.png","images/png/tab/Ellipse2-tab.png"],"images/png/tab/Ellipse2-tab.png"],"./../images/png/Ellipse10.png":[["Ellipse10.0be7f446.png","images/png/Ellipse10.png"],"images/png/Ellipse10.png"],"./../images/png/Ellipse11.png":[["Ellipse11.33a360b2.png","images/png/Ellipse11.png"],"images/png/Ellipse11.png"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
+},{"./..\\images\\bg_img_tablet.jpg":[["bg_img_tablet.d69523fd.jpg","images/bg_img_tablet.jpg"],"images/bg_img_tablet.jpg"],"./..\\images\\bg_img_desktop.jpg":[["bg_img_desktop.278bba24.jpg","images/bg_img_desktop.jpg"],"images/bg_img_desktop.jpg"],"./..\\images\\png\\tab\\noise-body-tab.png":[["noise-body-tab.1d972e49.png","images/png/tab/noise-body-tab.png"],"images/png/tab/noise-body-tab.png"],"./..\\images\\png\\tab\\vertical-line-left-tab.png":[["vertical-line-left-tab.7a1c08d4.png","images/png/tab/vertical-line-left-tab.png"],"images/png/tab/vertical-line-left-tab.png"],"./..\\images\\png\\tab\\Ellipse-3-tab.png":[["Ellipse-3-tab.ba0329f5.png","images/png/tab/Ellipse-3-tab.png"],"images/png/tab/Ellipse-3-tab.png"],"./..\\images\\png\\tab\\Ellipse-9-tab.png":[["Ellipse-9-tab.4703d09d.png","images/png/tab/Ellipse-9-tab.png"],"images/png/tab/Ellipse-9-tab.png"],"./..\\images\\png\\tab\\Ellipse-6-tab.png":[["Ellipse-6-tab.12593ffa.png","images/png/tab/Ellipse-6-tab.png"],"images/png/tab/Ellipse-6-tab.png"],"./..\\images\\png\\tab\\Ellipse-7-tab.png":[["Ellipse-7-tab.0f4c4a35.png","images/png/tab/Ellipse-7-tab.png"],"images/png/tab/Ellipse-7-tab.png"],"./..\\images\\png\\tab\\Ellipse-8-tab.png":[["Ellipse-8-tab.62b23d37.png","images/png/tab/Ellipse-8-tab.png"],"images/png/tab/Ellipse-8-tab.png"],"./..\\images\\png\\tab\\Ellipse12-tab.png":[["Ellipse12-tab.a9bd070e.png","images/png/tab/Ellipse12-tab.png"],"images/png/tab/Ellipse12-tab.png"],"./..\\images\\png\\tab\\Ellipse-18-tab.png":[["Ellipse-18-tab.1ffbd562.png","images/png/tab/Ellipse-18-tab.png"],"images/png/tab/Ellipse-18-tab.png"],"./..\\images\\png\\tab\\vertical-line-small-tab.png":[["vertical-line-small-tab.a43c4225.png","images/png/tab/vertical-line-small-tab.png"],"images/png/tab/vertical-line-small-tab.png"],"./..\\images\\png\\tab\\vertical-line-right-tab.png":[["vertical-line-right-tab.5cccb6a0.png","images/png/tab/vertical-line-right-tab.png"],"images/png/tab/vertical-line-right-tab.png"],"./..\\images\\noise_body.png":[["noise_body.f16fab95.png","images/noise_body.png"],"images/noise_body.png"],"./..\\images\\png\\Ellipse5.png":[["Ellipse5.6339ffac.png","images/png/Ellipse5.png"],"images/png/Ellipse5.png"],"./..\\images\\png\\Ellipse2.png":[["Ellipse2.9b81d77e.png","images/png/Ellipse2.png"],"images/png/Ellipse2.png"],"./..\\images\\png\\Ellipse6.png":[["Ellipse6.df08466d.png","images/png/Ellipse6.png"],"images/png/Ellipse6.png"],"./..\\images\\png\\Ellipse4.png":[["Ellipse4.f8977735.png","images/png/Ellipse4.png"],"images/png/Ellipse4.png"],"./..\\images\\png\\Ellipse7.png":[["Ellipse7.7b9b3337.png","images/png/Ellipse7.png"],"images/png/Ellipse7.png"],"./..\\images\\png\\Ellipse8.png":[["Ellipse8.35b88bd6.png","images/png/Ellipse8.png"],"images/png/Ellipse8.png"],"./..\\images\\png\\Ellipse9.png":[["Ellipse9.efa1d70f.png","images/png/Ellipse9.png"],"images/png/Ellipse9.png"],"./..\\images\\png\\vertical-line-left.png":[["vertical-line-left.5932f49d.png","images/png/vertical-line-left.png"],"images/png/vertical-line-left.png"],"./..\\images\\png\\vertical-line-rigth.png":[["vertical-line-rigth.cb4a3546.png","images/png/vertical-line-rigth.png"],"images/png/vertical-line-rigth.png"],"./..\\images\\png\\vertical-line-small.png":[["vertical-line-small.00a5a5e9.png","images/png/vertical-line-small.png"],"images/png/vertical-line-small.png"],"./..\\images\\Map-point.svg":[["Map-point.f868b8b4.svg","images/Map-point.svg"],"images/Map-point.svg"],"./..\\images\\gitar.jpeg":[["gitar.ab07bc81.jpeg","images/gitar.jpeg"],"images/gitar.jpeg"],"./..\\images\\png\\tab\\Ellipse5-tab.png":[["Ellipse5-tab.565ea030.png","images/png/tab/Ellipse5-tab.png"],"images/png/tab/Ellipse5-tab.png"],"./..\\images\\png\\tab\\Ellipse2-tab.png":[["Ellipse2-tab.4f8d35e5.png","images/png/tab/Ellipse2-tab.png"],"images/png/tab/Ellipse2-tab.png"],"./..\\images\\png\\Ellipse10.png":[["Ellipse10.0be7f446.png","images/png/Ellipse10.png"],"images/png/Ellipse10.png"],"./..\\images\\png\\Ellipse11.png":[["Ellipse11.33a360b2.png","images/png/Ellipse11.png"],"images/png/Ellipse11.png"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
 'use strict';
 
 module.exports = function bind(fn, thisArg) {
@@ -2505,7 +2505,7 @@ function fetchNewEvents(id) {
         id: event.id,
         url: event.url,
         name: event.name,
-        info: event.info ? event.info : "More info will be soon",
+        info: event.info ? event.info : "More info will be soon, if you would like to know right now, please press our button 'MORE FROM THIS EVENTS' you will be searching in Google.",
         localDate: event.dates.start.localDate ? event.dates.start.localDate : "",
         localTime: event.dates.start.localTime ? `${event.dates.start.localTime}`.slice(0, 5) : "",
         timezone: event.dates.timezone ? event.dates.timezone : "",
@@ -4589,7 +4589,7 @@ const templateFunction = _handlebars.default.template({
       return undefined;
     };
 
-    return "\n<li class=\"smallCard animate__animated animate__zoomInUp\" data-id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    return "\r\n<li class=\"smallCard animate__animated animate__zoomInUp\" data-id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
@@ -4603,7 +4603,7 @@ const templateFunction = _handlebars.default.template({
           "column": 73
         }
       }
-    }) : helper)) + "\">\n    <img class=\"smallCard-small\" src='" + alias4(container.lambda((stack1 = depth0 != null ? lookupProperty(depth0, "image") : depth0) != null ? lookupProperty(stack1, "url") : stack1, depth0)) + "' data-id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\">\r\n    <img class=\"smallCard-small\" src='" + alias4(container.lambda((stack1 = depth0 != null ? lookupProperty(depth0, "image") : depth0) != null ? lookupProperty(stack1, "url") : stack1, depth0)) + "' data-id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
@@ -4617,7 +4617,7 @@ const templateFunction = _handlebars.default.template({
           "column": 68
         }
       }
-    }) : helper)) + "\" width=200/>\n    <div class=\"smallCard_info\">\n        <ul class=\"smallCard_info_list\">\n            <li class=\"smallCard_heroes\">\n                <p class=\"smallCard_text\" data-id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\" width=200/>\r\n    <div class=\"smallCard_info\">\r\n        <ul class=\"smallCard_info_list\">\r\n            <li class=\"smallCard_heroes\">\r\n                <p class=\"smallCard_text\" data-id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
@@ -4645,7 +4645,7 @@ const templateFunction = _handlebars.default.template({
           "column": 67
         }
       }
-    }) : helper)) + "</p>\n            </li>\n            <li class=\"smallCard_date\">\n                <p class=\"smallCard_text\" data-id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "</p>\r\n            </li>\r\n            <li class=\"smallCard_date\">\r\n                <p class=\"smallCard_text\" data-id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
@@ -4673,7 +4673,7 @@ const templateFunction = _handlebars.default.template({
           "column": 72
         }
       }
-    }) : helper)) + "</p>\n            </li>\n            <li class=\"smallCard_place\">\n                <a href=\"" + alias4((helper = (helper = lookupProperty(helpers, "map") || (depth0 != null ? lookupProperty(depth0, "map") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "</p>\r\n            </li>\r\n            <li class=\"smallCard_place\">\r\n                <a href=\"" + alias4((helper = (helper = lookupProperty(helpers, "map") || (depth0 != null ? lookupProperty(depth0, "map") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "map",
       "hash": {},
       "data": data,
@@ -4715,7 +4715,7 @@ const templateFunction = _handlebars.default.template({
           "column": 130
         }
       }
-    }) : helper)) + "</span></a>\n            </li>\n        </ul>\n    </div>\n</li>\n\n";
+    }) : helper)) + "</span></a>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</li>\r\n\r\n";
   },
   "compiler": [8, ">= 4.3.0"],
   "main": function (container, depth0, helpers, partials, data) {
@@ -4744,7 +4744,7 @@ const templateFunction = _handlebars.default.template({
           "column": 9
         }
       }
-    })) != null ? stack1 : "") + "\n\n\n";
+    })) != null ? stack1 : "") + "\r\n\r\n\r\n";
   },
   "useData": true
 });
@@ -5038,8 +5038,8 @@ function paginationMarkup(totalPage, nowPage) {
   const startShow = nowPage - countItemShow;
   const endShow = nowPage + countItemShow;
 
-  if (totalPage >= 50) {
-    totalPage = 49;
+  if (totalPage >= 51) {
+    totalPage = 50;
   }
 
   for (let i = 1; i <= totalPage; i++) {
@@ -5098,10 +5098,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function createNewEventAndRenderSmallCard(_embedded) {
   const newEvent = _embedded.events.map(event => {
     const location = {
-      latitude: event._embedded.venues[0].location.latitude,
-      longitude: event._embedded.venues[0].location.longitude
+      latitude: event._embedded.venues[0].location ? event._embedded.venues[0].location.latitude : 0,
+      longitude: event._embedded.venues[0].location ? event._embedded.venues[0].location.longitude : 0
     };
-    const renderHref = `http://maps.google.com/maps?q=${location.latitude},${location.longitude}&ll=${location.latitude},${location.longitude}&z=17`;
+    let renderHref = ''; // if(!location){
+    //   renderHref = 'There is no any information.'
+    //       }
+
+    renderHref = `http://maps.google.com/maps?q=${location.latitude},${location.longitude}&ll=${location.latitude},${location.longitude}&z=17`;
     return {
       id: event.id,
       name: event.name,
@@ -13064,7 +13068,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52981" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58059" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

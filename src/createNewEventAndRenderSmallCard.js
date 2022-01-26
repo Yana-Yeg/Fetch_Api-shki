@@ -5,11 +5,14 @@ import smallCard from './templates/smallCard.hbs';
 export default function createNewEventAndRenderSmallCard(_embedded) {
   const newEvent = _embedded.events.map(event => {
     const location = {
-      latitude: event._embedded.venues[0].location.latitude,
-      longitude: event._embedded.venues[0].location.longitude,
+      latitude: event._embedded.venues[0].location ? event._embedded.venues[0].location.latitude :0,
+      longitude: event._embedded.venues[0].location ? event._embedded.venues[0].location.longitude :0,
     };
-
-    const renderHref = `http://maps.google.com/maps?q=${location.latitude},${location.longitude}&ll=${location.latitude},${location.longitude}&z=17`
+    let renderHref = '';
+    // if(!location){
+    //   renderHref = 'There is no any information.'
+    //       }
+      renderHref = `http://maps.google.com/maps?q=${location.latitude},${location.longitude}&ll=${location.latitude},${location.longitude}&z=17`
 
     return {
       id: event.id,

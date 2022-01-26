@@ -29,8 +29,8 @@ export default function paginationMarkup(totalPage, nowPage,
 
     const startShow = nowPage - countItemShow;
     const endShow = nowPage + countItemShow;
-    if(totalPage >= 50){
-        totalPage = 49;
+    if(totalPage >= 51){
+        totalPage = 50;
     }
     for (let i = 1; i <= totalPage; i++) {
        
