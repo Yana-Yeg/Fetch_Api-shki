@@ -151,7 +151,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 30px 5px;
   position: relative;
-  //   top: -55px;
+  top: -50px;
   @media screen and(min-width: 480px) {
     grid-template-columns: repeat(2, 1fr);
     gap: 45px 30px;
@@ -160,6 +160,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 45px 12px;
     top: 10px;
+    top: -40px;
   }
   @media screen and (min-width: 1280px) {
     grid-template-columns: repeat(4, 1fr);
