@@ -25,6 +25,7 @@ export const refs = {
   goodRequest: document.querySelector('.good-request'),
 };
 
+
 //библиотека для select
 const element = document.querySelector('.form-select');
 const markup3 = code.map(el => `<option value="${el.code}">${el.name}</option>`).join("");
