@@ -41,8 +41,6 @@
   z-index: 10;
   position: relative;
   border-radius: 50px 0px;
-  //   box-shadow: 0px 0px 20px rgba(220, 86, 197, 0.3), inset 0px 0px 2px rgba(220, 86, 197, 0.3);
-  //   box-shadow: 0px 0px 20px #f80bfd, inset 0px 0px 2px #f80bfd;
   @media screen and(min-width: 480px) {
     width: 180px;
     min-height: 310px;
@@ -168,81 +166,68 @@
   }
 }
 .bad-request {
-  background-image: url('./../images/gitar.jpeg');
+  background-image: url('./../images/oops-cut.png');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 34%;
+  // background-position: -50px;
   position: relative;
-  height: 600px;
+  height: 230px;
+  background-position: 10px;
+  @media screen and (min-width: 480px) {
+    height: 250px;
+    background-position: 50px;
+  }
+  @media screen and (min-width: 768px) {
+    height: 300px;
+    background-position: 140px;
+  }
   @media screen and (min-width: 1280px) {
-    height: 600px;
+    height: 400px;
+    background-position: 200px;
   }
 }
 .return-btn {
-  padding: 17px;
-  border: 1px solid white;
+  padding: 8px 7px;
+  border: 2px solid var(--place-dates-pages-color);
   border-radius: 50px;
-  background-color: rgb(245, 245, 55);
+  background-color: var(--return-btn-color);
   position: absolute;
-  color: #0e0e0ec1;
-  top: 314px;
-  right: 70px;
-  width: 200px;
-  font-size: 11px;
+  color: var(--return-btn-text-color);
+  top: 0;
+  right: 43px;
+  width: 110px;
+  font-size: 6px;
   line-height: 1.25;
+  transition: 0.8s;
+  text-align: center;
   @media screen and (min-width: 480px) {
-    right: 140px;
+    right: 90px;
+    top: 0;
+    padding: 8px 8px;
+    width: 175px;
+    font-size: 7px;
+    line-height: 1.25;
+    width: 127px;
   }
   @media screen and (min-width: 768px) {
-    right: 280px;
+    right: 163px;
+    top: 10px;
+    padding: 10px 8px;
+    width: 175px;
+    font-size: 8px;
+    line-height: 1.25;
+    width: 140px;
   }
-
   @media screen and (min-width: 1280px) {
-    right: 520px;
+    top: 10px;
+    right: 370px;
+    padding: 12px 8px;
+    width: 175px;
+    width: 160px;
+    text-align: center;
+    font-size: 10px;
   }
 }
-// @-webkit-keyframes scroll {
-//   0% {
-//     -webkit-transform: translate(0, 0);
-//     transform: translate(0, 0);
-//   }
-//   100% {
-//     -webkit-transform: translate(-100%, 0);
-//     transform: translate(-100%, 0);
-//   }
-// }
-
-// @-moz-keyframes scroll {
-//   0% {
-//     -moz-transform: translate(0, 0);
-//     transform: translate(0, 0);
-//   }
-//   100% {
-//     -moz-transform: translate(-100%, 0);
-//     transform: translate(-100%, 0);
-//   }
-// }
-
-// @keyframes scroll {
-//   0% {
-//     transform: translate(0, 0);
-//   }
-//   100% {
-//     transform: translate(-100%, 0);
-//   }
-// }
-
-// .smallCard_text_place {
-//   display: block;
-//   width: 100%;
-//   white-space: nowrap;
-//   overflow: hidden;
-// }
-
-// .smallCard_text_place span {
-//   display: inline-block;
-//   padding-left: 100%;
-//   -webkit-animation: scroll 15s infinite linear;
-//   -moz-animation: scroll 15s infinite linear;
-//   animation: scroll 15s infinite linear;
-// }
+.return-btn:hover {
+  background-color: var(--headers-nameEvent-hoverPages-hoverLocation-color);
+}
