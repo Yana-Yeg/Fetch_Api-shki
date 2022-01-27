@@ -2842,9 +2842,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function generatePagination(_links, page) {
   const baseUrl = 'https://app.ticketmaster.com';
   let markup = '';
-  let activePage = page.number + 1;
-  const queryHttp = Object.values(_links.self).join('').split('&page')[0];
-  (0, _pagination.default)(page.totalPages - 1, activePage, {
+  let activePage = page.number + 1; // const queryHttp = (Object.values(_links.first).join('').split('&page'))[0];
+
+  const queryHttp = Object.values(_links.self.href).join('').split('&')[0] + '&' + Object.values(_links.self.href).join('').split('&')[2]; // console.log(queryHttp);
+
+  (0, _pagination.default)(page.totalPages, activePage, {
     link: `${baseUrl}${queryHttp}&apikey=${_config.key}&page=`
   });
 }
@@ -13042,7 +13044,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51233" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64115" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
