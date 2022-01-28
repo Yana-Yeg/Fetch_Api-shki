@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css" integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g==" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
     <link rel="shortcut icon" type="image/png" href="/spotlight.beb6c793.png">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
   <link rel="stylesheet" href="/src.e31bb0bc.css"></head>
   <body>
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
@@ -25,13 +26,17 @@
       FIND <span class="flicker"> BEST EVENTS </span>AROUND THE WORLD
     </div>
     </div>
+
     <div class="form">
       <span class="form__input">
         <input autocomplete="off" class="form-element" name="search-field" id="search" type="text" placeholder="Start searching">
-        <svg class="search-icon">
-          <use href="/sprite.5ec50489.svg#iconSearch"></use>
-        </svg>
+        <p class="info"></p>
+      
+        <!-- <svg class="search-icon">
+          <use href="./images/sprite.svg#iconSearch"></use>
+        </svg> -->
       </span>
+      
       <span class="form__select">
         <select class="form-select form-element">
           <option class="form-choose-country" value="">Choose country</option>
@@ -42,7 +47,11 @@
           
         </label>
       </span>
-    </div>
+      
+      </div>
+
+
+    
   
 </header>
 
@@ -121,5 +130,6 @@
 
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="/src.e31bb0bc.js"></script>
+    <script src="/voiceSerch.478886f9.js"></script>
   </body>
 </html>

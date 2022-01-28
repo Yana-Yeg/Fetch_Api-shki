@@ -2,9 +2,9 @@ import { refs } from '.';
 import fetchApiById from './fetchApiById';
 import { showModal } from './renderModal';
 
-export default function fetchNewEvents(id) {
-    fetchApiById(id).then(data => {
-        const newEvents = data.map(event => {
+export default async function fetchNewEvents(id) {
+    const dataFromFetchById = await fetchApiById(id)
+    const newEvents = dataFromFetchById.map(event => {
             return {
                 id: event.id,
                 url: event.url,
@@ -45,6 +45,6 @@ export default function fetchNewEvents(id) {
         refs.backdrop.addEventListener('click', e => {
             if (e.target.dataset.modal === '') refs.backdrop.classList.add('is-hidden')
         })
-        })
+        
 }
     

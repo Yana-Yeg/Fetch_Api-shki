@@ -1,7 +1,6 @@
 import { refs } from '.';
 import smallCard from './templates/smallCard.hbs';
 
-//вынос создания нового объекта для рендера карточки
 export default function createNewEventAndRenderSmallCard(_embedded) {
   const newEvent = _embedded.events.map(event => {
 
