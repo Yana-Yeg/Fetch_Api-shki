@@ -117,74 +117,82 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
+})({"voiceSerch.js":[function(require,module,exports) {
+const searchForm = document.querySelector(".form__input");
+const searchFormInput = searchForm.querySelector("input"); // <=> document.querySelector("#search-form input");
 
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
+const info = document.querySelector(".info"); // The speech recognition interface lives on the browser’s window object
 
-  return bundleURL;
-}
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition; // if none exists -> undefined
 
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+if (SpeechRecognition) {
+  // console.log("Your Browser supports speech Recognition");
+  const recognition = new SpeechRecognition();
+  recognition.continuous = true;
+  recognition.lang = "en-US";
+  searchForm.insertAdjacentHTML("beforeend", '<button class="form-input-btn" type="button"><i class="fas fa-microphone-slash"></i></button>');
+  searchFormInput.style.paddingRight = "50px";
+  const micBtn = searchForm.querySelector("button");
+  const micIcon = micBtn.firstElementChild;
+  micBtn.addEventListener("click", micBtnClick);
 
-    if (matches) {
-      return getBaseURL(matches[0]);
+  function micBtnClick() {
+    if (micIcon.classList.contains("fa-microphone-slash")) {
+      // Start Voice Recognition
+      recognition.start(); // First time you have to allow access to mic!
+    } else {
+      recognition.stop();
     }
   }
 
-  return '/';
-}
+  recognition.addEventListener("start", startSpeechRecognition); // <=> recognition.onstart = function() {...}
 
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
+  function startSpeechRecognition() {
+    micIcon.classList.remove("fa-microphone-slash");
+    micIcon.classList.add("fa-microphone");
+    searchFormInput.focus();
+    console.log("Voice activated, SPEAK");
   }
 
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
+  recognition.addEventListener("end", endSpeechRecognition); // <=> recognition.onend = function() {...}
 
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
+  function endSpeechRecognition() {
+    micIcon.classList.remove("fa-microphone");
+    micIcon.classList.add("fa-microphone-slash");
+    searchFormInput.focus();
+    console.log("Speech recognition service disconnected");
+  }
+
+  recognition.addEventListener("result", resultOfSpeechRecognition); // <=> recognition.onresult = function(event) {...} - Fires when you stop talking
+
+  function resultOfSpeechRecognition(event) {
+    const current = event.resultIndex;
+    const transcript = event.results[current][0].transcript;
+
+    if (transcript.toLowerCase().trim() === "stop recording") {
+      recognition.stop();
+    } else if (!searchFormInput.value) {
+      searchFormInput.value = transcript;
+    } else {
+      if (transcript.toLowerCase().trim() === "go") {
+        searchForm.submit();
+      } else if (transcript.toLowerCase().trim() === "reset input") {
+        searchFormInput.value = "";
+      } else {
+        searchFormInput.value = transcript;
       }
-    }
+    } // searchFormInput.value = transcript;
+    // searchFormInput.focus();
+    // setTimeout(() => {
+    //   searchForm.submit();
+    // }, 500);
 
-    cssTimeout = null;
-  }, 50);
+  } //   info.textContent = 'Voice Commands: "stop recording", "reset input", "go"';
+
+} else {
+  console.log("Your Browser does not support speech Recognition"); //   info.textContent = "Your Browser does not support Speech Recognition";
 }
-
-module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -388,5 +396,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/index.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","voiceSerch.js"], null)
+//# sourceMappingURL=/voiceSerch.478886f9.js.map

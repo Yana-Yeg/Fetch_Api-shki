@@ -1,3 +1,4 @@
+
 const searchForm = document.querySelector(".form__input");
 const searchFormInput = searchForm.querySelector("input"); // <=> document.querySelector("#search-form input");
 const info = document.querySelector(".info");
@@ -43,7 +44,6 @@ if(SpeechRecognition) {
     searchFormInput.focus();
     console.log("Speech recognition service disconnected");
   }
-console.log(searchFormInput.value);
   recognition.addEventListener("result", resultOfSpeechRecognition); // <=> recognition.onresult = function(event) {...} - Fires when you stop talking
   function resultOfSpeechRecognition(event) {
     const current = event.resultIndex;
@@ -72,7 +72,6 @@ console.log(searchFormInput.value);
     //   searchForm.submit();
     // }, 500);
   }
-  console.log(searchFormInput.value);
 //   info.textContent = 'Voice Commands: "stop recording", "reset input", "go"';
   
 }

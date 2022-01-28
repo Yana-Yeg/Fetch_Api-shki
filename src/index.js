@@ -51,7 +51,7 @@ openPage();
 //output values from form
 refs.form.addEventListener('change', searchEvents);
 async function searchEvents(event) {
-  event.preventDefault();
+  // event.preventDefault();
   nowPage = 0;
 
   const selectedQuery = refs.input.value.trim();

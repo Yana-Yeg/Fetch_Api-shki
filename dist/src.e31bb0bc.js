@@ -12926,7 +12926,7 @@ openPage(); //output values from form
 refs.form.addEventListener('change', searchEvents);
 
 async function searchEvents(event) {
-  event.preventDefault();
+  // event.preventDefault();
   nowPage = 0;
   const selectedQuery = refs.input.value.trim();
   const selectedCountry = element.value; // console.log(refs.input);
@@ -13011,7 +13011,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59218" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58011" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
