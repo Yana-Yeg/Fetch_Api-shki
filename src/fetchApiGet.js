@@ -8,8 +8,6 @@ export default async function fetchApiGet(query, country, page) {
       params,
     };
   };
-
-
   const filterParams = {
     keyword: query,
     countryCode: country,

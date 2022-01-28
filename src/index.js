@@ -26,7 +26,7 @@ export const refs = {
 };
 
 
-//библиотека для select
+//library for select
 const element = document.querySelector('.form-select');
 const markup3 = code.map(el => `<option value="${el.code}">${el.name}</option>`).join("");
 element.insertAdjacentHTML("beforeend", markup3);
@@ -35,89 +35,75 @@ searchEnabled: true,
 });
 
 
-//отрисовка страницы при первой загрузке
+// page markup after 1 loading
 let nowPage;
 
-function openPage() {
+async function openPage() {
   nowPage = 0;
-  fetchApiGet('eagles', 'US', nowPage).then(({ page, _embedded, _links }) => {
-    //вынос создания нового объекта для рендера карточки
-    createNewEventAndRenderSmallCard(_embedded);
-    // отрисовка нумерации страниц
-    generatePagination(_links, page);
+  const result = await fetchApiGet('eagles', 'US', nowPage)
+    createNewEventAndRenderSmallCard(result._embedded);
+    generatePagination(result._links, result.page);
 
     refs.pagination.addEventListener('click', onClickEvent);
-  });
 }
 openPage();
 
-//выбор данных из формы
+//output values from form
 refs.form.addEventListener('change', searchEvents);
-function searchEvents(event) {
+async function searchEvents(event) {
   event.preventDefault();
   nowPage = 0;
 
-  // const selectedQuery = refs.form.elements.search.value.trim();
   const selectedQuery = refs.input.value.trim();
   const selectedCountry = element.value;
-//   console.log(element.value);
+  // console.log(refs.input);
 
   if (selectedQuery && selectedCountry) {
-    fetchApiGet(selectedQuery, selectedCountry, nowPage)
-      .then(({ page, _embedded, _links }) => {
-        //вынос создания нового объекта для рендера карточки
+    try {
+      const result = await fetchApiGet(selectedQuery, selectedCountry, nowPage)
         goodBad.good();
-        createNewEventAndRenderSmallCard(_embedded);
-        generatePagination(_links, page);
+        createNewEventAndRenderSmallCard(result._embedded);
+        generatePagination(result._links, result.page);
 
         refs.pagination.addEventListener('click', onClickEvent);
-      })
-      .catch(error => {
+
+    } catch(error) {
         goodBad.bad();
-      });
+      };
   }
   if (selectedQuery && !selectedCountry) {
-    fetchApiGet(selectedQuery, 'US', nowPage)
-      .then(({ page, _embedded, _links }) => {
-        //вынос создания нового объекта для рендера карточки
+    try {
+      const result = await fetchApiGet(selectedQuery, 'US', nowPage)
         goodBad.good();
-        createNewEventAndRenderSmallCard(_embedded);
-        generatePagination(_links, page);
+        createNewEventAndRenderSmallCard(result._embedded);
+        generatePagination(result._links, result.page);
 
         refs.pagination.addEventListener('click', onClickEvent);
-      })
-      .catch(error => {
+      }
+      catch(error) {
         goodBad.bad();
-      });
+      };
   }
   if (!selectedQuery && selectedCountry) {
-    fetchApiGet('', selectedCountry, nowPage)
-      .then(({ page, _embedded, _links }) => {
-        //вынос создания нового объекта для рендера карточки
+    try {
+      const result = await fetchApiGet('', selectedCountry, nowPage)
         goodBad.good();
-        createNewEventAndRenderSmallCard(_embedded);
-        generatePagination(_links, page);
+         createNewEventAndRenderSmallCard(result._embedded);
+        generatePagination(result._links, result.page);
 
         refs.pagination.addEventListener('click', onClickEvent);
-      })
-      .catch(error => {
+      }
+      catch(error) {
         goodBad.bad();
-      });
+      };
   }
 }
-//переделка нового объпкта и по клику вызов карточки для модалки
+
+//rebuild income object for modal
 refs.mainList.addEventListener('click', onClick);
 function onClick(e) {
   // e.preventDefault();
   if (e.target.nodeName !== 'IMG') return;
-  // console.log(e.target.dataset.id);
   const id = e.target.dataset.id;
   fetchNewEvents(id);
 }
-
-// refs.more.addEventListener('click', getInfoByAuthor);
-//         function getInfoByAuthor(e) {
-//             console.log(e.target.dataset.id);
-//             const id = e.target.dataset.id;
-//             fetchApiByGroupId(id);
-//         }

@@ -2474,52 +2474,51 @@ var _renderModal = require("./renderModal");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function fetchNewEvents(id) {
-  (0, _fetchApiById.default)(id).then(data => {
-    const newEvents = data.map(event => {
-      return {
-        id: event.id,
-        url: event.url,
-        name: event.name,
-        info: event.info ? event.info : "More info will be soon, if you would like to know right now, please press our button 'MORE FROM THIS EVENTS' you will be searching in Google.",
-        localDate: event.dates.start.localDate ? event.dates.start.localDate : "",
-        localTime: event.dates.start.localTime ? `${event.dates.start.localTime}`.slice(0, 5) : "",
-        timezone: event.dates.timezone ? event.dates.timezone : "",
-        location: {
-          latitude: event._embedded.venues[0].location ? event._embedded.venues[0].location.latitude : 0,
-          longitude: event._embedded.venues[0].location ? event._embedded.venues[0].location.longitude : 0
-        },
-        priceRangeType: event.priceRanges && event.priceRanges[0].type || "",
-        priceRangeMin: event.priceRanges && event.priceRanges[0].min || "",
-        priceRangeMax: event.priceRanges && event.priceRanges[0].max || "no info",
-        priceRangeCurrency: event.priceRanges && event.priceRanges[0].currency || "",
-        placeName: event._embedded.venues[0].name,
-        cityName: event._embedded.venues[0].city.name ? event._embedded.venues[0].city.name : "More info will be soon",
-        countryName: event._embedded.venues[0].country.name,
-        image: event.images.find(img => {
-          if (document.body.offsetWidth <= 480) {
-            return img.url.includes("ARTIST_PAGE");
-          }
+async function fetchNewEvents(id) {
+  const dataFromFetchById = await (0, _fetchApiById.default)(id);
+  const newEvents = dataFromFetchById.map(event => {
+    return {
+      id: event.id,
+      url: event.url,
+      name: event.name,
+      info: event.info ? event.info : "More info will be soon, if you would like to know right now, please press our button 'MORE FROM THIS EVENTS' you will be searching in Google.",
+      localDate: event.dates.start.localDate ? event.dates.start.localDate : "",
+      localTime: event.dates.start.localTime ? `${event.dates.start.localTime}`.slice(0, 5) : "",
+      timezone: event.dates.timezone ? event.dates.timezone : "",
+      location: {
+        latitude: event._embedded.venues[0].location ? event._embedded.venues[0].location.latitude : 0,
+        longitude: event._embedded.venues[0].location ? event._embedded.venues[0].location.longitude : 0
+      },
+      priceRangeType: event.priceRanges && event.priceRanges[0].type || "",
+      priceRangeMin: event.priceRanges && event.priceRanges[0].min || "",
+      priceRangeMax: event.priceRanges && event.priceRanges[0].max || "no info",
+      priceRangeCurrency: event.priceRanges && event.priceRanges[0].currency || "",
+      placeName: event._embedded.venues[0].name,
+      cityName: event._embedded.venues[0].city.name ? event._embedded.venues[0].city.name : "More info will be soon",
+      countryName: event._embedded.venues[0].country.name,
+      image: event.images.find(img => {
+        if (document.body.offsetWidth <= 480) {
+          return img.url.includes("ARTIST_PAGE");
+        }
 
-          if (document.body.offsetWidth < 1280 && document.body.offsetWidth > 480) {
-            return img.url.includes("RETINA_PORTRAIT_3_2");
-          }
+        if (document.body.offsetWidth < 1280 && document.body.offsetWidth > 480) {
+          return img.url.includes("RETINA_PORTRAIT_3_2");
+        }
 
-          if (document.body.offsetWidth >= 1280) {
-            return img.url.includes("RETINA_LANDSCAPE");
-          }
-        })
-      };
-    });
-    (0, _renderModal.showModal)(...newEvents);
+        if (document.body.offsetWidth >= 1280) {
+          return img.url.includes("RETINA_LANDSCAPE");
+        }
+      })
+    };
+  });
+  (0, _renderModal.showModal)(...newEvents);
 
-    _.refs.closeModalBtn.addEventListener('click', e => {
-      _.refs.backdrop.classList.add('is-hidden');
-    });
+  _.refs.closeModalBtn.addEventListener('click', e => {
+    _.refs.backdrop.classList.add('is-hidden');
+  });
 
-    _.refs.backdrop.addEventListener('click', e => {
-      if (e.target.dataset.modal === '') _.refs.backdrop.classList.add('is-hidden');
-    });
+  _.refs.backdrop.addEventListener('click', e => {
+    if (e.target.dataset.modal === '') _.refs.backdrop.classList.add('is-hidden');
   });
 }
 },{".":"index.js","./fetchApiById":"fetchApiById.js","./renderModal":"renderModal.js"}],"countries.json":[function(require,module,exports) {
@@ -2842,8 +2841,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function generatePagination(_links, page) {
   const baseUrl = 'https://app.ticketmaster.com';
   let markup = '';
-  let activePage = page.number + 1; // const queryHttp = (Object.values(_links.first).join('').split('&page'))[0];
-
+  let activePage = page.number + 1;
   const queryHttp = Object.values(_links.self.href).join('').split('&')[0] + '&' + Object.values(_links.self.href).join('').split('&')[2]; // console.log(queryHttp);
 
   (0, _pagination.default)(page.totalPages, activePage, {
@@ -5069,7 +5067,6 @@ var _smallCard = _interopRequireDefault(require("./templates/smallCard.hbs"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//вынос создания нового объекта для рендера карточки
 function createNewEventAndRenderSmallCard(_embedded) {
   const newEvent = _embedded.events.map(event => {
     const location = {
@@ -5138,7 +5135,7 @@ var _createNewEventAndRenderSmallCard = _interopRequireDefault(require("./create
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function onClickEvent(e) {
+async function onClickEvent(e) {
   if (e.target.nodeName !== 'A') return;
 
   if (e.target.classList.contains('activePage')) {
@@ -5147,15 +5144,9 @@ function onClickEvent(e) {
   }
 
   e.preventDefault();
-  (0, _fetchApiUrl.default)(e.target.href).then(_ref => {
-    let {
-      page,
-      _embedded,
-      _links
-    } = _ref;
-    (0, _createNewEventAndRenderSmallCard.default)(_embedded);
-    (0, _generatePagination.default)(_links, page);
-  });
+  const result = await (0, _fetchApiUrl.default)(e.target.href);
+  (0, _createNewEventAndRenderSmallCard.default)(result._embedded);
+  (0, _generatePagination.default)(result._links, result.page);
 }
 },{"./fetchApiUrl":"fetchApiUrl.js","./generatePagination":"generatePagination.js","./createNewEventAndRenderSmallCard":"createNewEventAndRenderSmallCard.js"}],"../node_modules/animate.css/animate.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
@@ -12908,7 +12899,7 @@ const refs = {
   more: document.querySelector('.infoauthor-button'),
   badRequest: document.querySelector('.bad-request'),
   goodRequest: document.querySelector('.good-request')
-}; //библиотека для select
+}; //library for select
 
 exports.refs = refs;
 const element = document.querySelector('.form-select');
@@ -12918,104 +12909,80 @@ const markup3 = _countries.default.map(el => `<option value="${el.code}">${el.na
 element.insertAdjacentHTML("beforeend", markup3);
 const choices = new _choices.default(element, {
   searchEnabled: true
-}); //отрисовка страницы при первой загрузке
+}); // page markup after 1 loading
 
 let nowPage;
 
-function openPage() {
+async function openPage() {
   nowPage = 0;
-  (0, _fetchApiGet.default)('eagles', 'US', nowPage).then(_ref => {
-    let {
-      page,
-      _embedded,
-      _links
-    } = _ref;
-    //вынос создания нового объекта для рендера карточки
-    (0, _createNewEventAndRenderSmallCard.default)(_embedded); // отрисовка нумерации страниц
-
-    (0, _generatePagination.default)(_links, page);
-    refs.pagination.addEventListener('click', _onClickEvent.default);
-  });
+  const result = await (0, _fetchApiGet.default)('eagles', 'US', nowPage);
+  (0, _createNewEventAndRenderSmallCard.default)(result._embedded);
+  (0, _generatePagination.default)(result._links, result.page);
+  refs.pagination.addEventListener('click', _onClickEvent.default);
 }
 
-openPage(); //выбор данных из формы
+openPage(); //output values from form
 
 refs.form.addEventListener('change', searchEvents);
 
-function searchEvents(event) {
+async function searchEvents(event) {
   event.preventDefault();
-  nowPage = 0; // const selectedQuery = refs.form.elements.search.value.trim();
-
+  nowPage = 0;
   const selectedQuery = refs.input.value.trim();
-  const selectedCountry = element.value; //   console.log(element.value);
+  const selectedCountry = element.value; // console.log(refs.input);
 
   if (selectedQuery && selectedCountry) {
-    (0, _fetchApiGet.default)(selectedQuery, selectedCountry, nowPage).then(_ref2 => {
-      let {
-        page,
-        _embedded,
-        _links
-      } = _ref2;
-      //вынос создания нового объекта для рендера карточки
+    try {
+      const result = await (0, _fetchApiGet.default)(selectedQuery, selectedCountry, nowPage);
       goodBad.good();
-      (0, _createNewEventAndRenderSmallCard.default)(_embedded);
-      (0, _generatePagination.default)(_links, page);
+      (0, _createNewEventAndRenderSmallCard.default)(result._embedded);
+      (0, _generatePagination.default)(result._links, result.page);
       refs.pagination.addEventListener('click', _onClickEvent.default);
-    }).catch(error => {
+    } catch (error) {
       goodBad.bad();
-    });
+    }
+
+    ;
   }
 
   if (selectedQuery && !selectedCountry) {
-    (0, _fetchApiGet.default)(selectedQuery, 'US', nowPage).then(_ref3 => {
-      let {
-        page,
-        _embedded,
-        _links
-      } = _ref3;
-      //вынос создания нового объекта для рендера карточки
+    try {
+      const result = await (0, _fetchApiGet.default)(selectedQuery, 'US', nowPage);
       goodBad.good();
-      (0, _createNewEventAndRenderSmallCard.default)(_embedded);
-      (0, _generatePagination.default)(_links, page);
+      (0, _createNewEventAndRenderSmallCard.default)(result._embedded);
+      (0, _generatePagination.default)(result._links, result.page);
       refs.pagination.addEventListener('click', _onClickEvent.default);
-    }).catch(error => {
+    } catch (error) {
       goodBad.bad();
-    });
+    }
+
+    ;
   }
 
   if (!selectedQuery && selectedCountry) {
-    (0, _fetchApiGet.default)('', selectedCountry, nowPage).then(_ref4 => {
-      let {
-        page,
-        _embedded,
-        _links
-      } = _ref4;
-      //вынос создания нового объекта для рендера карточки
+    try {
+      const result = await (0, _fetchApiGet.default)('', selectedCountry, nowPage);
       goodBad.good();
-      (0, _createNewEventAndRenderSmallCard.default)(_embedded);
-      (0, _generatePagination.default)(_links, page);
+      (0, _createNewEventAndRenderSmallCard.default)(result._embedded);
+      (0, _generatePagination.default)(result._links, result.page);
       refs.pagination.addEventListener('click', _onClickEvent.default);
-    }).catch(error => {
+    } catch (error) {
       goodBad.bad();
-    });
+    }
+
+    ;
   }
-} //переделка нового объпкта и по клику вызов карточки для модалки
+} //rebuild income object for modal
 
 
 refs.mainList.addEventListener('click', onClick);
 
 function onClick(e) {
   // e.preventDefault();
-  if (e.target.nodeName !== 'IMG') return; // console.log(e.target.dataset.id);
-
+  if (e.target.nodeName !== 'IMG') return;
   const id = e.target.dataset.id;
   (0, _newArrayAndGetModal.default)(id);
-} // refs.more.addEventListener('click', getInfoByAuthor);
-//         function getInfoByAuthor(e) {
-//             console.log(e.target.dataset.id);
-//             const id = e.target.dataset.id;
-//             fetchApiByGroupId(id);
-//         }
+}
 },{"./sass/main.scss":"sass/main.scss","./fetchApiGet":"fetchApiGet.js","./newArrayAndGetModal":"newArrayAndGetModal.js","./countries.json":"countries.json","./generatePagination":"generatePagination.js","./createNewEventAndRenderSmallCard":"createNewEventAndRenderSmallCard.js","./onClickEvent":"onClickEvent.js","animate.css":"../node_modules/animate.css/animate.css","./skroll-up":"skroll-up.js","./modalFooter":"modalFooter.js","./goodBad":"goodBad.js","choices.js":"../node_modules/choices.js/public/assets/scripts/choices.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -13044,7 +13011,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54062" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59218" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

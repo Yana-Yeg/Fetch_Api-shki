@@ -6,7 +6,7 @@ const info = document.querySelector(".info");
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition; // if none exists -> undefined
 
 if(SpeechRecognition) {
-  console.log("Your Browser supports speech Recognition");
+  // console.log("Your Browser supports speech Recognition");
   
   const recognition = new SpeechRecognition();
   recognition.continuous = true;
@@ -43,7 +43,7 @@ if(SpeechRecognition) {
     searchFormInput.focus();
     console.log("Speech recognition service disconnected");
   }
-
+console.log(searchFormInput.value);
   recognition.addEventListener("result", resultOfSpeechRecognition); // <=> recognition.onresult = function(event) {...} - Fires when you stop talking
   function resultOfSpeechRecognition(event) {
     const current = event.resultIndex;
@@ -72,7 +72,7 @@ if(SpeechRecognition) {
     //   searchForm.submit();
     // }, 500);
   }
-  
+  console.log(searchFormInput.value);
 //   info.textContent = 'Voice Commands: "stop recording", "reset input", "go"';
   
 }
