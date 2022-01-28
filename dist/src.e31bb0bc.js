@@ -12856,7 +12856,7 @@ __webpack_exports__ = __webpack_exports__["default"];
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.refs = void 0;
+exports.refs = exports.default = void 0;
 
 require("./sass/main.scss");
 
@@ -12983,6 +12983,9 @@ function onClick(e) {
   const id = e.target.dataset.id;
   (0, _newArrayAndGetModal.default)(id);
 }
+
+var _default = searchEvents;
+exports.default = _default;
 },{"./sass/main.scss":"sass/main.scss","./fetchApiGet":"fetchApiGet.js","./newArrayAndGetModal":"newArrayAndGetModal.js","./countries.json":"countries.json","./generatePagination":"generatePagination.js","./createNewEventAndRenderSmallCard":"createNewEventAndRenderSmallCard.js","./onClickEvent":"onClickEvent.js","animate.css":"../node_modules/animate.css/animate.css","./skroll-up":"skroll-up.js","./modalFooter":"modalFooter.js","./goodBad":"goodBad.js","choices.js":"../node_modules/choices.js/public/assets/scripts/choices.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -13011,7 +13014,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58011" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64245" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
