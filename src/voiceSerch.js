@@ -1,3 +1,4 @@
+import searchEvents from './index';
 
 const searchForm = document.querySelector(".form__input");
 const searchFormInput = searchForm.querySelector("input"); // <=> document.querySelector("#search-form input");
@@ -48,21 +49,31 @@ if(SpeechRecognition) {
   function resultOfSpeechRecognition(event) {
     const current = event.resultIndex;
     const transcript = event.results[current][0].transcript;
-    
-    if(transcript.toLowerCase().trim()==="stop recording") {
+    // console.log(event.results[current][0]);
+    // console.log(searchEvents);
+    // searchEvents(event);
+
+
+    if (transcript.toLowerCase().trim() === "stop recording") {
+      console.log('stop recording');
       recognition.stop();
     }
-    else if(!searchFormInput.value) {
+    else if (!searchFormInput.value) {
+      console.log('пустое');
       searchFormInput.value = transcript;
     }
     else {
-      if(transcript.toLowerCase().trim()==="go") {
-        searchForm.submit();
+      if (transcript.toLowerCase().trim() === "go") {
+        console.log('go');
+        // searchForm.submit();
+        searchEvents(event)
       }
-      else if(transcript.toLowerCase().trim()==="reset input") {
+      else if (transcript.toLowerCase().trim() === "reset input") {
+        console.log('reset input');
         searchFormInput.value = "";
       }
       else {
+        console.log('не пустое и при этом не  go/reset');
         searchFormInput.value = transcript;
       }
     }

@@ -107,3 +107,6 @@ function onClick(e) {
   const id = e.target.dataset.id;
   fetchNewEvents(id);
 }
+
+
+export default searchEvents;
