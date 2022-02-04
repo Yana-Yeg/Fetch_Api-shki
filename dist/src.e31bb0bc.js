@@ -2327,8 +2327,8 @@ async function fetchApiGet(query, country, page) {
   };
 
   try {
-    const response = await _axios.default.get(`${BASE_URL}/discovery/v2/events.json?apikey=${_config.key}&page=${page}`, createParams(filterParams));
-    console.log(response.data);
+    const response = await _axios.default.get(`${BASE_URL}/discovery/v2/events.json?apikey=${_config.key}&page=${page}`, createParams(filterParams)); //  console.log(response.data);
+
     return response.data;
   } catch (error) {
     console.error(error);
@@ -12928,9 +12928,19 @@ refs.form.addEventListener('change', searchEvents);
 async function searchEvents(event) {
   // event.preventDefault();
   nowPage = 0;
-  console.log(element.value);
-  const selectedQuery = refs.input.value.trim();
-  let selectedCountry = element.value; // console.log(refs.input);
+  let selectedCountry = ""; // console.log(element.value);
+
+  console.log(event); // if (event.results === 'SpeechRecognitionResultList') {
+  //   const current = event.resultIndex;
+  //   const transcriptCountry = event.results[current][0].transcript;
+  //   selectedCountry = transcriptCountry;
+  // } else {
+
+  selectedCountry = element.value; // }
+
+  const selectedQuery = refs.input.value.trim(); // console.log(refs.input);
+
+  console.log(selectedCountry);
 
   if (selectedQuery && selectedCountry) {
     try {
@@ -13015,7 +13025,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53792" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65454" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

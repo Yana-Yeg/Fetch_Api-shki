@@ -53,11 +53,23 @@ refs.form.addEventListener('change', searchEvents);
 async function searchEvents(event) {
   // event.preventDefault();
   nowPage = 0;
-  console.log(element.value);
+  let selectedCountry = "";
+  // console.log(element.value);
+
+  console.log(event);
+  // if (event.results === 'SpeechRecognitionResultList') {
+  //   const current = event.resultIndex;
+  //   const transcriptCountry = event.results[current][0].transcript;
+  //   selectedCountry = transcriptCountry;
+  // } else {
+    selectedCountry = element.value;
+  // }
+
 
   const selectedQuery = refs.input.value.trim();
-  let selectedCountry = element.value;
+
   // console.log(refs.input);
+  console.log(selectedCountry);
 
   if (selectedQuery && selectedCountry) {
     try {

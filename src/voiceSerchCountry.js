@@ -82,6 +82,7 @@ if(SpeechRecognition) {
       else {
         console.log('не пустое и при этом не  go/reset');
         element.value = searchPlace.value;
+        searchEvents(event)
         console.log('element.value :', element.value);
       }
     }

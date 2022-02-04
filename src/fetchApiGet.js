@@ -18,7 +18,7 @@ export default async function fetchApiGet(query, country, page) {
     `${BASE_URL}/discovery/v2/events.json?apikey=${key}&page=${page}`,
       createParams(filterParams),
     );
-     console.log(response.data);
+    //  console.log(response.data);
     return response.data;
   } catch (error) {
     console.error(error);
