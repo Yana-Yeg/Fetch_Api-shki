@@ -53,9 +53,10 @@ refs.form.addEventListener('change', searchEvents);
 async function searchEvents(event) {
   // event.preventDefault();
   nowPage = 0;
+  console.log(element.value);
 
   const selectedQuery = refs.input.value.trim();
-  const selectedCountry = element.value;
+  let selectedCountry = element.value;
   // console.log(refs.input);
 
   if (selectedQuery && selectedCountry) {

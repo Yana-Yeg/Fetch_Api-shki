@@ -12987,17 +12987,18 @@ function onClick(e) {
 
 var _default = searchEvents;
 exports.default = _default;
-},{"./sass/main.scss":"sass/main.scss","./fetchApiGet":"fetchApiGet.js","./newArrayAndGetModal":"newArrayAndGetModal.js","./countries.json":"countries.json","./generatePagination":"generatePagination.js","./createNewEventAndRenderSmallCard":"createNewEventAndRenderSmallCard.js","./onClickEvent":"onClickEvent.js","animate.css":"../node_modules/animate.css/animate.css","./skroll-up":"skroll-up.js","./modalFooter":"modalFooter.js","./goodBad":"goodBad.js","choices.js":"../node_modules/choices.js/public/assets/scripts/choices.js"}],"voiceSerch.js":[function(require,module,exports) {
+},{"./sass/main.scss":"sass/main.scss","./fetchApiGet":"fetchApiGet.js","./newArrayAndGetModal":"newArrayAndGetModal.js","./countries.json":"countries.json","./generatePagination":"generatePagination.js","./createNewEventAndRenderSmallCard":"createNewEventAndRenderSmallCard.js","./onClickEvent":"onClickEvent.js","animate.css":"../node_modules/animate.css/animate.css","./skroll-up":"skroll-up.js","./modalFooter":"modalFooter.js","./goodBad":"goodBad.js","choices.js":"../node_modules/choices.js/public/assets/scripts/choices.js"}],"voiceSerchCountry.js":[function(require,module,exports) {
 "use strict";
 
 var _index = _interopRequireDefault(require("./index"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const searchForm = document.querySelector(".form__input");
-const searchFormInput = searchForm.querySelector("input"); // <=> document.querySelector("#search-form input");
+const element = document.querySelector(".form__select");
+const elementSelect = element.querySelector("select"); // <=> document.querySelector("#search-form input");
 
-const info = document.querySelector(".info"); // The speech recognition interface lives on the browser’s window object
+const searchPlace = document.querySelector('.choices__input.choices__input--cloned'); // const info = document.querySelector(".info");
+// The speech recognition interface lives on the browser’s window object
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition; // if none exists -> undefined
 
@@ -13006,14 +13007,14 @@ if (SpeechRecognition) {
   const recognition = new SpeechRecognition();
   recognition.continuous = true;
   recognition.lang = "en-US";
-  searchForm.insertAdjacentHTML("beforeend", '<button class="form-input-btn" type="button"><i class="fas fa-microphone-slash"></i></button>');
-  searchFormInput.style.paddingRight = "50px";
-  const micBtn = searchForm.querySelector("button");
+  element.insertAdjacentHTML("beforeend", '<button class="form-input-btn" type="button"><i class="fas fa-microphone-alt-slash"></i></button>');
+  elementSelect.style.paddingRight = "50px";
+  const micBtn = element.querySelector("button");
   const micIcon = micBtn.firstElementChild;
   micBtn.addEventListener("click", micBtnClick);
 
   function micBtnClick() {
-    if (micIcon.classList.contains("fa-microphone-slash")) {
+    if (micIcon.classList.contains("fa-microphone-alt-slash")) {
       // Start Voice Recognition
       recognition.start(); // First time you have to allow access to mic!
     } else {
@@ -13024,18 +13025,18 @@ if (SpeechRecognition) {
   recognition.addEventListener("start", startSpeechRecognition); // <=> recognition.onstart = function() {...}
 
   function startSpeechRecognition() {
-    micIcon.classList.remove("fa-microphone-slash");
-    micIcon.classList.add("fa-microphone");
-    searchFormInput.focus();
+    micIcon.classList.remove("fa-microphone-alt-slash");
+    micIcon.classList.add("fa-microphone-alt");
+    elementSelect.focus();
     console.log("Voice activated, SPEAK");
   }
 
   recognition.addEventListener("end", endSpeechRecognition); // <=> recognition.onend = function() {...}
 
   function endSpeechRecognition() {
-    micIcon.classList.remove("fa-microphone");
-    micIcon.classList.add("fa-microphone-slash");
-    searchFormInput.focus();
+    micIcon.classList.remove("fa-microphone-alt");
+    micIcon.classList.add("fa-microphone-alt-slash");
+    elementSelect.focus();
     console.log("Speech recognition service disconnected");
   }
 
@@ -13043,32 +13044,40 @@ if (SpeechRecognition) {
 
   function resultOfSpeechRecognition(event) {
     const current = event.resultIndex;
-    const transcript = event.results[current][0].transcript; // console.log(event.results[current][0]);
-    // console.log(searchEvents);
-    // searchEvents(event);
+    const transcriptCountry = event.results[current][0].transcript; // console.log(event.results[current][0]);
+    // console.log(transcriptCountry);
 
-    if (transcript.toLowerCase().trim() === "stop recording") {
+    searchPlace.value = transcriptCountry; // console.log(searchPlace.value);
+
+    element.value = searchPlace.value;
+    console.log(element.value);
+
+    if (transcriptCountry.toLowerCase().trim() === "stop recording") {
       console.log('stop recording');
       recognition.stop();
-    } else if (!searchFormInput.value) {
+    } else if (!searchPlace.value) {
       console.log('пустое');
-      searchFormInput.value = transcript;
+      element.value = searchPlace.value;
+      console.log('element.value :', element.value);
     } else {
-      if (transcript.toLowerCase().trim() === "go") {
-        console.log('go'); // searchForm.submit();
+      if (transcriptCountry.toLowerCase().trim() === "go") {
+        console.log('что-то и go');
+        console.log(searchPlace.value); // element.submit();
+        // console.log(event);
 
         (0, _index.default)(event);
-      } else if (transcript.toLowerCase().trim() === "reset input") {
+      } else if (transcriptCountry.toLowerCase().trim() === "reset input") {
         console.log('reset input');
-        searchFormInput.value = "";
+        element.value = "";
       } else {
         console.log('не пустое и при этом не  go/reset');
-        searchFormInput.value = transcript;
+        element.value = searchPlace.value;
+        console.log('element.value :', element.value);
       }
-    } // searchFormInput.value = transcript;
-    // searchFormInput.focus();
+    } // elementSelect.value = transcriptCountry;
+    // elementSelect.focus();
     // setTimeout(() => {
-    //   searchForm.submit();
+    //   element.submit();
     // }, 500);
 
   } //   info.textContent = 'Voice Commands: "stop recording", "reset input", "go"';
@@ -13280,5 +13289,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","voiceSerch.js"], null)
-//# sourceMappingURL=/voiceSerch.478886f9.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","voiceSerchCountry.js"], null)
+//# sourceMappingURL=/voiceSerchCountry.816340a3.js.map
